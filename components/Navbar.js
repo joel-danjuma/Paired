@@ -7,19 +7,19 @@ import { useState, useEffect } from "react"
 import { signIn, signOut, useSession, getProviders } from "next-auth/react"
 
 const Navbar = () => {
-    const isUserLoggedIn = true
+    // const isUserLoggedIn = true
+
+    const { data: session } = useSession()
 
     const [providers, setProviders] = useState(null)
     const [toggleDropdown, setToggleDropdown] = useState(false)
     // const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
 
     useEffect(() => {
-        const setUpProviders = async () => {
-            const response = await getProviders()
-
-            setProviders(response)
-        }
-        setUpProviders()
+        ;(async () => {
+            const res = await getProviders()
+            setProviders(res)
+        })()
     }, [])
 
     return (
@@ -30,7 +30,7 @@ const Navbar = () => {
 
             {/* Desktop Navigation */}
             <div className="lg:flex hidden w-auto">
-                {isUserLoggedIn ? (
+                {session?.user ? (
                     <div className="gap-3 md:gap-4 flex">
                         <Link href="/create-post" className="orange_btn">
                             Create Post
@@ -38,8 +38,7 @@ const Navbar = () => {
                         <button
                             type="button"
                             onClick={() => {
-                                setIsUserLoggedIn(false)
-                                // signOut()
+                                signOut()
                             }}
                             className="outline_btn"
                         >
@@ -47,7 +46,7 @@ const Navbar = () => {
                         </button>
                         <Link href="/profile">
                             <Image
-                                src={logo}
+                                src={session?.user.image}
                                 className="rounded-full"
                                 alt="profile"
                                 width={37}
@@ -72,16 +71,16 @@ const Navbar = () => {
                         <Link href="/about" className="outline_btn ">
                             About Us
                         </Link>
-                        <button
+                        {/* <button
                             type="button"
                             onClick={() => {
-                                setIsUserLoggedIn(true)
-                                // signIn()
+                                // setIsUserLoggedIn(true)
+                                signIn()
                             }}
                             className="orange_btn"
                         >
                             Sign In
-                        </button>
+                        </button> */}
                     </div>
                 )}
             </div>
@@ -96,7 +95,7 @@ const Navbar = () => {
                         }}
                     />
                 }
-                {isUserLoggedIn ? (
+                {session?.user ? (
                     <div>
                         {toggleDropdown && (
                             <div className="dropdown">
@@ -111,8 +110,8 @@ const Navbar = () => {
                                     type="button"
                                     onClick={() => {
                                         setToggleDropdown(false)
-                                        setIsUserLoggedIn(false)
-                                        // signOut()
+                                        // setIsUserLoggedIn(false)
+                                        signOut()
                                     }}
                                     className="mt-5 w-full black_btn"
                                 >
@@ -138,6 +137,7 @@ const Navbar = () => {
                                             type="button"
                                             key={provider.name}
                                             onClick={() => {
+                                                setToggleDropdown(false)
                                                 signIn(provider.id)
                                             }}
                                             className="orange_btn"
@@ -145,29 +145,21 @@ const Navbar = () => {
                                             Sign In
                                         </button>
                                     ))}
-                                <div className="dropdown_link">
+                                {/* <div className="dropdown_link">
                                     <button
                                         type="button"
                                         onClick={() => {
-                                            setIsUserLoggedIn(true)
+                                            // setIsUserLoggedIn(true)
                                             setToggleDropdown(false)
-                                            // signIn()
+                                            signIn()
                                         }}
                                         className="orange_btn"
                                     >
                                         Sign In
                                     </button>
-                                </div>
+                                </div> */}
                             </div>
                         )}
-
-                        {/* <button
-                            type="button"
-                            onClick={signIn}
-                            className="orange_btn"
-                        >
-                            Sign In
-                        </button> */}
                     </div>
                 )}
             </div>
