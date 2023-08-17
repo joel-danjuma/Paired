@@ -15,6 +15,7 @@ const Navbar = () => {
     useEffect(() => {
         ;(async () => {
             const res = await getProviders()
+            console.log(res)
             setProviders(res)
         })()
     }, [])
@@ -55,10 +56,22 @@ const Navbar = () => {
                         <Link href="/about" className="outline_btn ">
                             About Us
                         </Link>
+                        {/* {providers &&
+                            Object.values(providers).map((provider) => (
+                                <button
+                                    type="button"
+                                    key={provider.name}
+                                    onClick={() => {
+                                        signIn(provider.id)
+                                    }}
+                                    className="black_btn"
+                                >
+                                    Sign in
+                                </button>
+                            ))} */}
                         <button
                             type="button"
                             onClick={() => {
-                                // setIsUserLoggedIn(true)
                                 signIn()
                             }}
                             className="outline_btn"
@@ -135,6 +148,21 @@ const Navbar = () => {
                                     >
                                         Sign In
                                     </button>
+                                    {/* {providers &&
+                                        Object.values(providers).map(
+                                            (provider) => (
+                                                <button
+                                                    type="button"
+                                                    key={provider.name}
+                                                    onClick={() => {
+                                                        signIn(provider.id)
+                                                    }}
+                                                    className="black_btn"
+                                                >
+                                                    Sign in
+                                                </button>
+                                            )
+                                        )} */}
                                 </div>
                             </div>
                         )}

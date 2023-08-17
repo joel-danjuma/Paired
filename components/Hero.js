@@ -1,4 +1,5 @@
 import React from "react"
+import Button from "./button"
 
 const Hero = () => {
     return (
@@ -11,14 +12,21 @@ const Hero = () => {
                 </span>
             </h1>
             <div className="mt-5">
-                <p className="desc">Looking for amazing rooms in Nigeria ?</p>
                 <p className="desc">
                     Need to Connect with Roommates accross the Nation?
                 </p>
+                <p className="desc">
+                    Looking for amazing shared flats in Nigeria ?
+                </p>
+
                 <p className="desc">Sign Up today and get paired !!!</p>
             </div>
-            <div className="flex flex-row justify-center items-center w-full space-x-4 pt-5">
-                <button className="orange_btn p-4 text-xl">Sign Up Now</button>
+            <div
+                className={`pt-5 flex justify-center items-center w-full mx-auto`}
+            >
+                <Button primary>Get started</Button>
+                <span className="mx-2">or</span>
+                <Button>Contact us</Button>
             </div>
         </div>
     )
