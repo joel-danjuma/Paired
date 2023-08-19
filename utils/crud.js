@@ -3,7 +3,7 @@ import { connectDB } from "@/utils/database"
 
 export const get_users_by_id = async (id) => {
     await connectDB()
-    const res = await User.findOne({ _id: id })
+    const res = await User.findById(id)
     return res
 }
 
