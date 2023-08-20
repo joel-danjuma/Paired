@@ -4,21 +4,22 @@ import Image from "next/image"
 // import logo from "@/public/images/profile_2.svg"
 import { FiMenu } from "react-icons/fi"
 import { useState, useEffect } from "react"
-import { signIn, signOut, useSession, getProviders } from "next-auth/react"
+// import { signIn, signOut, useSession, getProviders } from "next-auth/react"
+import { useSession } from "@clerk/clerk-react"
 
 const Navbar = () => {
-    const { data: session } = useSession()
+    const { isLoaded, session } = useSession()
 
-    const [providers, setProviders] = useState(null)
+    // const [providers, setProviders] = useState(null)
     const [toggleDropdown, setToggleDropdown] = useState(false)
 
-    useEffect(() => {
-        ;(async () => {
-            const res = await getProviders()
-            console.log(res)
-            setProviders(res)
-        })()
-    }, [])
+    // useEffect(() => {
+    //     ;(async () => {
+    //         const res = await getProviders()
+    //         console.log(res)
+    //         setProviders(res)
+    //     })()
+    // }, [])
 
     return (
         <nav className="flex w-full h-20">
@@ -27,7 +28,7 @@ const Navbar = () => {
                 <Link href="/">
                     <p className="orange_gradient text-xl font-bold">Paired</p>
                 </Link>
-                {session?.user ? (
+                {session.user ? (
                     <div className="gap-2 flex">
                         <Link href="/create-post" className="orange_btn">
                             Create Post
@@ -43,7 +44,7 @@ const Navbar = () => {
                         </button>
                         <Link href="/profile">
                             <Image
-                                src={session?.user.image}
+                                src={session.user.imageUrl}
                                 className="rounded-full"
                                 alt="profile"
                                 width={37}
@@ -99,7 +100,7 @@ const Navbar = () => {
                         />
                     </div>
                 }
-                {session?.user ? (
+                {session.user ? (
                     <div>
                         {toggleDropdown && (
                             <div className="dropdown">

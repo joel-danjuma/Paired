@@ -1,6 +1,7 @@
 import "./globals.css"
 import Navbar from "@/components/Navbar"
-import Provider from "@/components/Provider"
+import { ClerkProvider } from "@clerk/nextjs"
+// import Provider from "@/components/Provider"
 
 export const metadata = {
     title: "Paired",
@@ -11,13 +12,13 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body className="cursor-circle">
-                <Provider>
+                <ClerkProvider>
                     <div className="main">
                         <div className="gradient" />
                     </div>
-                    {/* <Navbar /> */}
+                    <Navbar />
                     <main>{children}</main>
-                </Provider>
+                </ClerkProvider>
             </body>
         </html>
     )
