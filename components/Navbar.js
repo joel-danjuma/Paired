@@ -1,25 +1,13 @@
 "use client"
 import Link from "next/link"
 import Image from "next/image"
-// import logo from "@/public/images/profile_2.svg"
 import { FiMenu } from "react-icons/fi"
 import { useState, useEffect } from "react"
-// import { signIn, signOut, useSession, getProviders } from "next-auth/react"
-import { useSession } from "@clerk/clerk-react"
+import { useSession, SignInButton, SignOutButton } from "@clerk/clerk-react"
 
 const Navbar = () => {
-    const { isLoaded, session } = useSession()
-
-    // const [providers, setProviders] = useState(null)
+    const { session } = useSession()
     const [toggleDropdown, setToggleDropdown] = useState(false)
-
-    // useEffect(() => {
-    //     ;(async () => {
-    //         const res = await getProviders()
-    //         console.log(res)
-    //         setProviders(res)
-    //     })()
-    // }, [])
 
     return (
         <nav className="flex w-full h-20">
@@ -28,20 +16,17 @@ const Navbar = () => {
                 <Link href="/">
                     <p className="orange_gradient text-xl font-bold">Paired</p>
                 </Link>
-                {session.user ? (
+                {session?.user ? (
                     <div className="gap-2 flex">
                         <Link href="/create-post" className="orange_btn">
                             Create Post
                         </Link>
-                        <button
-                            type="button"
-                            onClick={() => {
-                                signOut()
-                            }}
-                            className="outline_btn"
-                        >
-                            Sign Out
-                        </button>
+                        <SignOutButton>
+                            <button type="button" className="outline_btn">
+                                Sign Out
+                            </button>
+                        </SignOutButton>
+
                         <Link href="/profile">
                             <Image
                                 src={session.user.imageUrl}
@@ -57,28 +42,11 @@ const Navbar = () => {
                         <Link href="/about" className="outline_btn ">
                             About Us
                         </Link>
-                        {/* {providers &&
-                            Object.values(providers).map((provider) => (
-                                <button
-                                    type="button"
-                                    key={provider.name}
-                                    onClick={() => {
-                                        signIn(provider.id)
-                                    }}
-                                    className="black_btn"
-                                >
-                                    Sign in
-                                </button>
-                            ))} */}
-                        <button
-                            type="button"
-                            onClick={() => {
-                                signIn()
-                            }}
-                            className="outline_btn"
-                        >
-                            Sign In
-                        </button>
+                        <SignInButton>
+                            <button type="button" className="outline_btn">
+                                Sign In
+                            </button>
+                        </SignInButton>
                     </div>
                 )}
             </div>
@@ -100,7 +68,7 @@ const Navbar = () => {
                         />
                     </div>
                 }
-                {session.user ? (
+                {session?.user ? (
                     <div>
                         {toggleDropdown && (
                             <div className="dropdown">
@@ -111,17 +79,17 @@ const Navbar = () => {
                                 >
                                     My Profile
                                 </Link>
-                                <button
-                                    type="button"
-                                    onClick={() => {
-                                        setToggleDropdown(false)
-                                        // setIsUserLoggedIn(false)
-                                        signOut()
-                                    }}
-                                    className="mt-5 w-full black_btn"
-                                >
-                                    Sign Out
-                                </button>
+                                <SignOutButton>
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            setToggleDropdown(false)
+                                        }}
+                                        className="mt-5 w-full black_btn"
+                                    >
+                                        Sign Out
+                                    </button>
+                                </SignOutButton>
                             </div>
                         )}
                     </div>
@@ -138,32 +106,17 @@ const Navbar = () => {
                                 </Link>
 
                                 <div className="dropdown_link">
-                                    <button
-                                        type="button"
-                                        onClick={() => {
-                                            // setIsUserLoggedIn(true)
-                                            setToggleDropdown(false)
-                                            signIn()
-                                        }}
-                                        className="outline_btn"
-                                    >
-                                        Sign In
-                                    </button>
-                                    {/* {providers &&
-                                        Object.values(providers).map(
-                                            (provider) => (
-                                                <button
-                                                    type="button"
-                                                    key={provider.name}
-                                                    onClick={() => {
-                                                        signIn(provider.id)
-                                                    }}
-                                                    className="black_btn"
-                                                >
-                                                    Sign in
-                                                </button>
-                                            )
-                                        )} */}
+                                    <SignInButton>
+                                        <button
+                                            type="button"
+                                            onClick={() => {
+                                                setToggleDropdown(false)
+                                            }}
+                                            className="outline_btn"
+                                        >
+                                            Sign In
+                                        </button>
+                                    </SignInButton>
                                 </div>
                             </div>
                         )}

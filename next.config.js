@@ -5,6 +5,13 @@ const nextConfig = {
         serverComponentsExternalPackages: ["mongoose"],
     },
     images: {
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "img.clerk.com",
+                port: "",
+            },
+        ],
         domains: ["lh3.googleusercontent.com"],
     },
     webpack(config) {
