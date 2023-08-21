@@ -24,7 +24,7 @@ const Navbar = () => {
                 {session?.user ? (
                     <div className="gap-2 flex">
                         <Link href="/create-post" className="orange_btn">
-                            Create Post
+                            Create Ad
                         </Link>
                         <UserButton afterSignOutUrl="/" />
                     </div>
@@ -75,13 +75,11 @@ const Navbar = () => {
                     <div>
                         {toggleDropdown && (
                             <div className="dropdown">
-                                <Link
-                                    href="/profile"
-                                    className="dropdown_link"
-                                    onClick={() => setToggleDropdown(false)}
-                                >
+                                {/* <Link href="/profile" className="dropdown_link">
                                     My Profile
-                                </Link>
+                                </Link> */}
+
+                                <UserButton afterSignOutUrl="/" />
                                 <SignOutButton>
                                     <button
                                         type="button"

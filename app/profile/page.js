@@ -1,5 +1,13 @@
+import { UserProfile, SignedIn } from "@clerk/nextjs"
+import { Fragment } from "react"
 const profile = () => {
-    return <div> My profile</div>
+    return (
+        <Fragment>
+            <SignedIn>
+                <UserProfile routing="path" path="/user" />
+            </SignedIn>
+        </Fragment>
+    )
 }
 
 export default profile

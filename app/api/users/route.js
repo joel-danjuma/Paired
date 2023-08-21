@@ -1,16 +1,29 @@
 import { NextResponse } from "next/server"
-import { get_users, get_users_by_id } from "@/utils/crud"
+import { connectDB } from "@/db/database"
+import User from "@/models/user"
 
 export async function GET() {
-    const response = await get_users()
+    await connectDB()
+    const response = await User.find()
     return NextResponse.json(response)
 }
-// export const get_user_by_id = async (request) => {
-//     const id = request.url.slice(request.url.lastIndexOf("/") + 1)
-//     const res = await get_users_by_id(id, {
-//         headers: {
-//             "Content-type": "application/json",
-//             method: "GET",
-//         },
-//     })
-// }
+export async function POST(request) {
+    const { email, username, image } = await request.json()
+    await connectDB()
+    const new_user = await User.create({ email, username, image })
+    console.log("User created succesfully")
+    return NextResponse.json(new_user, { status: 201 })
+}
+export async function PUT(request) {
+    const { email, username, image } = await request.json()
+    await connectDB()
+    const updated_user = await User.updateOne(
+        { email: email },
+        { email, username, image }
+    )
+    console.log("Updated user details")
+    return NextResponse.json(
+        { message: "Updated User Details" },
+        { status: 200 }
+    )
+}
