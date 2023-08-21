@@ -1,11 +1,24 @@
 import { NextResponse } from "next/server"
 import { connectDB } from "@/db/database"
+// import { clerkClient } from "@clerk/nextjs/server"
 import User from "@/models/user"
 
 export async function GET() {
     await connectDB()
     const response = await User.find()
     return NextResponse.json(response)
+}
+export async function DELETE(request) {
+    try {
+        const id = request.nextUrl.searchParams.get("id")
+        await connectDB()
+        await User.findByIdAndDelete(id)
+        // await clerkClient.users.deleteUser(id)
+        return NextResponse.json({ message: "User deleted" }, { status: 200 })
+    } catch (error) {
+        console.log(error)
+        return NextResponse({ message: error }, { status: 500 })
+    }
 }
 export async function POST(request) {
     const { email, username, image } = await request.json()

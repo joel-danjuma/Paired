@@ -13,12 +13,12 @@ const RoommateAdSchema = new Schema({
     smoking: {
         type: Boolean,
     },
-    availableFrom: {
-        type: Date,
-    },
-    createdAt: {
-        type: Date,
-    },
+    // availableFrom: {
+    //     type: Date,
+    // },
+    // createdAt: {
+    //     type: Date,
+    // },
 })
 
 const RoommateAds = models.RoommateAds || model("RoommateAds", RoommateAdSchema)

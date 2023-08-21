@@ -13,16 +13,17 @@ export async function GET() {
     }
 }
 
-// export async function GET(request) {
-//     try {
-//         await connectDB()
-//         const { location } = request.json()
-//         const response = await RoomAds.find({ location: location })
-//         return NextResponse.json(response)
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
+export async function DELETE(request) {
+    try {
+        const id = request.nextUrl.searchParams.get("id")
+        await connectDB()
+        await RoomAds.findByIdAndDelete(id)
+        return NextResponse.json({ message: "Ad deleted" }, { status: 200 })
+    } catch (error) {
+        console.log(error)
+        return NextResponse({ message: error }, { status: 500 })
+    }
+}
 
 export async function POST(request) {
     try {
@@ -43,7 +44,7 @@ export async function POST(request) {
             smoking,
             pets,
         })
-        console.log("Created new Roommate Ad")
+        console.log("Created new Room Ad")
         return NextResponse.json(newAd, { status: 200 })
     } catch (error) {
         console.log(error)
