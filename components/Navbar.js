@@ -1,9 +1,14 @@
 "use client"
 import Link from "next/link"
-import Image from "next/image"
+import { dark } from "@clerk/themes"
 import { FiMenu } from "react-icons/fi"
 import { useState, useEffect } from "react"
-import { useSession, SignInButton, SignOutButton } from "@clerk/clerk-react"
+import {
+    useSession,
+    SignInButton,
+    SignOutButton,
+    UserButton,
+} from "@clerk/clerk-react"
 
 const Navbar = () => {
     const { session } = useSession()
@@ -21,28 +26,26 @@ const Navbar = () => {
                         <Link href="/create-post" className="orange_btn">
                             Create Post
                         </Link>
-                        <SignOutButton>
-                            <button type="button" className="outline_btn">
-                                Sign Out
-                            </button>
-                        </SignOutButton>
-
-                        <Link href="/profile">
-                            <Image
-                                src={session.user.imageUrl}
-                                className="rounded-full"
-                                alt="profile"
-                                width={37}
-                                height={37}
-                            />
-                        </Link>
+                        <UserButton afterSignOutUrl="/" />
                     </div>
                 ) : (
                     <div className="flex gap-2">
                         <Link href="/about" className="outline_btn ">
                             About Us
                         </Link>
-                        <SignInButton>
+                        <SignInButton
+                        // appearance={{
+                        //     baseTheme: dark,
+                        //     layout: {
+                        //         logoPlacement: "inside",
+                        //         socialButtonsVariant: "blockButton",
+                        //     },
+                        //     variables: {
+                        //         colorPrimary: "orange",
+                        //         colorText: "white",
+                        //     },
+                        // }}
+                        >
                             <button type="button" className="outline_btn">
                                 Sign In
                             </button>

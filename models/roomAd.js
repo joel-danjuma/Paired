@@ -16,12 +16,12 @@ const RoomAdSchema = new Schema({
     pets: {
         type: Boolean,
     },
-    available_from: {
-        type: Date,
-    },
-    created_at: {
-        type: Date,
-    },
+    // available_from: {
+    //     type: Date,
+    // },
+    // created_at: {
+    //     type: Date,
+    // },
 })
 
 const RoomAds = models.RoomAds || model("RoomAds", RoomAdSchema)
