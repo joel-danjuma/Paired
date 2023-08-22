@@ -1,12 +1,21 @@
-import { UserProfile, SignedIn } from "@clerk/nextjs"
-import { Fragment } from "react"
+import {
+    UserProfile,
+    SignedIn,
+    SignedOut,
+    RedirectToSignIn,
+} from "@clerk/nextjs"
+
 const profile = () => {
     return (
-        <Fragment>
+        <section className="flex justify-center">
             <SignedIn>
-                <UserProfile routing="path" path="/user" />
+                <UserProfile />
             </SignedIn>
-        </Fragment>
+            <SignedOut afters>
+                <RedirectToSignIn />
+                {/* Log In to YOur Profile */}
+            </SignedOut>
+        </section>
     )
 }
 

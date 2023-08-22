@@ -1,6 +1,6 @@
 # Roommate and Room Ads Application
 
-This is a Next.js application designed for posting and browsing roommate and room advertisements. Users can create ads for available rooms or search for potential roommates. The application utilizes various technologies and libraries to provide a smooth user experience.
+Paired is a roommate and shared flats search service that helps users find compatible roommates and ideal living spaces. With Paired, users can create profiles, search for roommate and room ads, and connect with potential matches.
 
 ## Table of Contents
 

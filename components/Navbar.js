@@ -8,7 +8,9 @@ import {
     SignInButton,
     SignOutButton,
     UserButton,
+    RedirectToUserProfile,
 } from "@clerk/clerk-react"
+import { SignedIn } from "@clerk/nextjs"
 
 const Navbar = () => {
     const { session } = useSession()
@@ -57,7 +59,7 @@ const Navbar = () => {
             {/* Mobile Navigation */}
             <div className="lg:hidden w-full h-14 ">
                 {
-                    <div className="w-full h-full flex-row flex justify-between p-4 ">
+                    <div className="w-full h-full flex-row flex justify-between p-4 z-20">
                         <Link href="/" onClick={() => setToggleDropdown(false)}>
                             <p className="orange_gradient text-md font-bold">
                                 Paired
@@ -75,18 +77,24 @@ const Navbar = () => {
                     <div>
                         {toggleDropdown && (
                             <div className="dropdown">
-                                {/* <Link href="/profile" className="dropdown_link">
+                                <Link
+                                    href="/profile"
+                                    className="black_btn w-full"
+                                    onClick={() => {
+                                        setToggleDropdown(false)
+                                        return <RedirectToUserProfile />
+                                    }}
+                                >
                                     My Profile
-                                </Link> */}
+                                </Link>
 
-                                <UserButton afterSignOutUrl="/" />
                                 <SignOutButton>
                                     <button
                                         type="button"
                                         onClick={() => {
                                             setToggleDropdown(false)
                                         }}
-                                        className="mt-5 w-full black_btn"
+                                        className="w-full black_btn"
                                     >
                                         Sign Out
                                     </button>

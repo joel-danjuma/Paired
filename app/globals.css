@@ -114,7 +114,8 @@
 }
 
 .desc {
-  @apply text-center text-xl text-gray-600 sm:text-xl max-w-2xl;
+  
+  @apply text-center text-2xl text-gray-600 sm:text-xl max-w-2xl;
 }
 
 .search_input {
@@ -153,7 +154,7 @@
 }
 
 .dropdown {
-  @apply h-[100vh] w-full glassmorphism flex flex-col gap-2 justify-start z-20 rounded-b-xl absolute top-14 ;
+  @apply h-screen w-full glassmorphism flex flex-col gap-2 justify-center items-center z-10 rounded-b-xl absolute;
 }
 
 .dropdown_link {
