@@ -6,7 +6,7 @@ import User from "@/models/user"
 export async function GET() {
     await connectDB()
     const response = await User.find()
-    return NextResponse.json(response)
+    return NextResponse.json(response, { status: 200 })
 }
 export async function DELETE(request) {
     try {
@@ -37,6 +37,6 @@ export async function PUT(request) {
     console.log("Updated user details")
     return NextResponse.json(
         { message: "Updated User Details" },
-        { status: 200 }
+        { status: 201 }
     )
 }

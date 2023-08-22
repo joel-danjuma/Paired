@@ -31,7 +31,7 @@ export async function POST(request) {
             smoking,
         })
         console.log("Created new Roommate Ad")
-        return NextResponse.json(newAd, { status: 200 })
+        return NextResponse.json(newAd, { status: 201 })
     } catch (error) {
         console.log(error)
     }

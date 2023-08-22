@@ -6,7 +6,7 @@ export async function GET() {
     try {
         await connectDB()
         const response = await RoomAds.find()
-        return NextResponse.json(response)
+        return NextResponse.json(response, { status: 200 })
     } catch (error) {
         console.log(error)
         return NextResponse({ message: error }, { status: 500 })
@@ -45,7 +45,7 @@ export async function POST(request) {
             pets,
         })
         console.log("Created new Room Ad")
-        return NextResponse.json(newAd, { status: 200 })
+        return NextResponse.json(newAd, { status: 201 })
     } catch (error) {
         console.log(error)
     }
