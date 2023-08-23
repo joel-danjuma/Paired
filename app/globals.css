@@ -16,7 +16,7 @@
   justify-content: center;
   padding: 120px 24px 160px 24px;
   pointer-events: none;
-  /* background-color: black; */
+  /* background-color: white */
 }
 
 /* .main:before {
@@ -102,15 +102,15 @@
 }
 
 .orange_gradient {
-  @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 ;
 }
 
 .green_gradient {
-  @apply bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-green-400 to-green-500;
 }
 
 .blue_gradient {
-  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-blue-600 to-cyan-600 ;
 }
 
 .desc {

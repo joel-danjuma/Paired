@@ -3,6 +3,8 @@ import Link from "next/link"
 import { dark } from "@clerk/themes"
 import { FiMenu } from "react-icons/fi"
 import { useState, useEffect } from "react"
+import ThemeChanger from "./darkSwitch"
+import Button from "./button"
 import {
     useSession,
     SignInButton,
@@ -10,7 +12,6 @@ import {
     UserButton,
     RedirectToUserProfile,
 } from "@clerk/clerk-react"
-import { SignedIn } from "@clerk/nextjs"
 
 const Navbar = () => {
     const { session } = useSession()
@@ -21,7 +22,9 @@ const Navbar = () => {
             {/* Desktop Navigation */}
             <div className="lg:flex hidden w-full h-full flex-row justify-between items-center font-medium relative p-4">
                 <Link href="/">
-                    <p className="orange_gradient text-xl font-bold">Paired</p>
+                    <p className="orange_gradient text-xl font-bold bg-clip-text text-transparent">
+                        Paired
+                    </p>
                 </Link>
                 {session?.user ? (
                     <div className="gap-2 flex">
@@ -29,25 +32,15 @@ const Navbar = () => {
                             Create Ad
                         </Link>
                         <UserButton afterSignOutUrl="/" />
+                        <ThemeChanger />
                     </div>
                 ) : (
                     <div className="flex gap-2">
+                        <ThemeChanger />
                         <Link href="/about" className="outline_btn ">
                             About Us
                         </Link>
-                        <SignInButton
-                        // appearance={{
-                        //     baseTheme: dark,
-                        //     layout: {
-                        //         logoPlacement: "inside",
-                        //         socialButtonsVariant: "blockButton",
-                        //     },
-                        //     variables: {
-                        //         colorPrimary: "orange",
-                        //         colorText: "white",
-                        //     },
-                        // }}
-                        >
+                        <SignInButton mode="modal">
                             <button type="button" className="outline_btn">
                                 Sign In
                             </button>
@@ -61,14 +54,15 @@ const Navbar = () => {
                 {
                     <div className="w-full h-full flex-row flex justify-between p-4 z-20">
                         <Link href="/" onClick={() => setToggleDropdown(false)}>
-                            <p className="orange_gradient text-md font-bold">
+                            <p className="orange_gradient bg-clip-text text-transparent text-md font-bold">
                                 Paired
                             </p>
                         </Link>
                         <FiMenu
                             className="w-7 h-7 "
                             onClick={() => {
-                                setToggleDropdown((prev) => !prev)
+                                // setToggleDropdown((prev) => !prev)
+                                setToggleDropdown(!toggleDropdown)
                             }}
                         />
                     </div>
@@ -106,25 +100,25 @@ const Navbar = () => {
                     <div>
                         {toggleDropdown && (
                             <div className="dropdown">
-                                <Link
+                                {/* <Link
                                     href="/about"
                                     className="dropdown_link"
                                     onClick={() => setToggleDropdown(false)}
                                 >
                                     About Us
-                                </Link>
+                                </Link> */}
 
                                 <div className="dropdown_link">
-                                    <SignInButton>
-                                        <button
+                                    <SignInButton mode="modal">
+                                        <Button
                                             type="button"
                                             onClick={() => {
                                                 setToggleDropdown(false)
                                             }}
-                                            className="outline_btn"
+                                            // className="outline_btn"
                                         >
-                                            Sign In
-                                        </button>
+                                            Log In
+                                        </Button>
                                     </SignInButton>
                                 </div>
                             </div>

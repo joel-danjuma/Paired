@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
                         },
                     }}
                 >
-                    <div className="main">
+                    <div className="main ">
                         <div className="gradient" />
                     </div>
                     <Navbar />

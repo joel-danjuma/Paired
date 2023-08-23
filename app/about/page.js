@@ -1,14 +1,53 @@
+"use client"
+import Particles from "react-particles"
+const ParticleBg = () => (
+    <Particles
+        params={{
+            particles: {
+                number: {
+                    value: 400,
+                    density: {
+                        enable: true,
+                        value_area: 3000,
+                    },
+                },
+                line_linked: {
+                    enable: false,
+                },
+                move: {
+                    direction: `right`,
+                    speed: 0.3,
+                },
+                size: {
+                    value: 1,
+                },
+                opacity: {
+                    anim: {
+                        enable: true,
+                        speed: 0.5,
+                        opacity_min: 0.1,
+                    },
+                },
+            },
+            interactivity: {
+                events: {
+                    onclick: {
+                        enable: false,
+                    },
+                },
+            },
+            retina_detect: true,
+        }}
+    />
+)
+
 const about = () => {
     return (
-        <section className="w-full h-full flex-col">
-            <div className=" w-full h-20 bg-slate-600 flex justify-center">
-                <h1>Hello world</h1>
-            </div>
-            <div className="w-full h-20 flex justify-center bg-emerald-400">
-                <h2>Hello again World</h2>
-            </div>
-            <div className="w-full h-20 bg-yellow-300 flex justify-center justify-items-center">
-                <h1 className="bg-black text-white ">yet another div here </h1>
+        <section className="w-full min-h-screen bg-gray-900 relative">
+            <div
+                className={`absolute left-0 top-0 h-screen w-full overflow-hidden`}
+            >
+                <ParticleBg />
             </div>
         </section>
     )
