@@ -1,7 +1,4 @@
 import { NextResponse } from "next/server"
-import { connectDB } from "@/db/database"
-// import { clerkClient } from "@clerk/nextjs/server"
-import User from "@/models/user"
 import { PrismaClient } from "@prisma/client"
 
 const prisma = new PrismaClient()
@@ -24,7 +21,6 @@ export async function DELETE(request) {
                 id: id,
             },
         })
-        await clerkClient.users.deleteUser(id)
         return NextResponse.json({ message: "User deleted" }, { status: 200 })
     } catch (error) {
         console.log(error)
@@ -54,7 +50,7 @@ export async function PUT(request) {
     try {
         const { email, username, image } = await request.json()
 
-        const updated_user = await prisma.users.update({
+        await prisma.users.update({
             where: {
                 email: email,
             },

@@ -16,21 +16,21 @@ export default function RootLayout({ children }) {
         <html lang="en">
             <body className="cursor-circle">
                 <Providers>
-                    <ClerkProvider
+                    {/* <ClerkProvider
                         appearance={{
                             layout: {
                                 logoPlacement: "inside",
                                 socialButtonsVariant: "auto",
                             },
                         }}
-                    >
-                        <div className="main ">
-                            <div className="gradient" />
-                        </div>
-                        <Nav />
-                        {/* <Navbar /> */}
-                        <main>{children}</main>
-                    </ClerkProvider>
+                    > */}
+                    <div className="main ">
+                        <div className="gradient" />
+                    </div>
+                    <Nav />
+                    {/* <Navbar /> */}
+                    <main>{children}</main>
+                    {/* </ClerkProvider> */}
                 </Providers>
             </body>
         </html>

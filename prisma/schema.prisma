@@ -9,7 +9,6 @@ datasource db {
 
 model roomads {
   id       String  @id @default(auto()) @map("_id") @db.ObjectId
-  v        Int     @map("__v")
   bedrooms Int
   location String
   pets     Boolean
@@ -19,7 +18,7 @@ model roomads {
 
 model roommateads {
   id      String  @id @default(auto()) @map("_id") @db.ObjectId
-  v       Int     @map("__v")
+
   budget  Int
   gender  String 
   pets    Boolean
@@ -28,7 +27,6 @@ model roommateads {
 
 model users {
   id       String @id @default(auto()) @map("_id") @db.ObjectId
-  v        Int    @map("__v")
   email    String @unique(map: "email_1")
   image    String
   username String
