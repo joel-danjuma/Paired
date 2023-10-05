@@ -3,19 +3,19 @@ import Image from "next/image"
 
 const listItems = [
     {
-        title: `Designers`,
+        title: `Students`,
         description: `Officia et fugiat mollit qui. Dolor elit aliqua voluptate ipsum
     excepteur cillum consequat consectetur duis magna qui eu consequat occaecat.
     Deserunt nisi sit.`,
     },
     {
-        title: `Developers`,
+        title: `Corp Members`,
         description: `Pariatur consectetur laboris exercitation duis laboris.
     Commodo duis fugiat magna fugiat et ut anim elit. Tempor aute ex qui
     tempor tempor.`,
     },
     {
-        title: `Product owners`,
+        title: `Young Proffesionals`,
         description: `Ullamco consectetur ipsum eiusmod nisi adipisicing sint anim
     dolore aute excepteur. Voluptate ea ullamco sunt eu elit qui aliquip.
     Adipisicing.`,

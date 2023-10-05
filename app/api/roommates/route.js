@@ -1,4 +1,5 @@
 import { connectDB } from "@/db/database"
+
 import RoommateAds from "@/models/roommateAd"
 import { NextResponse } from "next/server"
 

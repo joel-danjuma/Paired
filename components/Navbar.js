@@ -1,9 +1,9 @@
 "use client"
 import Link from "next/link"
-import { dark } from "@clerk/themes"
+// import { dark } from "@clerk/themes"
 import { FiMenu } from "react-icons/fi"
 import { useState, useEffect } from "react"
-import ThemeChanger from "./darkSwitch"
+// import ThemeChanger from "./darkSwitch"
 import Button from "./button"
 import {
     useSession,
@@ -18,7 +18,7 @@ const Navbar = () => {
     const [toggleDropdown, setToggleDropdown] = useState(false)
 
     return (
-        <nav className="flex w-full h-20">
+        <nav className="flex w-full h-20 mx-auto container">
             {/* Desktop Navigation */}
             <div className="lg:flex hidden w-full h-full flex-row justify-between items-center font-medium relative p-4">
                 <Link href="/">
@@ -32,11 +32,9 @@ const Navbar = () => {
                             Create Ad
                         </Link>
                         <UserButton afterSignOutUrl="/" />
-                        <ThemeChanger />
                     </div>
                 ) : (
                     <div className="flex gap-2">
-                        <ThemeChanger />
                         <Link href="/about" className="outline_btn ">
                             About Us
                         </Link>

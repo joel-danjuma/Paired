@@ -2,12 +2,21 @@ import { NextResponse } from "next/server"
 import { connectDB } from "@/db/database"
 // import { clerkClient } from "@clerk/nextjs/server"
 import User from "@/models/user"
+import { PrismaClient } from "@prisma/client"
+
+const prisma = new PrismaClient()
 
 export async function GET() {
-    await connectDB()
-    const response = await User.find()
-    return NextResponse.json(response, { status: 200 })
+    // await connectDB()
+    try {
+        const response = await prisma.users.findMany()
+        return NextResponse.json(response, { status: 200 })
+    } catch (error) {
+        console.log(error)
+        return NextResponse({ message: error }, { status: 500 })
+    }
 }
+
 export async function DELETE(request) {
     try {
         const id = request.nextUrl.searchParams.get("id")
@@ -20,6 +29,7 @@ export async function DELETE(request) {
         return NextResponse({ message: error }, { status: 500 })
     }
 }
+
 export async function POST(request) {
     const { email, username, image } = await request.json()
     await connectDB()
@@ -27,6 +37,7 @@ export async function POST(request) {
     console.log("User created succesfully")
     return NextResponse.json(new_user, { status: 201 })
 }
+
 export async function PUT(request) {
     const { email, username, image } = await request.json()
     await connectDB()
