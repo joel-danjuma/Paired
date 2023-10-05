@@ -1,14 +1,19 @@
-import { connectDB } from "@/db/database"
-import RoomAds from "@/models/roomAd"
 import { NextResponse } from "next/server"
+import { PrismaClient } from "@prisma/client"
 
-export async function GET(request, { params }) {
+const prisma = new PrismaClient()
+
+export async function GET({ params }) {
     try {
         const { location } = params
-        await connectDB()
-        const response = await RoomAds.find({ location: location })
+        const response = prisma.roomads.findMany({
+            where: {
+                location: location,
+            },
+        })
         return NextResponse.json(response, { status: 200 })
     } catch (error) {
         console.log(error)
+        return NextResponse.json({ message: error }, { status: 500 })
     }
 }
