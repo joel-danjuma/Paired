@@ -5,6 +5,7 @@ export default authMiddleware({
     publicRoutes: [
         "/",
         "/about",
+        "/rooms",
         "/api/rooms",
         "/api/users",
         "/api/roommates",

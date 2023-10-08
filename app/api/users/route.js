@@ -1,11 +1,10 @@
+import prisma from "@/lib/db"
 import { NextResponse } from "next/server"
-import { PrismaClient } from "@prisma/client"
-
-const prisma = new PrismaClient()
+import { get_all_users } from "@/utils/crud"
 
 export async function GET() {
     try {
-        const response = await prisma.users.findMany()
+        const response = await get_all_users()
         return NextResponse.json(response, { status: 200 })
     } catch (error) {
         console.log(error)

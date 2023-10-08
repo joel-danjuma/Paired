@@ -1,13 +1,12 @@
 // import { connectDB } from "@/db/database"
 // import RoomAds from "@/models/roomAd"
 import { NextResponse } from "next/server"
-import { PrismaClient } from "@prisma/client"
-
-const prisma = new PrismaClient()
+import { get_all_room_ads } from "@/utils/crud"
+import prisma from "@/lib/db"
 
 export async function GET() {
     try {
-        const response = await prisma.roomads.findMany()
+        const response = await get_all_room_ads()
         return NextResponse.json(response, { status: 200 })
     } catch (error) {
         console.log(error)

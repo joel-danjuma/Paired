@@ -1,5 +1,4 @@
 import "./globals.css"
-import { dark } from "@clerk/themes"
 import Navbar from "@/components/Navbar"
 import Nav from "@/components/nav"
 import { Providers } from "./providers"

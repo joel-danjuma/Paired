@@ -1,12 +1,9 @@
-import { connectDB } from "@/db/database"
-
-import RoommateAds from "@/models/roommateAd"
+import prisma from "@/lib/db"
 import { NextResponse } from "next/server"
 
 export async function GET() {
     try {
-        await connectDB()
-        const response = await RoommateAds.find()
+        const response = await prisma.roommateads.findMany()
         return NextResponse.json(response, { status: 200 })
     } catch (error) {
         console.log(error)
@@ -16,20 +13,14 @@ export async function GET() {
 
 export async function POST(request) {
     try {
-        await connectDB()
         const { gender, budget, pets, smoking } = await request.json()
-        // if (!location || !price || !bedrooms || !smoking || !pets) {
-        //     console.log("Missing Parameter")
-        //     return NextResponse.json(
-        //         { message: "Missing Parameter" },
-        //         { status: 401 }
-        //     )
-        // }
-        const newAd = await RoommateAds.create({
-            gender,
-            budget,
-            pets,
-            smoking,
+        const newAd = await prisma.roommateads.create({
+            data: {
+                gender: gender,
+                budget: budget,
+                pets: pets,
+                smoking: smoking,
+            },
         })
         console.log("Created new Roommate Ad")
         return NextResponse.json(newAd, { status: 201 })
