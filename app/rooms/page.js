@@ -1,47 +1,36 @@
-"use client"
-import { useEffect, useState } from "react"
+// "use client"
+// import { useEffect, useState } from "react"
+import prisma from "@/lib/db"
 
-const Rooms = () => {
-    const [rooms, setRooms] = useState([{}])
-    const [displayData, setDisplayData] = useState(false)
-    useEffect(() => {
-        fetch("/api/rooms")
-            .then((response) => response.json())
-            .then((data) => {
-                setRooms(data)
-            })
-    }, [])
+const get_room_ads = async () => {
+    const response = await prisma.roomads.findMany()
+    return response
+}
+
+const Rooms = async () => {
+    // const [rooms, setRooms] = useState([{}])
+    // useEffect(() => {
+    //     fetch("/api/rooms")
+    //         .then((response) => response.json())
+    //         .then( data => setRooms(data))
+    // }, [])
+    const rooms = await get_room_ads()
 
     return (
-        <div className="flex w-full h-screen justify-center items-center flex-col ">
-            <button
-                className="bg-gray-700 hover:bg-gray-800 text-white py-2 px-4 rounded focus:outline-none"
-                onClick={() => setDisplayData(!displayData)}
-            >
-                {displayData ? "Hide Data" : "Display Data"}
-            </button>
-            {typeof rooms === "undefined" ? (
-                <div>
-                    <p>Loading ....</p>
-                </div>
-            ) : (
-                displayData &&
-                rooms.map((room, i) => {
-                    return (
-                        <div
-                            className="w-full h-full flex justify-center items-center text-2xl"
-                            key={i}
-                        >
-                            <ul>
-                                <li>{room.bedrooms}</li>
-                                <li>{room.location}</li>
-                                <li>{room.pets}</li>
-                                <li>{room.price}</li>
-                            </ul>
-                        </div>
-                    )
-                })
-            )}
+        <div>
+            {rooms.map((room, i) => {
+                return (
+                    <div
+                        className="flex flex-col w-full h-screen justify-center items-center "
+                        key={i}
+                    >
+                        <h1>{room.location}</h1>
+                        <h1>{room.price}</h1>
+                        <h1>{room.pets}</h1>
+                        <h1>{room.bedrooms}</h1>
+                    </div>
+                )
+            })}
         </div>
     )
 }
