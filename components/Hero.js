@@ -3,6 +3,7 @@ import Button from "./button"
 import Image from "next/image"
 import img from "@/public/images/hero.svg"
 import img2 from "@/public/images/hero2.svg"
+
 const Hero = () => {
     return (
         <section className="w-full h-full lg:mb-32">

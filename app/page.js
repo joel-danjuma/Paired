@@ -1,5 +1,5 @@
 "use client"
-import Hero from "@/components/Hero"
+import Hero from "@/components/hero"
 import ListSection from "@/components/list-section"
 import Video from "@/components/video"
 import SectionTitle from "@/components/section-title"
@@ -10,7 +10,6 @@ import Footer from "@/components/footer"
 export default function Home() {
     return (
         <section className="z-10">
-            {/* <Nav /> */}
             <Hero />
             <SectionTitle pretitle="Watch a video" title="See how Paired works">
                 Looking for the ideal roommate or the best room for your budget?
