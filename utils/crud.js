@@ -5,10 +5,15 @@ export const get_all_users = async () => {
     return users
 }
 
+export const get_all_roommate_ads = async () => {
+    const roommates = await prisma.RoommateAd.findMany()
+    return roommates
+}
+
 export const get_user_by_id = async (id) => {
     const user = await prisma.users.findUnique({
         where: {
-            id: id,
+            id,
         },
     })
     return user

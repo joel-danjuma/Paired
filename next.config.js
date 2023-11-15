@@ -3,7 +3,9 @@ const nextConfig = {
     experimental: {
         appDir: true,
         serverComponentsExternalPackages: ["mongoose"],
+        serverActions: true,
     },
+
     images: {
         remotePatterns: [
             {

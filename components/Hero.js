@@ -3,6 +3,7 @@ import Button from "./button"
 import Image from "next/image"
 import img from "@/public/images/hero.svg"
 import img2 from "@/public/images/hero2.svg"
+import { SignUpButton } from "@clerk/nextjs"
 
 const Hero = () => {
     return (
@@ -28,9 +29,11 @@ const Hero = () => {
                 <div
                     className={`pt-5 flex justify-center items-center w-full mx-auto`}
                 >
-                    <Button primary>Get started</Button>
-                    <span className="mx-2">or</span>
-                    <Button>Contact us</Button>
+                    <SignUpButton>
+                        <Button primary>Get started</Button>
+                    </SignUpButton>
+                    {/* <span className="mx-2">or</span>
+                    <Button>Contact us</Button> */}
                 </div>
                 <Image
                     src={img}
@@ -46,23 +49,6 @@ const Hero = () => {
                     height={382}
                     className="absolute right-4 -bottom-40 lg:flex hidden"
                 ></Image>
-
-                {/* <div className="w-full relative lg:flex hidden pt-40">
-                    <Image
-                        src={featureImg}
-                        alt="hero-img-1"
-                        width={421}
-                        height={382}
-                        className="absolute left-4 bottom-0"
-                    ></Image>
-                    <Image
-                        src={featureImg2}
-                        alt="hero-img-2"
-                        width={421}
-                        height={382}
-                        className="absolute right-4 bottom-0"
-                    ></Image>
-                </div> */}
             </div>
         </section>
     )

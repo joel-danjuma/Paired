@@ -1,33 +1,61 @@
 generator client {
-  provider = "prisma-client-js"
+    provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "mongodb"
-  url      = env("DATABASE_URL")
+    provider = "mongodb"
+    url      = env("DATABASE_URL")
 }
 
-model roomads {
-  id       String  @id @default(auto()) @map("_id") @db.ObjectId
-  bedrooms Int
-  location String
-  pets     Boolean
-  price    Int
-  smoking  Boolean
+model User {
+    id          String      @id @default(auto()) @map("_id") @db.ObjectId
+    name        String
+    email       String      @unique(map: "email_1")
+    password    String
+    image       String?
+    created_at  DateTime    @default(now())
+    updated_at  DateTime    @updatedAt
+    room_ads    RoomAd[]    @relation("userToRoomAds")
+    roommate_ad RoommateAd? @relation("userToRoommateAd")
+
+    @@map("users")
 }
 
-model roommateads {
-  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+model RoomAd {
+    id            String   @id @default(auto()) @map("_id") @db.ObjectId
+    title         String
+    description   String
+    propertyType  String
+    rent          Int
+    bedrooms      Int
+    bathrooms     Int
+    location      String
+    pets          Boolean
+    smoking       Boolean
+    serviced      Boolean
+    serviceCharge Int
+    created_by    User     @relation("userToRoomAds", fields: [user_id], references: [id], onDelete: Cascade)
+    user_id       String   @unique @db.ObjectId
+    created_at    DateTime @default(now())
+    updated_at    DateTime @updatedAt
 
-  budget  Int
-  gender  String 
-  pets    Boolean
-  smoking Boolean
+    @@map("rooms")
 }
 
-model users {
-  id       String @id @default(auto()) @map("_id") @db.ObjectId
-  email    String @unique(map: "email_1")
-  image    String
-  username String
+model RoommateAd {
+    id          String   @id @default(auto()) @map("_id") @db.ObjectId
+    title       String
+    description String
+    age         Int
+    occupation  String
+    budget      Int
+    gender      String
+    pets        Boolean
+    smoking     Boolean
+    created_by  User     @relation("userToRoommateAd", fields: [user_id], references: [id], onDelete: Cascade)
+    user_id     String   @unique @db.ObjectId
+    created_at  DateTime @default(now())
+    updated_at  DateTime @updatedAt
+
+    @@map("roommates")
 }
