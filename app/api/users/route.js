@@ -29,12 +29,13 @@ export async function DELETE(request) {
 
 export async function POST(request) {
     try {
-        const { email, username, image } = await request.json()
-        const new_user = await prisma.users.create({
+        const { email, name, password, image } = await request.json()
+        const new_user = await prisma.user.create({
             data: {
-                email: email,
-                username: username,
-                image: image,
+                name,
+                email,
+                password,
+                image,
             },
         })
         console.log("User created succesfully")

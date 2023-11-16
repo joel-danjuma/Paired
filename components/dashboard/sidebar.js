@@ -5,7 +5,7 @@ import { Divider } from "@nextui-org/react"
 const menuItems = [
     {
         title: "Menu",
-        list: ["Rooms", "Roommates", "Messages"],
+        list: ["Rooms", "Roommates", "CreateAd", "Messages"],
     },
     {
         title: "Settings",
@@ -36,7 +36,10 @@ const Sidebar = () => {
                                         <ul>
                                             <li>
                                                 <a
-                                                    href={`/dashboard/${listItem.toLowerCase()}`}
+                                                    href={`/dashboard/${
+                                                        listItem[0].toLowerCase() +
+                                                        listItem.slice(1)
+                                                    }`}
                                                 >
                                                     {listItem}
                                                 </a>

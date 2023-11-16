@@ -5,7 +5,7 @@ import prisma from "@/lib/db"
 
 export async function GET() {
     try {
-        const response = await prisma.roomads.findMany()
+        const response = await prisma.roomAd.findMany()
         return NextResponse.json(response, { status: 200 })
     } catch (error) {
         console.log(error)

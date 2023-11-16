@@ -15,8 +15,8 @@ model User {
     image       String?
     created_at  DateTime    @default(now())
     updated_at  DateTime    @updatedAt
-    room_ads    RoomAd[]    @relation("userToRoomAds")
-    roommate_ad RoommateAd? @relation("userToRoommateAd")
+    room_ads    RoomAd[]
+    roommate_ad RoommateAd?
 
     @@map("users")
 }
@@ -34,8 +34,8 @@ model RoomAd {
     smoking       Boolean
     serviced      Boolean
     serviceCharge Int
-    created_by    User     @relation("userToRoomAds", fields: [user_id], references: [id], onDelete: Cascade)
-    user_id       String   @unique @db.ObjectId
+    created_by    User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id       String   @db.ObjectId
     created_at    DateTime @default(now())
     updated_at    DateTime @updatedAt
 
@@ -48,11 +48,12 @@ model RoommateAd {
     description String
     age         Int
     occupation  String
+    location    String
     budget      Int
     gender      String
     pets        Boolean
     smoking     Boolean
-    created_by  User     @relation("userToRoommateAd", fields: [user_id], references: [id], onDelete: Cascade)
+    created_by  User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
     user_id     String   @unique @db.ObjectId
     created_at  DateTime @default(now())
     updated_at  DateTime @updatedAt
