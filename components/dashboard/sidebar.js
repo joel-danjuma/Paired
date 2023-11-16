@@ -5,7 +5,20 @@ import { Divider } from "@nextui-org/react"
 const menuItems = [
     {
         title: "Menu",
-        list: ["Rooms", "Roommates", "CreateAd", "Messages"],
+        list: [
+            "Rooms",
+            "Roommates",
+            "Create Room Ad",
+            "Create Roommate Ad",
+            "Messages",
+        ],
+        links: [
+            "ads/rooms",
+            "ads/roommates",
+            "createAd/rooms",
+            "createAd/roommates",
+            "messages",
+        ],
     },
     {
         title: "Settings",
@@ -30,24 +43,27 @@ const Sidebar = () => {
                                 </h2>
                             </div>
 
-                            {item.list.map((listItem, i) => {
-                                return (
-                                    <div key={i} className="space-y-4">
-                                        <ul>
-                                            <li>
-                                                <a
-                                                    href={`/dashboard/${
-                                                        listItem[0].toLowerCase() +
-                                                        listItem.slice(1)
-                                                    }`}
-                                                >
-                                                    {listItem}
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                )
-                            })}
+                            {item.list &&
+                                item.list.map((listItem, i) => {
+                                    return (
+                                        <div key={i} className="space-y-4">
+                                            <ul>
+                                                <li>
+                                                    <a
+                                                        href={`/dashboard/${
+                                                            item.links &&
+                                                            item.links[i]
+                                                                ? item.links[i]
+                                                                : "#"
+                                                        }`}
+                                                    >
+                                                        {listItem}
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    )
+                                })}
                         </div>
                     )
                 })}
@@ -60,3 +76,8 @@ const Sidebar = () => {
 }
 
 export default Sidebar
+
+// ${
+//     listItem[0].toLowerCase() +
+//     listItem.slice(1)
+// } /

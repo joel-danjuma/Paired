@@ -13,9 +13,7 @@ const page = () => {
                 <input name="_redirect" type="hidden" value="#"/>
                 <div className="mt-4 space-y-6">
                 <div>
-                <div className="col-span-full">
-                    <RoomAdFormButton/>
-                    </div>
+                
                     <label className="block mb-3 text-sm font-medium text-gray-600">
                     Property title
                     </label>
@@ -79,7 +77,7 @@ const page = () => {
                     <label className="block mb-3 text-sm font-medium text-gray-600" >
                         Service Charge
                     </label>
-                    <input name="serviceCharge" type="number" className="block w-full px-6 py-3 text-black bg-white border border-gray-200 appearance-none rounded-xl placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm" placeholder="Annual Service Charge "/>
+                    <input name="serviceCharge" type="number" className="block w-full px-6 py-3 text-black bg-white border border-gray-200 appearance-none rounded-xl placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm" placeholder="Annual Service Charge"/>
                     </div>
                     <div>
                     <div>
@@ -90,9 +88,10 @@ const page = () => {
                         <textarea name="description" className="block w-full px-6 py-3 text-black bg-white border border-gray-200 appearance-none rounded-xl placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm" placeholder="Property Description" rows="4"></textarea>
                         </div>
                     </div>
-                    <div className="col-span-full">
+                    <div className="col-span-full pt-4 pb-4">
                     <RoomAdFormButton/>
                     </div>
+                   
                     </div>
                     
                 </div>          
