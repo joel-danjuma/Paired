@@ -1,64 +1,118 @@
-import {
-    Navbar,
-    NavbarItem,
-    NavbarBrand,
-    NavbarContent,
-    Link,
-    Input,
-} from "@nextui-org/react"
-import { SearchIcon } from "../icons"
+"use client"
+import Link from "next/link"
+import Image from "next/image"
+import NextLink from "next/link"
+import { Kbd } from "@nextui-org/kbd"
+// import { FiMenu } from "react-icons/fi";
+import { Input } from "@nextui-org/input"
+import { siteConfig } from "@/config/site"
 
-const navbar = () => {
+// import { SignInButton, SignedIn, UserButton, useSession } from "@clerk/nextjs";
+import {
+    Navbar as NextUINavbar,
+    NavbarContent,
+    NavbarMenu,
+    NavbarMenuToggle,
+    NavbarBrand,
+    NavbarItem,
+    NavbarMenuItem,
+} from "@nextui-org/navbar"
+import { SearchIcon } from "@/components/icons"
+
+function Navbar() {
+    // const { session } = useSession();
+    // const [toggleDropdown, setToggleDropdown] = useState(false);
+    const searchInput = (
+        <Input
+            aria-label="Search"
+            classNames={{
+                inputWrapper: "bg-[#FFFFFF]",
+                input: "text-sm",
+            }}
+            endContent={
+                <Kbd className="hidden lg:inline-block" keys={["command"]}>
+                    K
+                </Kbd>
+            }
+            labelPlacement="outside"
+            placeholder="Search Fresh Produce and Spices"
+            startContent={
+                <SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
+            }
+            type="search"
+        />
+    )
+
     return (
-        <div className="w-full absolute top-0 ">
-            <Navbar isBordered className="max-w-[1400px] px-0 p-0">
-                <NavbarContent justify="start">
-                    <NavbarBrand>
-                        <p className="hidden sm:block font-bold text-inherit">
+        <NextUINavbar
+            className="glassmorphism px-4  "
+            maxWidth="full"
+            position="sticky"
+            isBordered
+        >
+            <NavbarContent
+                className="basis-1/5 sm:basis-full relative"
+                justify="start"
+            >
+                <NavbarBrand as="li">
+                    <NextLink
+                        className="flex justify-start items-center"
+                        href="/"
+                    >
+                        {/* <Image
+                            src={logo}
+                            alt="logo"
+                            width={12}
+                            height={12}
+                            className="lg:hidden flex"
+                        ></Image> */}
+                        <p className="font-bold text-green-500 text-2xlflex ">
                             Paired
                         </p>
-                    </NavbarBrand>
-                    <NavbarContent className="hidden sm:flex gap-3">
-                        <NavbarItem>
-                            <Link color="foreground" href="#">
-                                Features
-                            </Link>
-                        </NavbarItem>
-                        <NavbarItem isActive>
-                            <Link
-                                href="#"
-                                aria-current="page"
-                                color="secondary"
-                            >
-                                Customers
-                            </Link>
-                        </NavbarItem>
-                        <NavbarItem>
-                            <Link color="foreground" href="#">
-                                Integrations
-                            </Link>
-                        </NavbarItem>
-                    </NavbarContent>
-                </NavbarContent>
+                    </NextLink>
+                </NavbarBrand>
+            </NavbarContent>
+            <NavbarContent justify="center">
+                <NavbarItem className="hidden w-[620px] lg:flex">
+                    {searchInput}
+                </NavbarItem>
+            </NavbarContent>
 
-                <NavbarContent as="div" className="items-center" justify="end">
-                    <Input
-                        classNames={{
-                            base: "max-w-full sm:max-w-[10rem] h-10",
-                            mainWrapper: "h-full",
-                            input: "text-small",
-                            inputWrapper:
-                                "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
-                        }}
-                        placeholder="Type to search..."
-                        size="sm"
-                        startContent={<SearchIcon size={18} />}
-                        type="search"
-                    />
-                </NavbarContent>
-            </Navbar>
-        </div>
+            {/* <NavbarContent className="lg:hidden flex basis-1 " justify="start">
+                <p className="font-bold text-green-500 text-xl">Paired</p>
+            </NavbarContent> */}
+
+            <NavbarContent className=" w-full basis-1 pl-4  flex" justify="end">
+                <NavbarMenuToggle />
+            </NavbarContent>
+
+            <NavbarMenu className="lg:flex flex pt-12 ">
+                <NavbarMenuItem className="lg:hidden flex">
+                    {searchInput}
+                </NavbarMenuItem>
+
+                <div className="mx-4 mt-4 flex flex-col gap-4">
+                    {siteConfig.navMenuItems.map((item, index) => (
+                        <NavbarMenuItem key={`${item}-${index}`}>
+                            <Link
+                                color={
+                                    index === 2
+                                        ? "primary"
+                                        : index ===
+                                          siteConfig.navMenuItems.length - 1
+                                        ? "danger"
+                                        : "foreground"
+                                }
+                                href="#"
+                            >
+                                {item.label}
+                            </Link>
+                        </NavbarMenuItem>
+                    ))}
+                </div>
+            </NavbarMenu>
+        </NextUINavbar>
     )
 }
 
-export default navbar
+export default Navbar

@@ -8,10 +8,10 @@ export const generateMetadata = () => {
 
 const Dashboard = () => {
     return (
-        <section className="absolute w-full h-screen overflow-scroll p-4 glassmorphism">
-            <div className="w-full h-full">Welcome to Dashboard</div>
-            <div className="w-full h-full">Welcome to Dashboard</div>
-            <div className="w-full h-full">Welcome to Dashboard</div>
+        <section className="w-full">
+            <div className="w-full min-h-screen">Welcome to Dashboard</div>
+            <div className="w-full min-h-screen">Welcome to Dashboard</div>
+            <div className="w-full min-h-screen">Welcome to Dashboard</div>
         </section>
     )
 }
