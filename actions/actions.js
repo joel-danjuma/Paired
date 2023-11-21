@@ -108,3 +108,8 @@ export const createUser = async (formData) => {
         },
     })
 }
+
+export const getRoomAds = async () => {
+    const ads = await prisma.roomAd.findMany()
+    return ads
+}

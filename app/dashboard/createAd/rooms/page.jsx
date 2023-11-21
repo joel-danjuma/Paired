@@ -11,8 +11,10 @@ const page = () => {
                 }}
                 className="h-full"
             >
+                <RoomAdFormButton />
                 <input autoComplete="false" name="hidden" className="hidden" />
                 <input name="_redirect" type="hidden" value="#" />
+
                 <div className="mt-4 space-y-4">
                     <div>
                         <label className="block mb-3 text-sm font-medium text-gray-600">
@@ -147,7 +149,6 @@ const page = () => {
                     </div> */}
                 </div>
             </form>
-            <RoomAdFormButton />
         </section>
     )
 }
