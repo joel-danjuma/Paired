@@ -82,7 +82,7 @@ function Navbar() {
                 <p className="font-bold text-green-500 text-xl">Paired</p>
             </NavbarContent> */}
 
-            <NavbarContent className=" w-full basis-1 pl-4  flex" justify="end">
+            <NavbarContent className="basis-1 pl-4  flex" justify="end">
                 <NavbarMenuToggle />
             </NavbarContent>
 

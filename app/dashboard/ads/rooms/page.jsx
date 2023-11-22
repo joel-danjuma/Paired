@@ -32,12 +32,12 @@ const RoomAdPage = () => {
                         {ads.map((ad, i) => {
                             return (
                                 <ul key={i} className="gap-4 ">
-                                    <li>{ad.id}</li>
                                     <li className="text-[24px] font-bold">
                                         {ad.title}
                                     </li>
                                     <li>{ad.description}</li>
                                     <li>{ad.propertyType}</li>
+                                    <li>Id : {ad.id}</li>
                                 </ul>
                             )
                         })}

@@ -8,9 +8,9 @@ export default function DashboardLayout({ children }) {
             <div className="hidden lg:block w-[15%] relative">
                 <Sidebar />
             </div>
-            <div className="w-full lg:w-[85%] relative">
+            <div className="w-full lg:w-[85%] relative h-[100dvh]">
                 <Navbar />
-                <main className="w-full h-screen overflow-auto glassmorphism p-4">
+                <main className="w-full h-full overflow-auto glassmorphism p-4">
                     {children}
                 </main>
             </div>

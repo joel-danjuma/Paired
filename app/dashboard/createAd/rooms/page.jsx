@@ -3,17 +3,15 @@ import RoomAdFormButton from "@/components/dashboard/createAdFormButton"
 import { createRoomAd } from "@/actions/actions"
 const page = () => {
     return (
-        <section className="h-full overflow-auto">
+        <section className="h-full p-4">
             <form
                 action={async (formData) => {
                     const roomAd = await createRoomAd(formData)
                     console.log("Created Room ad")
                 }}
-                className="h-full"
             >
-                <RoomAdFormButton />
-                <input autoComplete="false" name="hidden" className="hidden" />
-                <input name="_redirect" type="hidden" value="#" />
+                {/* <input autoComplete="false" name="hidden" className="hidden" />
+                <input name="_redirect" type="hidden" value="#" /> */}
 
                 <div className="mt-4 space-y-4">
                     <div>
@@ -144,9 +142,10 @@ const page = () => {
                             ></textarea>
                         </div>
                     </div>
-                    {/* <div className="col-span-full">
+                    {/* <RoomAdFormButton /> */}
+                    <div className="col-span-full">
                         <RoomAdFormButton />
-                    </div> */}
+                    </div>
                 </div>
             </form>
         </section>
