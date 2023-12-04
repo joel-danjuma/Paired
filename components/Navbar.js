@@ -4,7 +4,8 @@ import Link from "next/link"
 import { FiMenu } from "react-icons/fi"
 import { useState, useEffect } from "react"
 // import ThemeChanger from "./darkSwitch"
-import Button from "./button"
+// import Button from "./Button"
+import { Button } from "@nextui-org/react"
 import {
     useSession,
     SignInButton,
@@ -18,7 +19,7 @@ const Navbar = () => {
     const [toggleDropdown, setToggleDropdown] = useState(false)
 
     return (
-        <nav className="flex w-full h-20 mx-auto container">
+        <nav className="flex w-full h-12 mx-auto container fixed left-0 right-0 top-0 p-4">
             {/* Desktop Navigation */}
             <div className="lg:flex hidden w-full h-full flex-row justify-between items-center font-medium relative p-4">
                 <Link href="/">
@@ -28,20 +29,21 @@ const Navbar = () => {
                 </Link>
                 {session?.user ? (
                     <div className="gap-2 flex">
-                        <Link href="/create-post" className="orange_btn">
-                            Create Ad
-                        </Link>
+                        <Link href="/create-post">Create Ad</Link>
                         <UserButton afterSignOutUrl="/" />
                     </div>
                 ) : (
                     <div className="flex gap-2">
-                        <Link href="/about" className="outline_btn ">
-                            About Us
-                        </Link>
+                        <Button variant="light" type="button">
+                            <Link href="/about">About Us</Link>
+                        </Button>
                         <SignInButton mode="modal">
-                            <button type="button" className="outline_btn">
+                            <Button
+                                className="text-white bg-black"
+                                type="button"
+                            >
                                 Sign In
-                            </button>
+                            </Button>
                         </SignInButton>
                     </div>
                 )}
@@ -50,7 +52,7 @@ const Navbar = () => {
             {/* Mobile Navigation */}
             <div className="lg:hidden w-full h-14 ">
                 {
-                    <div className="w-full h-full flex-row flex justify-between p-4 z-20">
+                    <div className="w-full h-full flex-row flex justify-between p-4 ">
                         <Link href="/" onClick={() => setToggleDropdown(false)}>
                             <p className="orange_gradient bg-clip-text text-transparent text-md font-bold">
                                 Paired
@@ -81,15 +83,15 @@ const Navbar = () => {
                                 </Link>
 
                                 <SignOutButton>
-                                    <button
+                                    <Button
                                         type="button"
                                         onClick={() => {
                                             setToggleDropdown(false)
                                         }}
-                                        className="w-full black_btn"
+                                        className="w-full "
                                     >
                                         Sign Out
-                                    </button>
+                                    </Button>
                                 </SignOutButton>
                             </div>
                         )}
@@ -109,7 +111,7 @@ const Navbar = () => {
                                 <div className="dropdown_link">
                                     <SignInButton mode="modal">
                                         <Button
-                                            type="button"
+                                            type="Button"
                                             onClick={() => {
                                                 setToggleDropdown(false)
                                             }}

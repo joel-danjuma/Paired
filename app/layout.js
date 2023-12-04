@@ -22,12 +22,12 @@ export default function RootLayout({ children }) {
             <html lang="en">
                 <body className="cursor-circle">
                     <Providers>
-                        <div className="main">
+                        {/* <div className="main">
                             <div className="gradient" />
-                        </div>
+                        </div> */}
                         {/* <Nav /> */}
                         <Navbar />
-                        <main>{children}</main>
+                        <main className="fixed w-full top-12">{children}</main>
                     </Providers>
                 </body>
             </html>

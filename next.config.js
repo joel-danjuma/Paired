@@ -5,6 +5,20 @@ const nextConfig = {
         serverComponentsExternalPackages: ["mongoose"],
         serverActions: true,
     },
+    images: {
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "unsplash.com",
+                port: "",
+                pathname: "photos",
+            },
+        ],
+        domains: ["lh3.googleusercontent.com"],
+    },
+    // images: {
+    //     domains: ["unsplash.com", "lh3.googleusercontent.com", "img.clerk.com"],
+    // },
 
     images: {
         remotePatterns: [
