@@ -27,10 +27,12 @@ export default function RootLayout({ children }) {
                         </div> */}
                         {/* <Nav /> */}
                         <Navbar />
-                        <main className="fixed w-full top-12">{children}</main>
+                        <main>{children}</main>
                     </Providers>
                 </body>
             </html>
         </ClerkProvider>
     )
 }
+
+// className="fixed w-full top-12"

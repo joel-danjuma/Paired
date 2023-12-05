@@ -19,7 +19,7 @@ const Navbar = () => {
     const [toggleDropdown, setToggleDropdown] = useState(false)
 
     return (
-        <nav className="flex w-full h-12 mx-auto container fixed left-0 right-0 top-0 p-4">
+        <nav className="flex w-full h-12 mx-auto container p-4">
             {/* Desktop Navigation */}
             <div className="lg:flex hidden w-full h-full flex-row justify-between items-center font-medium relative p-4">
                 <Link href="/">
