@@ -7,11 +7,14 @@ import SectionTitle from "@/components/section-title"
 import Testimonials from "@/components/testimonials"
 import Cta from "@/components/cta"
 import Footer from "@/components/footer"
+import RecentlyAdded from "@/components/recentlyAdded"
 // import Nav from "@/components/Nav"
 export default function Home() {
     return (
         <section>
             <NewHero />
+            <RecentlyAdded />
+            <Cta />
         </section>
     )
 }

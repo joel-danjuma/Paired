@@ -1,60 +1,97 @@
 export const siteConfig = {
     name: "Paired",
     description: "Find the perfect room and roommate for you. ",
-    //   navItems: [
-    //     {
-    //       label: "Home",
-    //       href: "/",
-    //     },
-    //     {
-    //       label: "Docs",
-    //       href: "/docs",
-    //     },
-    //     {
-    //       label: "Pricing",
-    //       href: "/pricing",
-    //     },
-    //     {
-    //       label: "Blog",
-    //       href: "/blog",
-    //     },
-    //     {
-    //       label: "About",
-    //       href: "/about",
-    //     },
-    //   ],
+    navItems: [
+        // {
+        //     label: "Home",
+        //     href: "/",
+        // },
+        {
+            label: "Rooms",
+            href: "/rooms",
+        },
+        {
+            label: "Roommates",
+            href: "/roommates",
+        },
+        // {
+        //     label: "Blog",
+        //     href: "/blog",
+        // },
+        {
+            label: "About",
+            href: "/about",
+        },
+    ],
     navMenuItems: [
+        // {
+        //     label: "Home",
+        //     href: "/",
+        // },
         {
-            label: "Profile",
-            href: "/profile",
+            label: "Rooms",
+            href: "/rooms",
         },
         {
-            label: "shop",
-            href: "/shop",
+            label: "Roommates",
+            href: "/roommates",
         },
+        // {
+        //     label: "Blog",
+        //     href: "/blog",
+        // },
         {
-            label: "Projects",
-            href: "/projects",
-        },
-
-        {
-            label: "Settings",
-            href: "/settings",
-        },
-        {
-            label: "FAQ",
-            href: "/help-feedback",
+            label: "About",
+            href: "/about",
         },
         {
             label: "Logout",
             href: "/logout",
         },
     ],
-    //   links: {
-    //     github: "https://github.com/nextui-org/nextui",
-    //     twitter: "https://twitter.com/getnextui",
-    //     docs: "https://nextui.org",
-    //     discord: "https://discord.gg/9b6yyZKmH4",
-    //     sponsor: "https://patreon.com/jrgarciadev",
-    //   },
+    links: {
+        github: "https://github.com/nextui-org/nextui",
+        twitter: "https://twitter.com/getnextui",
+        // docs: "https://nextui.org",
+        // discord: "https://discord.gg/9b6yyZKmH4",
+        // sponsor: "https://patreon.com/jrgarciadev",
+    },
+    nigerianStates: [
+        "Abia",
+        "Adamawa",
+        "Akwa Ibom ",
+        "Anambra",
+        "Bauchi",
+        "Bayelsa ",
+        "Benue",
+        "Borno",
+        "Cross River",
+        "Delta",
+        "Ebonyi",
+        "Edo",
+        "Ekiti",
+        "Enugu",
+        "Gombe",
+        "Imo",
+        "Jigawa",
+        "Kaduna",
+        "Kano",
+        "Katsina",
+        "Kebbi",
+        "Kogi",
+        "Kwara",
+        "Lagos",
+        "Nasarawa",
+        "Niger",
+        "Ogun ",
+        "Ondo ",
+        "Osun",
+        "Oyo",
+        "Plateau",
+        "Rivers",
+        "Sokoto",
+        "Taraba",
+        "Yobe",
+        "Zamfara",
+    ],
 }
