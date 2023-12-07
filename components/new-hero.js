@@ -28,7 +28,7 @@ const features = [
 const Hero = () => {
     return (
         <section>
-            <div className="flex-col h-[100dvh] max-w-[1440px] justify-between p-4 space-y-8 mt-4 ">
+            <div className="flex-col h-[100dvh] max-w-[1440px] justify-between p-4 space-y-8">
                 <div className={`w-full h-[60%] rounded-xl`}>
                     <Card className="w-full h-full relative">
                         <div className="text-black max-w-[640px] flex justify-center items-start h-full space-y-4 p-2 ">
@@ -37,7 +37,7 @@ const Hero = () => {
                             </h1>
                         </div>
 
-                        <div className="w-full h-full absolute top-0 left-0 right-0">
+                        <div className="w-full h-full absolute top-0 left-0 right-0 bg-white bg-opacity-70">
                             <Image
                                 src={heroBg}
                                 alt="img"
@@ -56,17 +56,17 @@ const Hero = () => {
                     </h2>
                 </div>
 
-                <div className="w-full h-[25%] lg:gap-[32px] gap-[16px] grid grid-cols-3 grid-rows-3 grid-flow-row ">
+                <div className="w-full h-[25%] lg:gap-[32px] gap-[16px] grid grid-cols-6 grid-rows-6 grid-flow-row ">
                     {features.map((feature, i) => {
                         return (
                             <Card
                                 key={i}
                                 className={
                                     i === 0
-                                        ? `w-full h-full text-black flex-col space-y-4 row-span-full lg:row-span-full lg:col-span-1 md:col-span-1 col-span-2 relative bg-[url('../public/images/heroImg1.jpg')] bg-fit bg-no-repeat`
+                                        ? `w-full h-full text-black flex-col space-y-4 row-span-full lg:row-span-full lg:col-span-2 md:col-span-2 col-span-4 relative bg-[url('../public/images/heroImg1.jpg')] bg-fit bg-no-repeat`
                                         : i === 1
-                                        ? `w-full h-full text-black flex-col space-y-4 col-span-1 row-span-2 lg:row-span-full relative md:col-span-1 md:row-span-full  bg-[url('../public/images/heroImg2.jpg')] bg-cover bg-no-repeat`
-                                        : `w-full h-full text-black flex-col space-y-4 relative lg:row-span-full md:col-span-1 md:row-span-full  bg-[url('../public/images/heroImg3.jpg')] bg-cover bg-no-repeat`
+                                        ? `w-full h-full text-black flex-col space-y-4 col-span-2 row-span-4 lg:row-span-full lg:col-span-2 relative md:col-span-2 md:row-span-full  bg-[url('../public/images/heroImg2.jpg')] bg-cover bg-no-repeat`
+                                        : `w-full h-full text-black flex-col space-y-4 relative lg:row-span-full lg:col-span-2 md:col-span-2 md:row-span-full col-span-2 row-span-2 bg-[url('../public/images/heroImg3.jpg')] bg-cover bg-no-repeat`
                                 }
                             >
                                 <div>

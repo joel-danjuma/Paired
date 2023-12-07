@@ -1,131 +1,213 @@
 import Link from "next/link"
 import React from "react"
 import Container from "./container"
+import { GithubIcon } from "./icons"
+import { Divider } from "@nextui-org/react"
 // import Image from "next/image"
 
 export default function Footer() {
     const navigation = ["Product", "Features", "Pricing", "Company", "Blog"]
     const legal = ["Terms", "Privacy", "Legal"]
     return (
-        <div className="relative">
-            <Container>
-                <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 lg:grid-cols-5">
-                    <div className="lg:col-span-2">
-                        <div>
-                            {" "}
-                            <Link href="/">
-                                <div className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
-                                    {/* <span>
-                                        <Image
-                                            src="/img/logo.svg"
-                                            alt="N"
-                                            width="32"
-                                            height="32"
-                                            className="w-8"
-                                        />
-                                    </span> */}
-                                    <span className="orange_gradient bg-clip-text text-transparent">
-                                        Paired
-                                    </span>
+        <footer className="bg-white" aria-labelledby="footer-heading">
+            <h2 id="footer-heading" className="sr-only">
+                Footer
+            </h2>
+            <div className=" py-12 mx-auto max-w-[1440px] px-8">
+                <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+                    <div className="xl:col-span-1">
+                        <a
+                            href="/"
+                            className="text-lg font-bold tracking-tighter transition duration-500 ease-in-out transform text-black tracking-relaxed lg:pr-8"
+                        >
+                            <svg
+                                className="w-5 h-5"
+                                viewBox="0 0 232 232"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M166.524 51.4683L116.367 101.625L65.5235 51.4683L116.367 0.62434L166.524 51.4683ZM231.11 116.054L180.953 166.898L130.796 116.054L180.953 65.8969L231.11 116.054ZM101.939 116.054L51.0948 166.898L0.250934 116.054L51.0948 65.8969L101.939 116.054ZM166.524 181.326L116.367 231.483L65.5235 181.326L116.367 130.482L166.524 181.326Z"
+                                    fill="#0c0c0c"
+                                ></path>
+                            </svg>{" "}
+                        </a>
+                        <p className="w-1/2 mt-2 text-sm text-gray-500">
+                            Unwrapped your mind
+                        </p>
+                    </div>
+                    <div className="grid grid-cols-2 gap-8 mt-12 xl:mt-0 xl:col-span-2">
+                        <div className="md:grid md:grid-cols-2 md:gap-8">
+                            <div>
+                                <h3 className="font-semibold leading-6 uppercase text-black">
+                                    Solutions
+                                </h3>
+                                <ul role="list" className="mt-4 space-y-3">
+                                    <li>
+                                        <a
+                                            href="#_"
+                                            className="text-sm text-gray-500 hover:text-blue-600"
+                                        >
+                                            Marketing
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#_"
+                                            className="text-sm text-gray-500 hover:text-blue-600"
+                                        >
+                                            Analytics
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#_"
+                                            className="text-sm text-gray-500 hover:text-blue-600"
+                                        >
+                                            Commerce
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#_"
+                                            className="text-sm text-gray-500 hover:text-blue-600"
+                                        >
+                                            Insights
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="mt-12 md:mt-0">
+                                <h3 className="font-semibold leading-6 uppercase text-black">
+                                    Support
+                                </h3>
+                                <ul role="list" className="mt-4 space-y-4">
+                                    <li>
+                                        <a
+                                            href="#_"
+                                            className="text-sm text-gray-500 hover:text-blue-600"
+                                        >
+                                            Pricing
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#_"
+                                            className="text-sm text-gray-500 hover:text-blue-600"
+                                        >
+                                            Alpine.js
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#_"
+                                            className="text-sm text-gray-500 hover:text-blue-600"
+                                        >
+                                            Guides
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#_"
+                                            className="text-sm text-gray-500 hover:text-blue-600"
+                                        >
+                                            API Status
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="hidden lg:justify-end md:grid md:grid-cols-1">
+                            <div className="w-full mt-12 md:mt-0">
+                                <div className="mt-8 lg:justify-end xl:mt-0">
+                                    <h3 className="font-semibold leading-6 uppercase text-black">
+                                        Subscribe to our newsletter
+                                    </h3>
+                                    <p className="mt-4 text-sm font-light text-gray-500 lg:ml-auto">
+                                        The latest news, articles, and
+                                        resources, sent to your inbox weekly.
+                                    </p>
+                                    <div className="inline-flex items-center gap-2 mt-12 list-none lg:ml-auto">
+                                        <form
+                                            className="flex flex-col items-center justify-center max-w-sm mx-auto"
+                                            action=""
+                                        >
+                                            <div className="flex flex-col w-full gap-1 mt-3 sm:flex-row">
+                                                <input
+                                                    name="email"
+                                                    type="email"
+                                                    className="block w-full px-4 py-2 text-sm font-medium text-gray-800 placeholder-gray-400 bg-white border border-gray-300 rounded-full font-spline focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600/50 disabled:opacity-50"
+                                                    placeholder="Enter your email..."
+                                                    required=""
+                                                />
+                                                <button
+                                                    type="button"
+                                                    className="items-center inline-flex  justify-center w-full px-6 py-2.5 text-center text-white duration-200 bg-black border-2 border-black rounded-full nline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none lg:w-auto focus-visible:outline-black text-sm focus-visible:ring-black"
+                                                >
+                                                    <div className="relative"></div>
+                                                    Subscribe
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20"
+                                                        fill="currentColor"
+                                                        aria-hidden="true"
+                                                        className="w-4 h-auto ml-2"
+                                                    >
+                                                        <path
+                                                            fillRule="evenodd"
+                                                            d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                                                            clipRule="evenodd"
+                                                        ></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
-                            </Link>
-                        </div>
-
-                        <div className="max-w-md mt-4 dark:text-gray-500 text-gray-400">
-                            Nextly is a free landing page & marketing website
-                            template for startups and indie projects. Its built
-                            with Next.js & TailwindCSS. And its completely
-                            open-source.
-                        </div>
-                    </div>
-
-                    <div>
-                        <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
-                            {navigation.map((item, index) => (
-                                <Link key={index} href="/">
-                                    <div className="w-full px-4 py-2 dark:text-gray-500 rounded-md text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700">
-                                        {item}
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
-                    <div>
-                        <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
-                            {legal.map((item, index) => (
-                                <Link key={index} href="/">
-                                    <div className="w-full px-4 py-2 dark:text-gray-500 rounded-md text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700">
-                                        {item}
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="">
-                        <div>Follow us</div>
-                        <div className="flex mt-5 space-x-5 text-gray-400 dark:text-gray-500">
-                            <a
-                                href="https://twitter.com/web3templates"
-                                target="_blank"
-                                rel="noopener"
-                            >
-                                <span className="sr-only">Twitter</span>
-                                <Twitter />
-                            </a>
-                            <a
-                                href="https://facebook.com/web3templates"
-                                target="_blank"
-                                rel="noopener"
-                            >
-                                <span className="sr-only">Facebook</span>
-                                <Facebook />
-                            </a>
-                            <a
-                                href="https://instagram.com/web3templates"
-                                target="_blank"
-                                rel="noopener"
-                            >
-                                <span className="sr-only">Instagram</span>
-                                <Instagram />
-                            </a>
-                            <a
-                                href="https://linkedin.com/"
-                                target="_blank"
-                                rel="noopener"
-                            >
-                                <span className="sr-only">Linkedin</span>
-                                <Linkedin />
-                            </a>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <Divider className="w-full px-4" />
+            <div className="px-5 py-12 mx-auto max-w-7xl sm:px-6 md:flex md:items-center md:justify-between lg:px-20">
+                <div className="flex justify-center mb-8 space-x-6 md:order-last md:mb-0">
+                    <span className="inline-flex justify-center w-full gap-3 lg:ml-auto md:justify-start md:w-auto">
+                        <a className="w-6 h-6 transition fill-black hover:text-blue-500">
+                            <span className="sr-only"> github</span>
 
-                <div className="my-10 text-sm text-center text-gray-600 dark:text-gray-400">
-                    Copyright © {new Date().getFullYear()}. Made by Biild using{" "}
-                    <a
-                        href="https://web3templates.com/"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        Web3Templates.
-                    </a>{" "}
-                    Illustrations from{" "}
-                    <a
-                        href="https://www.glazestock.com/"
-                        target="_blank"
-                        rel="noopener "
-                    >
-                        Glazestock
-                    </a>{" "}
-                    &{" "}
-                    <a href="https://popsy.co/" target="_blank" rel="noopener ">
-                        Popsy
-                    </a>
+                            <GithubIcon />
+                        </a>
+                        <a className="w-6 h-6 transition fill-black hover:text-blue-500">
+                            <span className="sr-only"> twitter</span>
+                            <Twitter />
+                        </a>
+                        <a className="w-6 h-6 transition fill-black hover:text-blue-500">
+                            <span className="sr-only">Instagram</span>
+
+                            <Instagram />
+                        </a>
+                        <a className="w-6 h-6 transition fill-black hover:text-blue-500">
+                            <span className="sr-only">Linkedin</span>
+                            <Linkedin />
+                        </a>
+                    </span>
                 </div>
-            </Container>
-            {/* Do not remove this */}
-            {/* <Backlink /> */}
-        </div>
+                <div className="mt-8 md:mt-0 md:order-1">
+                    <span className="mt-2 text-sm font-light text-gray-500">
+                        Copyright © 2020 - 2021
+                        <a
+                            href="#_"
+                            className="mx-2 text-wickedblue hover:text-gray-500"
+                            rel="noopener noreferrer"
+                        >
+                            @unwrappedHQ
+                        </a>
+                        . Since 2020
+                    </span>
+                </div>
+            </div>
+        </footer>
     )
 }
 
@@ -175,31 +257,3 @@ const Linkedin = ({ size = 24 }) => (
         <path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0zM7.27 20.1H3.65V9.24h3.62V20.1zM5.47 7.76h-.03c-1.22 0-2-.83-2-1.87 0-1.06.8-1.87 2.05-1.87 1.24 0 2 .8 2.02 1.87 0 1.04-.78 1.87-2.05 1.87zM20.34 20.1h-3.63v-5.8c0-1.45-.52-2.45-1.83-2.45-1 0-1.6.67-1.87 1.32-.1.23-.11.55-.11.88v6.05H9.28s.05-9.82 0-10.84h3.63v1.54a3.6 3.6 0 0 1 3.26-1.8c2.39 0 4.18 1.56 4.18 4.89v6.21z" />
     </svg>
 )
-
-// const Backlink = () => {
-//     return (
-//         <a
-//             href="https://web3templates.com"
-//             target="_blank"
-//             rel="noopener"
-//             className="absolute flex px-3 py-1 space-x-2 text-sm font-semibold text-gray-900 bg-white border border-gray-300 rounded shadow-sm place-items-center left-5 bottom-5 dark:bg-trueGray-900 dark:border-trueGray-700 dark:text-trueGray-300"
-//         >
-//             <svg
-//                 width="20"
-//                 height="20"
-//                 viewBox="0 0 30 30"
-//                 fill="none"
-//                 className="w-4 h-4"
-//                 xmlns="http://www.w3.org/2000/svg"
-//             >
-//                 <rect width="30" height="29.5385" rx="2.76923" fill="#362F78" />
-//                 <path
-//                     d="M10.14 21.94H12.24L15.44 12.18L18.64 21.94H20.74L24.88 8H22.64L19.58 18.68L16.36 8.78H14.52L11.32 18.68L8.24 8H6L10.14 21.94Z"
-//                     fill="#F7FAFC"
-//                 />
-//             </svg>
-
-//             <span>Web3Templates</span>
-//         </a>
-//     )
-// }

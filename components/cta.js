@@ -2,9 +2,9 @@ import { Card } from "@nextui-org/react"
 export default function Cta() {
     return (
         <div className="p-4">
-            <Card className="flex flex-row items-center justify-between max-w-[1440px] gap-5 mx-auto dark:bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-gray-900 dark:text-black text-orange-500 px-7 py-7 lg:px-12 lg:py-12 lg:flex-nowrap rounded-xl">
+            <Card className="flex flex-row items-center justify-between max-w-[1440px] gap-5 light:orange_gradient dark:bg-gray-900 dark:text-white text-black pt-4 lg:flex-nowrap rounded-xl p-8">
                 <div className="flex-grow text-center lg:text-left">
-                    <h2 className="text-2xl font-medium lg:text-3xl">
+                    <h2 className="text-xl font-medium lg:text-3xl">
                         Ready to Find your next Roommate?
                     </h2>
                     <p className="mt-2 font-medium text-opacity-90 lg:text-xl">

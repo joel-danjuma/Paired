@@ -15,6 +15,7 @@ export default function Home() {
             <NewHero />
             <RecentlyAdded />
             <Cta />
+            <Footer />
         </section>
     )
 }

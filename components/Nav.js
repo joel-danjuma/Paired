@@ -41,7 +41,10 @@ const Nav = () => {
     const { session } = useSession()
     return (
         <NextUINavbar maxWidth="full" position="sticky">
-            <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
+            <NavbarContent
+                className="basis-1/5 sm:basis-full relative"
+                justify="start"
+            >
                 <NavbarBrand as="li" className="gap-3 max-w-fit">
                     <NextLink
                         className="flex justify-start items-center gap-1"
@@ -52,7 +55,10 @@ const Nav = () => {
                     </NextLink>
                 </NavbarBrand>
             </NavbarContent>
-            <NavbarContent className="basis-1/5 sm:basis-full" justify="center">
+            <NavbarContent
+                className="basis-1/5 sm:basis-full absolute top-0 right-0 left-0"
+                justify="center"
+            >
                 <ul className="hidden lg:flex gap-4 items-center ml-2">
                     {siteConfig.navItems.map((item) => (
                         <NavbarItem key={item.href}>
@@ -76,21 +82,6 @@ const Nav = () => {
                 justify="end"
             >
                 <NavbarItem className="hidden sm:flex gap-2">
-                    {/* <Link
-                        isExternal
-                        href={siteConfig.links.twitter}
-                        aria-label="Twitter"
-                    >
-                        <TwitterIcon className="text-default-500" />
-                    </Link>
-
-                    <Link
-                        isExternal
-                        href={siteConfig.links.github}
-                        aria-label="Github"
-                    >
-                        <GithubIcon className="text-default-500" />
-                    </Link> */}
                     <ThemeSwitch />
                 </NavbarItem>
 
@@ -98,13 +89,7 @@ const Nav = () => {
                     {session?.user ? (
                         <div className="flex flex-row gap-4 items-center">
                             <SignOutButton>
-                                <Button
-                                    type="button"
-                                    onClick={() => {
-                                        setToggleDropdown(false)
-                                    }}
-                                    className="w-full "
-                                >
+                                <Button type="button" className="w-full ">
                                     Sign Out
                                 </Button>
                             </SignOutButton>
