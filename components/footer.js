@@ -169,8 +169,10 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-            <Divider className="w-full px-4" />
-            <div className="px-5 py-12 mx-auto max-w-7xl sm:px-6 md:flex md:items-center md:justify-between lg:px-20">
+            <div className="w-full flex justify-center">
+                <Divider className="max-w-[1380px]" />
+            </div>
+            <div className="px-4 py-12 w-full sm:px-6 md:flex md:items-center md:justify-between">
                 <div className="flex justify-center mb-8 space-x-6 md:order-last md:mb-0">
                     <span className="inline-flex justify-center w-full gap-3 lg:ml-auto md:justify-start md:w-auto">
                         <a className="w-6 h-6 transition fill-black hover:text-blue-500">
@@ -195,15 +197,15 @@ export default function Footer() {
                 </div>
                 <div className="mt-8 md:mt-0 md:order-1">
                     <span className="mt-2 text-sm font-light text-gray-500">
-                        Copyright © 2020 - 2021
+                        Copyright © 2023
                         <a
                             href="#_"
                             className="mx-2 text-wickedblue hover:text-gray-500"
                             rel="noopener noreferrer"
                         >
-                            @unwrappedHQ
+                            @BiildLtd
                         </a>
-                        . Since 2020
+                        . Since 2022
                     </span>
                 </div>
             </div>

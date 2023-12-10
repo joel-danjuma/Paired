@@ -27,6 +27,16 @@ const nextConfig = {
                 hostname: "img.clerk.com",
                 port: "",
             },
+            {
+                protocol: "https",
+                hostname: "images.unsplash.com",
+                port: "",
+            },
+            {
+                protocol: "https",
+                hostname: "unsplash.com",
+                port: "",
+            },
         ],
         domains: ["lh3.googleusercontent.com"],
     },

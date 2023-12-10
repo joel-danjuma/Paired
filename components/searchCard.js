@@ -1,20 +1,26 @@
 import { Card, CardBody, Input } from "@nextui-org/react"
 import { siteConfig } from "@/config/site"
+import { roomSearch } from "@/actions/roomSearch"
 
 const SearchCard = ({ type }) => {
     return (
         <Card className="max-w-[1000px]  min-w-[240px] h-[100px] container flex items-center justify-center bg-opacity-80 p-0 relative rounded-tl-none ">
-            <CardBody className="flex-row justify-between items-center absolute left-0 right-0 p-4">
+            <CardBody className="flex-row justify-between items-center absolute left-0 right-0 p-4 w-full">
                 {type === "room" ? (
-                    <>
-                        <span>
+                    <
+                        // className="flex flex-row"
+                        // action={async (formData) => {
+                        //     const rooms = await roomSearch(formData)
+                        // }}
+                    >
+                        <span className="w-full">
                             <div className="space-y-1">
                                 <Input
                                     radius="none"
                                     type="text"
                                     label="Location"
                                     variant="underlined"
-                                    labelPlacement="outside"
+                                    labelPlacement="inside"
                                     name="Location"
                                     placeholder="Select Your city"
                                     className="bg-opacity-0 p-0"
@@ -41,27 +47,27 @@ const SearchCard = ({ type }) => {
                             </select> */}
                             </div>
                         </span>
-                        <span>
+                        <span className="w-full">
                             <div className="space-y-1">
                                 <Input
                                     radius="none"
                                     type="text"
                                     label="Property Type"
                                     variant="underlined"
-                                    labelPlacement="outside"
+                                    labelPlacement="inside"
                                     name="PropertyType"
                                     placeholder="Choose Property Type"
                                 />
                             </div>
                         </span>
-                        <span>
+                        <span className="w-full">
                             <div className="space-y-1">
                                 <Input
                                     radius="none"
                                     type="number"
                                     label="Price Range"
                                     variant="underlined"
-                                    labelPlacement="outside"
+                                    labelPlacement="inside"
                                     name="Price"
                                     placeholder="100,000 - 1,000,000"
                                 />
@@ -70,7 +76,7 @@ const SearchCard = ({ type }) => {
                     </>
                 ) : (
                     <>
-                        <span>
+                        <span className="w-full">
                             {/* <div className="space-y-1">
                                 <Input
                                     radius="none"
@@ -104,7 +110,7 @@ const SearchCard = ({ type }) => {
                             </select>
                             {/* </div> */}
                         </span>
-                        <span>
+                        <span className="w-full">
                             <div className="space-y-1">
                                 <Input
                                     radius="none"
@@ -117,7 +123,7 @@ const SearchCard = ({ type }) => {
                                 />
                             </div>
                         </span>
-                        <span>
+                        <span className="w-full">
                             <div className="space-y-1">
                                 <Input
                                     radius="none"
@@ -138,6 +144,7 @@ const SearchCard = ({ type }) => {
                     height="54"
                     viewBox="0 0 54 54"
                     fill="none"
+                    className="w-full px-0"
                 >
                     <rect width="54" height="54" rx="15" fill="#1DAEFF" />
                     <path

@@ -1,12 +1,12 @@
 import { useState } from "react"
-import { Button, ButtonGroup } from "@nextui-org/react"
+import { Button } from "@nextui-org/react"
 import SearchCard from "./searchCard"
 
 const menu = ["Rooms", "Roommates"]
 
-const HeroSeacrh = () => {
-    const [roomIsActive, setRoomIsActive] = useState(true)
-    const [roommateIsActive, setRoommateIsActive] = useState(false)
+const SearchTab = () => {
+    const [roomTabIsActive, setRoomTabIsActive] = useState(true)
+    const [roommateTabIsActive, setRoommateTabIsActive] = useState(false)
 
     return (
         <div className="w-full absolute bottom-8 flex flex-col items-center px-4">
@@ -15,9 +15,9 @@ const HeroSeacrh = () => {
                     className="rounded-b-none rounded-r-none bg-white bg-opacity-80"
                     disableRipple
                     onPress={() => {
-                        setRoommateIsActive(false)
-                        setRoomIsActive(true)
-                        console.log(roomIsActive)
+                        setRoommateTabIsActive(false)
+                        setRoomTabIsActive(true)
+                        console.log(roomTabIsActive)
                     }}
                 >
                     Rooms
@@ -26,18 +26,18 @@ const HeroSeacrh = () => {
                     disableRipple
                     className="rounded-b-none rounded-l-none bg-white bg-opacity-80"
                     onPress={() => {
-                        setRoomIsActive(false)
-                        setRoommateIsActive(true)
-                        console.log(!roommateIsActive)
+                        setRoomTabIsActive(false)
+                        setRoommateTabIsActive(true)
+                        console.log(!roommateTabIsActive)
                     }}
                 >
                     Roommates
                 </Button>
             </div>
-            {roomIsActive && <SearchCard type="room" />}
-            {roommateIsActive && <SearchCard type="roommate" />}
+            {roomTabIsActive && <SearchCard type="room" />}
+            {roommateTabIsActive && <SearchCard type="roommate" />}
         </div>
     )
 }
 
-export default HeroSeacrh
+export default SearchTab

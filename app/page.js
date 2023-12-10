@@ -9,6 +9,7 @@ import Cta from "@/components/cta"
 import Footer from "@/components/footer"
 import RecentlyAdded from "@/components/recentlyAdded"
 // import Nav from "@/components/Nav"
+import Waitlist from "@/components/waitlist"
 export default function Home() {
     return (
         <section>
@@ -16,6 +17,7 @@ export default function Home() {
             <RecentlyAdded />
             <Cta />
             <Footer />
+            {/* <Waitlist /> */}
         </section>
     )
 }

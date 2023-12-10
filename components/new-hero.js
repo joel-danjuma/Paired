@@ -5,7 +5,7 @@ import heroImg1 from "@/public/images/heroImg1.jpg"
 import heroImg2 from "@/public/images/heroImg2.jpg"
 import heroImg3 from "@/public/images/heroImg3.jpg"
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react"
-import HeroSeacrh from "./heroSearch"
+import SearchTab from "./searchTab"
 
 const features = [
     {
@@ -32,7 +32,7 @@ const Hero = () => {
                 <div className={`w-full h-[60%] rounded-xl`}>
                     <Card className="w-full h-full relative">
                         <div className="text-black max-w-[640px] flex justify-center items-start h-full space-y-4 p-2 ">
-                            <h1 className="lg:text-[52px] md:text-[48px] text-[40px] text-start z-10 ">
+                            <h1 className="lg:text-[52px] md:text-[48px] text-[32px] text-start z-10 text-slate-200 ">
                                 Discover Your Perfect Room & Roommate Today
                             </h1>
                         </div>
@@ -46,7 +46,7 @@ const Hero = () => {
                                 fill
                             ></Image>
                         </div>
-                        <HeroSeacrh />
+                        <SearchTab />
                     </Card>
                 </div>
 
