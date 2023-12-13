@@ -6,13 +6,16 @@ export const roomSearch = async (formData) => {
     location = formData.get("location")
     propertyType = formData.get("propertyType")
     price = formData.get("price")
-
-    const rooms = prisma.roomAd.findMany({
-        where: {
-            location,
-            propertyType,
-            price,
-        },
-    })
-    return rooms
+    try {
+        const rooms = await prisma.roomAd.findMany({
+            where: {
+                location,
+                propertyType,
+                price,
+            },
+        })
+        return rooms
+    } catch (error) {
+        console.log(error)
+    }
 }

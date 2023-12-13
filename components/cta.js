@@ -1,7 +1,7 @@
 import { Button, Card } from "@nextui-org/react"
 export default function Cta() {
     return (
-        <div className="p-4">
+        <div className="p-4 pt-8 pb-8">
             <Card className="flex lg:flex-row flex-col items-center justify-between max-w-[1440px] gap-5 light:orange_gradient dark:bg-gray-900 dark:text-white text-black pt-4 lg:flex-nowrap rounded-xl p-8">
                 <div className="w-full text-center lg:text-left">
                     <h2 className="md:text-xl  text-md font-medium lg:text-3xl">

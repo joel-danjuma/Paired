@@ -40,7 +40,7 @@ import {
 const Nav = () => {
     const { session } = useSession()
     return (
-        <NextUINavbar maxWidth="full" position="sticky">
+        <NextUINavbar maxWidth="full" position="sticky" isBordered>
             <NavbarContent
                 className="basis-1/5 sm:basis-full relative"
                 justify="start"

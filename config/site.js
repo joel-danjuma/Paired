@@ -56,6 +56,18 @@ export const siteConfig = {
         // discord: "https://discord.gg/9b6yyZKmH4",
         // sponsor: "https://patreon.com/jrgarciadev",
     },
+    propertyType: [
+        "Flat / Apartment",
+        "House",
+        "Land",
+        "Comercial Property",
+        "Event centre / Venue",
+    ],
+    budget: [
+        100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000,
+        1000000, 2000000, 3000000, 5000000, 10000000, 20000000, 40000000,
+        60000000, 80000000, 100000000,
+    ],
     nigerianStates: [
         "Abia",
         "Adamawa",

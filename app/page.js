@@ -8,6 +8,7 @@ import Testimonials from "@/components/testimonials"
 import Cta from "@/components/cta"
 import Footer from "@/components/footer"
 import RecentlyAdded from "@/components/recentlyAdded"
+
 // import Nav from "@/components/Nav"
 import Waitlist from "@/components/waitlist"
 export default function Home() {

@@ -6,6 +6,7 @@ import heroImg2 from "@/public/images/heroImg2.jpg"
 import heroImg3 from "@/public/images/heroImg3.jpg"
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react"
 import SearchTab from "./searchTab"
+import PageTitle from "./pageTitle"
 
 const features = [
     {
@@ -28,34 +29,27 @@ const features = [
 const Hero = () => {
     return (
         <section>
-            <div className="flex-col h-[100dvh] max-w-[1440px] justify-between p-4 space-y-8">
-                <div className={`w-full h-[60%] rounded-xl`}>
+            <div className="flex-col h-fit max-w-[1440px] justify-between p-4 pb-0 z-0">
+                <div className={`w-full h-[60dvh] rounded-xl`}>
                     <Card className="w-full h-full relative">
-                        <div className="text-black max-w-[640px] flex justify-center items-start h-full space-y-4 p-2 ">
-                            <h1 className="lg:text-[52px] md:text-[48px] text-[32px] text-start z-10 text-slate-200 ">
-                                Discover Your Perfect Room & Roommate Today
-                            </h1>
+                        <div className="px-4 w-full z-10">
+                            <PageTitle>
+                                Discover Your Perfect Room And Roommate Today
+                            </PageTitle>
                         </div>
 
                         <div className="w-full h-full absolute top-0 left-0 right-0 bg-white bg-opacity-70">
                             <Image
                                 src={heroBg}
                                 alt="img"
-                                // width={heroBg.width}
-                                // height={heroBg.height}
+                                className="lg:aspect-video aspect-auto"
                                 fill
                             ></Image>
                         </div>
                         <SearchTab />
                     </Card>
                 </div>
-
-                <div className="w-full items-center flex">
-                    <h2 className="font-bold lg:text-[32px] md:text-[24px] text-[20px]">
-                        Featured Properties
-                    </h2>
-                </div>
-
+                <PageTitle>Featured Properties</PageTitle>
                 <div className="w-full h-[25%] lg:gap-[32px] gap-[16px] grid grid-cols-6 grid-rows-6 grid-flow-row ">
                     {features.map((feature, i) => {
                         return (
@@ -78,13 +72,6 @@ const Hero = () => {
                                             {feature.subtitle}
                                         </p>
                                     </div>
-
-                                    {/* <Image
-                                        className=""
-                                        src={feature.image}
-                                        alt="img"
-                                        fill
-                                    ></Image> */}
                                 </div>
                             </Card>
                         )

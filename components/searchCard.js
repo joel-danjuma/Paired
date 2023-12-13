@@ -1,150 +1,171 @@
-import { Button, Card, CardBody, Input } from "@nextui-org/react"
+import {
+    Button,
+    Card,
+    CardBody,
+    Input,
+    Select,
+    SelectItem,
+} from "@nextui-org/react"
 import { siteConfig } from "@/config/site"
 import { roomSearch } from "@/actions/roomSearch"
-import { SearchIcon2 } from "./icons"
+import SearchButton from "./searchButton"
 
 const SearchCard = ({ type }) => {
     return (
-        <Card className="max-w-[1000px]  min-w-[240px] h-[100px] container flex items-center justify-center bg-opacity-80 p-0 relative rounded-tl-none ">
-            <CardBody className="flex-row justify-between items-center absolute left-0 right-0 p-4 w-full">
-                {type === "room" ? (
-                    <
-                        // className="flex flex-row"
-                        // action={async (formData) => {
-                        //     const rooms = await roomSearch(formData)
-                        // }}
+        <Card className="p-4 bg-opacity-80 h-fit lg:h-[100px]">
+            {type === "room" ? (
+                <form
+                    className="grid grid-flow-row lg:grid-cols-5 lg:grid-rows-2 grid-cols-4 grid-rows-4 gap-2 items-center w-full h-full justify-center "
+                    action={async (formData) => {
+                        const rooms = await roomSearch(formData)
+                        console.log(rooms)
+                    }}
+                >
+                    <Select
+                        radius="sm"
+                        name="location"
+                        label="Select Your City"
+                        placeholder="City"
+                        className="lg:col-span-1 lg:row-span-full col-span-2 row-span-2 "
                     >
-                        <span className="w-full">
-                            <div className="space-y-1">
-                                <Input
-                                    radius="none"
-                                    type="text"
-                                    label="Location"
-                                    variant="underlined"
-                                    labelPlacement="inside"
-                                    name="Location"
-                                    placeholder="Select Your city"
-                                    className="bg-opacity-0 p-0"
-                                />
-                                {/* <label htmlFor="location" className="block">
-                                Select your Location
-                            </label>
+                        {siteConfig.nigerianStates.map((state, i) => {
+                            return (
+                                <SelectItem key={i} value={state.toLowerCase()}>
+                                    {state}
+                                </SelectItem>
+                            )
+                        })}
+                    </Select>
 
-                            <select
-                                name="location"
-                                id="hero-search-location"
-                                className="max-w-[220px]"
-                            >
-                                {siteConfig.nigerianStates.map((state, i) => {
-                                    return (
-                                        <option
-                                            key={i}
-                                            value={state.toLowerCase()}
-                                        >
-                                            {state}
-                                        </option>
-                                    )
-                                })}
-                            </select> */}
-                            </div>
-                        </span>
-                        <span className="w-full">
-                            <div className="space-y-1">
-                                <Input
-                                    radius="none"
-                                    type="text"
-                                    label="Property Type"
-                                    variant="underlined"
-                                    labelPlacement="inside"
-                                    name="PropertyType"
-                                    placeholder="Choose Property Type"
-                                />
-                            </div>
-                        </span>
-                        <span className="w-full">
-                            <div className="space-y-1">
-                                <Input
-                                    radius="none"
-                                    type="number"
-                                    label="Price Range"
-                                    variant="underlined"
-                                    labelPlacement="inside"
-                                    name="Price"
-                                    placeholder="100,000 - 1,000,000"
-                                />
-                            </div>
-                        </span>
-                    </>
-                ) : (
-                    <>
-                        <span className="w-full">
-                            {/* <div className="space-y-1">
-                                <Input
-                                    radius="none"
-                                    type="text"
-                                    label="Location"
-                                    variant="underlined"
-                                    labelPlacement="outside"
-                                    name="Location"
-                                    placeholder="Select Your city"
-                                    className="bg-opacity-0 p-0"
-                                /> */}
-                            <label htmlFor="location" className="block">
-                                Select your Location
-                            </label>
+                    <Select
+                        radius="sm"
+                        name="PropertyType"
+                        label="Property Type"
+                        placeholder="Type"
+                        className="lg:col-span-1 lg:row-span-full col-span-2 row-span-2"
+                    >
+                        {siteConfig.propertyType.map((type, i) => {
+                            return (
+                                <SelectItem key={i} value={type.toLowerCase()}>
+                                    {type}
+                                </SelectItem>
+                            )
+                        })}
+                    </Select>
+                    <Select
+                        radius="sm"
+                        name="minPrice"
+                        label="Min Price"
+                        placeholder="No Min"
+                        className="lg:col-span-1 lg:row-span-2 col-span-2 row-span-2"
+                    >
+                        {siteConfig.budget.map((price, i) => {
+                            return (
+                                <SelectItem key={i} value={price}>
+                                    {`#${price.toString()}`}
+                                </SelectItem>
+                            )
+                        })}
+                    </Select>
+                    <Select
+                        radius="sm"
+                        name="maxPrice"
+                        label="Max Price"
+                        placeholder="No Max"
+                        className="lg:col-span-1 lg:row-span-2 col-span-2 row-span-2"
+                    >
+                        {siteConfig.budget.map((price, i) => {
+                            return (
+                                <SelectItem key={i} value={price}>
+                                    {`#${price.toString()}`}
+                                </SelectItem>
+                            )
+                        })}
+                    </Select>
 
-                            <select
-                                name="location"
-                                id="hero-search-location"
-                                className="max-w-[220px]"
-                            >
-                                {siteConfig.nigerianStates.map((state, i) => {
-                                    return (
-                                        <option
-                                            key={i}
-                                            value={state.toLowerCase()}
-                                        >
-                                            {state}
-                                        </option>
-                                    )
-                                })}
-                            </select>
-                            {/* </div> */}
-                        </span>
-                        <span className="w-full">
-                            <div className="space-y-1">
-                                <Input
-                                    radius="none"
-                                    type="text"
-                                    label="Property Type"
-                                    variant="underlined"
-                                    labelPlacement="outside"
-                                    name="PropertyType"
-                                    placeholder="Choose Property Type"
-                                />
-                            </div>
-                        </span>
-                        <span className="w-full">
-                            <div className="space-y-1">
-                                <Input
-                                    radius="none"
-                                    type="number"
-                                    label="Price Range"
-                                    variant="underlined"
-                                    labelPlacement="outside"
-                                    name="Price"
-                                    placeholder="100,000 - 1,000,000"
-                                />
-                            </div>
-                        </span>
-                    </>
-                )}
-                <SearchIcon2 />
-                {/* <Button>
-                   
-                    <span>Search</span>
-                </Button> */}
-            </CardBody>
+                    <SearchButton
+                        classname={
+                            "lg:col-span-1 lg:row-span-2 col-span-full  row-span-1 "
+                        }
+                    />
+                </form>
+            ) : (
+                <form
+                    className="grid grid-flow-row lg:grid-cols-5 lg:grid-rows-2 grid-cols-4 grid-rows-4 gap-2 items-center w-full h-full justify-center "
+                    // className="flex flex-row"
+                    // action={async (formData) => {
+                    //     const rooms = await roomSearch(formData)
+                    // }}
+                >
+                    <Select
+                        radius="sm"
+                        name="location"
+                        label="Select Your City"
+                        placeholder="City"
+                        className="lg:col-span-1 lg:row-span-full col-span-2 row-span-2 "
+                    >
+                        {siteConfig.nigerianStates.map((state, i) => {
+                            return (
+                                <SelectItem key={i} value={state.toLowerCase()}>
+                                    {state}
+                                </SelectItem>
+                            )
+                        })}
+                    </Select>
+
+                    <Select
+                        radius="sm"
+                        name="PropertyType"
+                        label="Property Type"
+                        placeholder="Type"
+                        className="lg:col-span-1 lg:row-span-full col-span-2 row-span-2"
+                    >
+                        {siteConfig.propertyType.map((type, i) => {
+                            return (
+                                <SelectItem key={i} value={type.toLowerCase()}>
+                                    {type}
+                                </SelectItem>
+                            )
+                        })}
+                    </Select>
+                    <Select
+                        radius="sm"
+                        name="minPrice"
+                        label="Min Price"
+                        placeholder="No Min"
+                        className="lg:col-span-1 lg:row-span-2 col-span-2 row-span-2"
+                    >
+                        {siteConfig.budget.map((price, i) => {
+                            return (
+                                <SelectItem key={i} value={price}>
+                                    {`#${price.toString()}`}
+                                </SelectItem>
+                            )
+                        })}
+                    </Select>
+                    <Select
+                        radius="sm"
+                        name="maxPrice"
+                        label="Max Price"
+                        placeholder="No Max"
+                        className="lg:col-span-1 lg:row-span-2 col-span-2 row-span-2"
+                    >
+                        {siteConfig.budget.map((price, i) => {
+                            return (
+                                <SelectItem key={i} value={price}>
+                                    {`#${price.toString()}`}
+                                </SelectItem>
+                            )
+                        })}
+                    </Select>
+
+                    <SearchButton
+                        classname={
+                            "lg:col-span-1 lg:row-span-2 col-span-full  row-span-1 "
+                        }
+                    />
+                </form>
+            )}
         </Card>
     )
 }

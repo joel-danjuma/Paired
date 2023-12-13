@@ -110,6 +110,10 @@ export const createUser = async (formData) => {
 }
 
 export const getRoomAds = async () => {
-    const ads = await prisma.roomAd.findMany()
-    return ads
+    try {
+        const ads = await prisma.roomAd.findMany()
+        return ads
+    } catch (error) {
+        console.log(`Error : ${error}`)
+    }
 }
