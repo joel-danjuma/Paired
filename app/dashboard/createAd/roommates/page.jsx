@@ -1,5 +1,5 @@
 "use client"
-import RoomAdFormButton from "@/components/dashboard/createAdFormButton"
+import RoomAdFormButton from "@/app/dashboard/ui/createAdFormButton"
 
 const page = () => {
     return (

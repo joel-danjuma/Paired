@@ -1,11 +1,6 @@
 import * as React from "react"
 
-export const Logo = ({
-    size = 36,
-    width,
-    height,
-    ...props
-}) => (
+export const Logo = ({ size = 36, width, height, ...props }) => (
     <svg
         fill="none"
         height={size || height}
@@ -22,12 +17,7 @@ export const Logo = ({
     </svg>
 )
 
-export const DiscordIcon = ({
-    size = 24,
-    width,
-    height,
-    ...props
-}) => {
+export const DiscordIcon = ({ size = 24, width, height, ...props }) => {
     return (
         <svg
             height={size || height}
@@ -43,12 +33,7 @@ export const DiscordIcon = ({
     )
 }
 
-export const TwitterIcon = ({
-    size = 24,
-    width,
-    height,
-    ...props
-}) => {
+export const TwitterIcon = ({ size = 24, width, height, ...props }) => {
     return (
         <svg
             height={size || height}
@@ -64,12 +49,7 @@ export const TwitterIcon = ({
     )
 }
 
-export const GithubIcon = ({
-    size = 24,
-    width,
-    height,
-    ...props
-}) => {
+export const GithubIcon = ({ size = 24, width, height, ...props }) => {
     return (
         <svg
             height={size || height}
@@ -87,12 +67,7 @@ export const GithubIcon = ({
     )
 }
 
-export const MoonFilledIcon = ({
-    size = 24,
-    width,
-    height,
-    ...props
-}) => (
+export const MoonFilledIcon = ({ size = 24, width, height, ...props }) => (
     <svg
         aria-hidden="true"
         focusable="false"
@@ -109,12 +84,7 @@ export const MoonFilledIcon = ({
     </svg>
 )
 
-export const SunFilledIcon = ({
-    size = 24,
-    width,
-    height,
-    ...props
-}) => (
+export const SunFilledIcon = ({ size = 24, width, height, ...props }) => (
     <svg
         aria-hidden="true"
         focusable="false"
@@ -131,12 +101,7 @@ export const SunFilledIcon = ({
     </svg>
 )
 
-export const HeartFilledIcon = ({
-    size = 24,
-    width,
-    height,
-    ...props
-}) => (
+export const HeartFilledIcon = ({ size = 24, width, height, ...props }) => (
     <svg
         aria-hidden="true"
         focusable="false"
@@ -183,6 +148,35 @@ export const SearchIcon = (props) => (
         />
     </svg>
 )
+
+export const SearchIcon2 = (props) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54"
+            height="54"
+            viewBox="0 0 54 54"
+            fill="none"
+            className="w-full px-0"
+        >
+            <rect width="54" height="54" rx="15" fill="#1DAEFF" />
+            <path
+                d="M26.3684 34.2632C30.7286 34.2632 34.2632 30.7286 34.2632 26.3684C34.2632 22.0083 30.7286 18.4737 26.3684 18.4737C22.0083 18.4737 18.4737 22.0083 18.4737 26.3684C18.4737 30.7286 22.0083 34.2632 26.3684 34.2632Z"
+                stroke="white"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M36.2369 36.2369L31.9441 31.9441"
+                stroke="white"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    )
+}
 
 export const NextUILogo = (props) => {
     const { width, height = 40 } = props

@@ -1,21 +1,29 @@
 "use client"
-import Nav from "@/components/nav"
-import Navbar from "@/components/dashboard/navbar"
-import Sidebar from "@/components/dashboard/sidebar"
+import Sidebar from "./ui/sidebar"
+import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/nextjs"
 
 export default function DashboardLayout({ children }) {
     return (
-        <section className="w-full fixed top-0 flex flex-col lg:flex-row">
-            <div className="hidden lg:block w-[15%] relative">
-                <Sidebar />
-            </div>
-            <div className="w-full lg:w-[85%] relative h-[100dvh]">
-                {/* <Nav /> */}
-                {/* <Navbar /> */}
-                <main className="w-full h-full overflow-auto glassmorphism p-4">
-                    {children}
-                </main>
-            </div>
+        <section className="w-full h-full fixed top-16 glassmorphism">
+            <SignedIn>
+                <div className="flex h-screen overflow-hidden bg-white">
+                    <Sidebar />
+                    <div className="flex flex-col flex-1 w-0 overflow-hidden">
+                        <main className="relative flex-1 overflow-y-auto focus:outline-none">
+                            <div className="p-1">
+                                <div className="py-4">
+                                    <div className="h-screen border border-gray-200 border-dashed rounded-lg">
+                                        {children}
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            </SignedIn>
+            <SignedOut afters>
+                <RedirectToSignIn />
+            </SignedOut>
         </section>
     )
 }

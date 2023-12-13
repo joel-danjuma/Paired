@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 export const generateMetadata = () => {
     return {
         title: "Find Your Perfect Roommate with Paired",
@@ -7,13 +9,7 @@ export const generateMetadata = () => {
 }
 
 const Dashboard = () => {
-    return (
-        <section className="w-full">
-            <div className="w-full min-h-screen">Welcome to Dashboard</div>
-            <div className="w-full min-h-screen">Welcome to Dashboard</div>
-            <div className="w-full min-h-screen">Welcome to Dashboard</div>
-        </section>
-    )
+    return <></>
 }
 
 export default Dashboard

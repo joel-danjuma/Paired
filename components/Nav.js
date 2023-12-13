@@ -10,7 +10,7 @@ import {
 } from "@nextui-org/navbar"
 import { Button } from "@nextui-org/button"
 import { Kbd } from "@nextui-org/kbd"
-import { Link } from "@nextui-org/link"
+import Link from "next/link"
 import { Input } from "@nextui-org/input"
 
 import { link as linkStyles } from "@nextui-org/theme"
@@ -50,8 +50,8 @@ const Nav = () => {
                         className="flex justify-start items-center gap-1"
                         href="/"
                     >
-                        {/* <Logo /> */}
-                        <p className="font-bold text-inherit">Paired</p>
+                        Paired
+                        {/* <p className="font-bold text-inherit">Paired</p> */}
                     </NextLink>
                 </NavbarBrand>
             </NavbarContent>
@@ -88,6 +88,12 @@ const Nav = () => {
                 <NavbarItem className="hidden md:flex lg:flex lg:flex-row">
                     {session?.user ? (
                         <div className="flex flex-row gap-4 items-center">
+                            <Button
+                                className="dark:text-black text-white dark:bg-white bg-black w-full"
+                                type="button"
+                            >
+                                <Link href="/dashboard">Dashboard</Link>
+                            </Button>
                             <SignOutButton>
                                 <Button type="button" className="w-full ">
                                     Sign Out
@@ -108,10 +114,7 @@ const Nav = () => {
                 </NavbarItem>
             </NavbarContent>
 
-            <NavbarContent
-                className="flex md:hidden sm:hidden basis-1 pl-4"
-                justify="end"
-            >
+            <NavbarContent className="flex sm:hidden md:hidden" justify="end">
                 <ThemeSwitch />
                 <NavbarMenuToggle />
             </NavbarContent>
