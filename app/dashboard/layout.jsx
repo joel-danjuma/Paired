@@ -10,7 +10,7 @@ export default function DashboardLayout({ children }) {
                     <Sidebar />
                     <div className="flex flex-col flex-1 w-0 overflow-hidden">
                         <main className="relative flex-1 overflow-y-auto focus:outline-none">
-                            <div className="p-1">
+                            <div className="p-4">
                                 <div className="py-4">
                                     <div className="h-screen border border-gray-200 border-dashed rounded-lg">
                                         {children}

@@ -9,8 +9,11 @@ import {
 import { siteConfig } from "@/config/site"
 import { roomSearch } from "@/actions/roomSearch"
 import SearchButton from "./searchButton"
+import { useState } from "react"
 
 const SearchCard = ({ type }) => {
+    const [location, setLocation] = useState("")
+    const [propertyType, setPropertyType] = useState("")
     return (
         <Card className="p-4 bg-opacity-80 h-fit lg:h-[100px]">
             {type === "room" ? (

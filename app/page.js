@@ -5,6 +5,7 @@ import ListSection from "@/components/list-section"
 import Video from "@/components/video"
 import SectionTitle from "@/components/section-title"
 import Testimonials from "@/components/testimonials"
+import Nav from "@/components/nav"
 import Cta from "@/components/cta"
 import Footer from "@/components/footer"
 import RecentlyAdded from "@/components/recentlyAdded"
@@ -14,11 +15,12 @@ import Waitlist from "@/components/waitlist"
 export default function Home() {
     return (
         <section>
-            <NewHero />
-            <RecentlyAdded />
-            <Cta />
-            <Footer />
-            {/* <Waitlist /> */}
+            {/* <Nav /> */}
+            {/* <NewHero /> */}
+            {/* <RecentlyAdded /> */}
+            {/* <Cta /> */}
+            {/* <Footer /> */}
+            <Waitlist />
         </section>
     )
 }

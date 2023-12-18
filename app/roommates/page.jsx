@@ -1,9 +1,5 @@
-import React from 'react'
-
 const RoommatesAdpage = () => {
-  return (
-    <div>page</div>
-  )
+    return <></>
 }
 
-export default RoommatesAdpage 
+export default RoommatesAdpage
