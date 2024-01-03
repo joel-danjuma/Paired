@@ -121,6 +121,7 @@ const Nav = () => {
 
             <NavbarMenu>
                 <div className="mx-4 mt-2 flex flex-col gap-2">
+                    {/* Add session for mobile once navnbar menu toggle button problem is resolved. mobile users shoudld also see their user profile button beside the theme switch button */}
                     {siteConfig.navMenuItems.map((item, index) => (
                         <NavbarMenuItem key={`${item}-${index}`}>
                             <Link
