@@ -59,7 +59,7 @@ const SearchCard = ({ type }) => {
                         radius="sm"
                         name="minPrice"
                         label="Min Price"
-                        placeholder="No Min"
+                        placeholder="Min"
                         className="lg:col-span-1 lg:row-span-2 col-span-2 row-span-2"
                     >
                         {siteConfig.budget.map((price, i) => {
@@ -74,7 +74,7 @@ const SearchCard = ({ type }) => {
                         radius="sm"
                         name="maxPrice"
                         label="Max Price"
-                        placeholder="No Max"
+                        placeholder="Max"
                         className="lg:col-span-1 lg:row-span-2 col-span-2 row-span-2"
                     >
                         {siteConfig.budget.map((price, i) => {

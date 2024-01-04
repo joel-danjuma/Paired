@@ -1,4 +1,5 @@
-"use client"
+"use server"
+import { UserButton, currentUser } from "@clerk/nextjs"
 import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/react"
 import { Divider } from "@nextui-org/react"
 
@@ -27,8 +28,9 @@ const menuItems = [
 ]
 
 const Sidebar = () => {
+    const user = currentUser()
     return (
-        <div className="md:flex md:flex-shrink-0 h-[92%]">
+        <div className="md:flex md:flex-shrink-0 h-[92vh]">
             <div className="flex flex-col w-64">
                 <div className="flex flex-col flex-grow pt-5 overflow-y-auto bg-white border-r">
                     <div className="flex flex-col flex-shrink-0 px-4">
@@ -62,12 +64,6 @@ const Sidebar = () => {
                                         className="inline-flex items-center w-full px-4 py-2 mt-1 text-sm text-gray-500 transition duration-200 ease-in-out transform border-l-4 border-transparent focus:shadow-outline hover:border-blue-500 hover:scale-95 hover:text-blue-500"
                                         href="#"
                                     >
-                                        {/* <ion-icon
-                                        className="w-4 h-4 md hydrated"
-                                        name="aperture-outline"
-                                        role="img"
-                                        aria-label="aperture outline"
-                                    ></ion-icon> */}
                                         <span className="ml-4">Dashboard</span>
                                     </a>
                                 </li>
@@ -76,12 +72,6 @@ const Sidebar = () => {
                                         className="inline-flex items-center w-full px-4 py-2 mt-1 text-sm text-gray-500 transition duration-200 ease-in-out transform border-l-4 border-transparent focus:shadow-outline hover:border-blue-500 hover:scale-95 hover:text-blue-500"
                                         href="#"
                                     >
-                                        {/* <ion-icon
-                                        className="w-4 h-4 md hydrated"
-                                        name="trending-up-outline"
-                                        role="img"
-                                        aria-label="trending up outline"
-                                    ></ion-icon> */}
                                         <span className="ml-4">
                                             Performance
                                         </span>
@@ -97,12 +87,6 @@ const Sidebar = () => {
                                         className="inline-flex items-center w-full px-4 py-2 mt-1 text-sm text-gray-500 transition duration-200 ease-in-out transform border-l-4 border-transparent focus:shadow-outline hover:border-blue-500 hover:scale-95 hover:text-blue-500"
                                         href="#"
                                     >
-                                        {/* <ion-icon
-                                        className="w-4 h-4 md hydrated"
-                                        name="newspaper-outline"
-                                        role="img"
-                                        aria-label="newspaper outline"
-                                    ></ion-icon> */}
                                         <span className="ml-4">Guides</span>
                                     </a>
                                 </li>
@@ -111,12 +95,6 @@ const Sidebar = () => {
                                         className="inline-flex items-center w-full px-4 py-2 mt-1 text-sm text-gray-500 transition duration-200 ease-in-out transform border-l-4 border-transparent focus:shadow-outline hover:border-blue-500 hover:scale-95 hover:text-blue-500"
                                         href="#"
                                     >
-                                        {/* <ion-icon
-                                        className="w-4 h-4 md hydrated"
-                                        name="sync-outline"
-                                        role="img"
-                                        aria-label="sync outline"
-                                    ></ion-icon> */}
                                         <span className="ml-4">Hotspots</span>
                                         <span className="inline-flex ml-auto items-center rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-500">
                                             25
@@ -128,12 +106,6 @@ const Sidebar = () => {
                                         className="inline-flex items-center w-full px-4 py-2 mt-1 text-sm text-gray-500 transition duration-200 ease-in-out transform border-l-4 border-transparent focus:shadow-outline hover:border-blue-500 hover:scale-95 hover:text-blue-500"
                                         href="#"
                                     >
-                                        {/* <ion-icon
-                                        className="w-4 h-4 md hydrated"
-                                        name="shield-checkmark-outline"
-                                        role="img"
-                                        aria-label="shield checkmark outline"
-                                    ></ion-icon> */}
                                         <span className="ml-4">Checklist</span>
                                     </a>
                                 </li>
@@ -142,12 +114,6 @@ const Sidebar = () => {
                                         className="inline-flex items-center w-full px-4 py-2 mt-1 text-sm text-gray-500 transition duration-200 ease-in-out transform border-l-4 border-transparent focus:shadow-outline hover:border-blue-500 hover:scale-95 hover:text-blue-500"
                                         href="#"
                                     >
-                                        {/* <ion-icon
-                                        className="w-4 h-4 md hydrated"
-                                        name="thumbs-up-outline"
-                                        role="img"
-                                        aria-label="thumbs up outline"
-                                    ></ion-icon> */}
                                         <span className="ml-4">TLD</span>
                                     </a>
                                 </li>
@@ -167,9 +133,11 @@ const Sidebar = () => {
                                                 alt=""
                                             /> */}
                                             </div>
+                                            {/* <UserButton /> */}
                                             <div className="ml-3 text-left">
                                                 <p className="text-sm font-medium text-gray-500 group-hover:text-blue-500">
                                                     Mike Vega
+                                                    {/* {user?.firstName} */}
                                                 </p>
                                                 <p className="text-xs font-medium text-gray-500 group-hover:text-blue-500">
                                                     Pro user
@@ -191,44 +159,6 @@ const Sidebar = () => {
                                     ></path>
                                 </svg>
                             </button>
-                            <div className="absolute bottom-0 z-50 w-full mx-auto mt-2 origin-bottom-right bg-white rounded-xl">
-                                <div className="px-2 py-2 bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                                    <ul>
-                                        <li>
-                                            <a
-                                                className="inline-flex items-center w-full px-4 py-2 mt-1 text-sm text-gray-500 transition duration-200 ease-in-out transform border-l-4 border-transparent focus:shadow-outline hover:border-blue-500 hover:scale-95 hover:text-blue-500"
-                                                href="#"
-                                            >
-                                                {/* <ion-icon
-                                                className="w-4 h-4 md hydrated"
-                                                name="body-outline"
-                                                role="img"
-                                                aria-label="body outline"
-                                            ></ion-icon> */}
-                                                <span className="ml-4">
-                                                    Account
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                className="inline-flex items-center w-full px-4 py-2 mt-1 text-sm text-gray-500 transition duration-200 ease-in-out transform border-l-4 border-transparent focus:shadow-outline hover:border-blue-500 hover:scale-95 hover:text-blue-500"
-                                                href="#"
-                                            >
-                                                {/* <ion-icon
-                                                className="w-4 h-4 md hydrated"
-                                                name="person-circle-outline"
-                                                role="img"
-                                                aria-label="person circle outline"
-                                            ></ion-icon> */}
-                                                <span className="ml-4">
-                                                    Profile
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
