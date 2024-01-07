@@ -1,5 +1,5 @@
-"use server"
-import { UserButton, currentUser } from "@clerk/nextjs"
+"use client"
+import { useUser, UserButton } from "@clerk/nextjs"
 import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/react"
 import { Divider } from "@nextui-org/react"
 
@@ -28,9 +28,9 @@ const menuItems = [
 ]
 
 const Sidebar = () => {
-    const user = currentUser()
+    const { user } = useUser()
     return (
-        <div className="md:flex md:flex-shrink-0 h-[92vh]">
+        <div className="md:flex lg:flex md:flex-shrink-0 h-[92vh] hidden ">
             <div className="flex flex-col w-64">
                 <div className="flex flex-col flex-grow pt-5 overflow-y-auto bg-white border-r">
                     <div className="flex flex-col flex-shrink-0 px-4">
@@ -56,30 +56,30 @@ const Sidebar = () => {
                     <div className="flex flex-col flex-grow mt-5">
                         <nav className="flex-1 space-y-1 bg-white">
                             <p className="px-4 pt-4 text-xs font-semibold text-gray-400 uppercase">
-                                Analytics
+                                Create Ads
                             </p>
                             <ul>
                                 <li>
                                     <a
                                         className="inline-flex items-center w-full px-4 py-2 mt-1 text-sm text-gray-500 transition duration-200 ease-in-out transform border-l-4 border-transparent focus:shadow-outline hover:border-blue-500 hover:scale-95 hover:text-blue-500"
-                                        href="#"
+                                        href={`/dashboard/createAd/rooms`}
                                     >
-                                        <span className="ml-4">Dashboard</span>
+                                        <span className="ml-4">Room Ad</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a
                                         className="inline-flex items-center w-full px-4 py-2 mt-1 text-sm text-gray-500 transition duration-200 ease-in-out transform border-l-4 border-transparent focus:shadow-outline hover:border-blue-500 hover:scale-95 hover:text-blue-500"
-                                        href="#"
+                                        href={`/dashboard/createAd/roommates`}
                                     >
                                         <span className="ml-4">
-                                            Performance
+                                            Roommate Ad
                                         </span>
                                     </a>
                                 </li>
                             </ul>
                             <p className="px-4 pt-4 text-xs font-semibold text-gray-400 uppercase">
-                                Content
+                                Profile
                             </p>
                             <ul>
                                 <li>
@@ -87,15 +87,7 @@ const Sidebar = () => {
                                         className="inline-flex items-center w-full px-4 py-2 mt-1 text-sm text-gray-500 transition duration-200 ease-in-out transform border-l-4 border-transparent focus:shadow-outline hover:border-blue-500 hover:scale-95 hover:text-blue-500"
                                         href="#"
                                     >
-                                        <span className="ml-4">Guides</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        className="inline-flex items-center w-full px-4 py-2 mt-1 text-sm text-gray-500 transition duration-200 ease-in-out transform border-l-4 border-transparent focus:shadow-outline hover:border-blue-500 hover:scale-95 hover:text-blue-500"
-                                        href="#"
-                                    >
-                                        <span className="ml-4">Hotspots</span>
+                                        <span className="ml-4">Messages</span>
                                         <span className="inline-flex ml-auto items-center rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-500">
                                             25
                                         </span>
@@ -136,8 +128,9 @@ const Sidebar = () => {
                                             {/* <UserButton /> */}
                                             <div className="ml-3 text-left">
                                                 <p className="text-sm font-medium text-gray-500 group-hover:text-blue-500">
-                                                    Mike Vega
-                                                    {/* {user?.firstName} */}
+                                                    {user?.firstName.toUpperCase()}{" "}
+                                                    {""}
+                                                    {user?.lastName.toUpperCase()}
                                                 </p>
                                                 <p className="text-xs font-medium text-gray-500 group-hover:text-blue-500">
                                                     Pro user
@@ -146,6 +139,7 @@ const Sidebar = () => {
                                         </div>
                                     </span>
                                 </span>
+
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="inline w-5 h-5 ml-4 text-black transition-transform duration-200 transform rotate-0"

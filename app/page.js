@@ -15,12 +15,12 @@ import Waitlist from "@/components/waitlist"
 export default function Home() {
     return (
         <section>
-            <Nav />
+            {/* <Nav />
             <NewHero />
             <RecentlyAdded />
             <Cta />
-            <Footer />
-            {/* <Waitlist /> */}
+            <Footer /> */}
+            <Waitlist />
         </section>
     )
 }

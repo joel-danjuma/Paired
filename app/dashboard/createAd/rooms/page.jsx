@@ -3,7 +3,7 @@ import RoomAdFormButton from "@/app/dashboard/ui/createAdFormButton"
 import { createRoomAd } from "@/actions/actions"
 const page = () => {
     return (
-        <section className="h-full p-4">
+        <section className="h-full">
             <form
                 action={async (formData) => {
                     const roomAd = await createRoomAd(formData)

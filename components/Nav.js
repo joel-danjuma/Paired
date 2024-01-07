@@ -50,8 +50,8 @@ const Nav = () => {
                         className="flex justify-start items-center gap-1"
                         href="/"
                     >
-                        Paired
-                        {/* <p className="font-bold text-inherit">Paired</p> */}
+                        {/* Paired */}
+                        <p className="font-bold text-inherit">Paired</p>
                     </Link>
                 </NavbarItem>
             </NavbarContent>
@@ -114,7 +114,10 @@ const Nav = () => {
                 </NavbarItem>
             </NavbarContent>
 
-            <NavbarContent className="flex sm:hidden md:hidden" justify="end">
+            <NavbarContent
+                className="flex sm:hidden md:hidden basis-1 pl-4"
+                justify="end"
+            >
                 <ThemeSwitch />
             </NavbarContent>
             <NavbarMenuToggle />

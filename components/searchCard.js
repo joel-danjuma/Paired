@@ -4,6 +4,7 @@ import {
     CardBody,
     Input,
     Select,
+    SelectSection,
     SelectItem,
 } from "@nextui-org/react"
 import { siteConfig } from "@/config/site"
@@ -31,13 +32,18 @@ const SearchCard = ({ type }) => {
                         placeholder="City"
                         className="lg:col-span-1 lg:row-span-full col-span-2 row-span-2 "
                     >
-                        {siteConfig.nigerianStates.map((state, i) => {
-                            return (
-                                <SelectItem key={i} value={state.toLowerCase()}>
-                                    {state}
-                                </SelectItem>
-                            )
-                        })}
+                        <SelectSection>
+                            {siteConfig.nigerianStates.map((state, i) => {
+                                return (
+                                    <SelectItem
+                                        key={i}
+                                        value={state.toLowerCase()}
+                                    >
+                                        {state}
+                                    </SelectItem>
+                                )
+                            })}
+                        </SelectSection>
                     </Select>
 
                     <Select
@@ -47,44 +53,53 @@ const SearchCard = ({ type }) => {
                         placeholder="Type"
                         className="lg:col-span-1 lg:row-span-full col-span-2 row-span-2"
                     >
-                        {siteConfig.propertyType.map((type, i) => {
-                            return (
-                                <SelectItem key={i} value={type.toLowerCase()}>
-                                    {type}
-                                </SelectItem>
-                            )
-                        })}
+                        <SelectSection>
+                            {siteConfig.propertyType.map((type, i) => {
+                                return (
+                                    <SelectItem
+                                        key={i}
+                                        value={type.toLowerCase()}
+                                    >
+                                        {type}
+                                    </SelectItem>
+                                )
+                            })}
+                        </SelectSection>
                     </Select>
                     <Select
                         radius="sm"
-                        name="minPrice"
+                        name="price"
                         label="Min Price"
                         placeholder="Min"
                         className="lg:col-span-1 lg:row-span-2 col-span-2 row-span-2"
                     >
-                        {siteConfig.budget.map((price, i) => {
-                            return (
-                                <SelectItem key={i} value={price}>
-                                    {`#${price.toString()}`}
-                                </SelectItem>
-                            )
-                        })}
+                        <SelectSection>
+                            {siteConfig.budget.map((price, i) => {
+                                return (
+                                    <SelectItem key={i} value={price}>
+                                        {`#${price.toString()}`}
+                                    </SelectItem>
+                                )
+                            })}
+                        </SelectSection>
                     </Select>
-                    <Select
+                    {/* <Select
                         radius="sm"
                         name="maxPrice"
                         label="Max Price"
                         placeholder="Max"
                         className="lg:col-span-1 lg:row-span-2 col-span-2 row-span-2"
                     >
-                        {siteConfig.budget.map((price, i) => {
-                            return (
-                                <SelectItem key={i} value={price}>
-                                    {`#${price.toString()}`}
-                                </SelectItem>
-                            )
-                        })}
-                    </Select>
+                        <SelectSection>
+                            {siteConfig.budget.map((price, i) => {
+                                return (
+                                    <SelectItem key={i} value={price}>
+                                        {`#${price.toString()}`}
+                                    </SelectItem>
+                                )
+                            })}
+                        </SelectSection>
+                    </Select> */}
 
                     <SearchButton
                         classname={
