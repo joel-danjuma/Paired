@@ -1,84 +1,54 @@
-import Image from "next/image"
-import Nav from "./nav"
+// export const metadata = {
+//     title: "Paired",
+//     description: "Find the perfect room and roommate for you. ",
+// }
+
+const feautures = [
+    {
+        title: "Smart Matching Algorithm",
+        description:
+            "Our advanced algorithm intelligently matches room seekers with compatible roommates and ideal living spaces based on preferences, interests, and lifestyle, ensuring a harmonious living experience.",
+    },
+    {
+        title: "Customized Profiles",
+        description:
+            "Description: Create detailed profiles to showcase your personality, lifestyle, and preferences. Find the perfect roommate or room that aligns with your specific needs and interests.",
+    },
+    {
+        title: "Verified Listings",
+        description:
+            "Rest assured with our vetted listings and verified users. All rooms and potential roommates undergo a verification process, guaranteeing a safe and trustworthy environment for your search.",
+    },
+    {
+        title: "Seamless Communication",
+        description:
+            " Engage in hassle-free communication through our in-app messaging feature. Connect with potential roommates or landlords effortlessly to discuss details and arrange viewings.",
+    },
+    {
+        title: "Neighborhood Insights",
+        description:
+            "Explore detailed neighborhood insights and information about the surroundings of listed rooms. Make informed decisions by understanding local amenities, transportation, and community ratings.",
+    },
+
+    {
+        title: "Intuitive Interface",
+        description:
+            " Experience a user-friendly platform designed for easy navigation. Our sleek and intuitive interface simplifies your search, making finding a roommate or room a smooth process.",
+    },
+]
+
+const benefits = [
+    { title: "", description: "" },
+    { title: "", description: "" },
+    { title: "", description: "" },
+]
 
 const Waitlist = () => {
     return (
-        // <section className="relative flex items-center w-full bg-white md:h-screen">
-        //     <div className="relative items-center w-full px-5 py-24 mx-auto lg:px-16 lg:py-36 max-w-7xl md:px-12">
-        //         <div className="relative flex-col items-start m-auto align-middle">
-        //             <div className="grid grid-cols-1 gap-6 lg:gap-24 lg:grid-cols-2">
-        //                 <div className="relative items-center gap-12 m-auto lg:inline-flex">
-        //                     <div className="max-w-xl text-center lg:text-left">
-        //                         <div>
-        //                             <div>
-        //                                 <span className="inline-flex items-center text-3xl font-semibold tracking-tighter text-black">
-        //                                     <span className="ml-2">Paired</span>
-        //                                 </span>
-        //                             </div>
-        //                             <div className="py-6"></div>
-        //                             <span className="w-auto px-4 py-2 mt-10 rounded-full bg-teal-500/10">
-        //                                 <span className="text-xs text-teal-500">
-        //                                     Instantly transform your home -
-        //                                     Coming soon
-        //                                 </span>
-        //                             </span>
-        //                             <p className="mt-8 text-4xl font-semibold tracking-tighter lg:text-6xl text-slate-900">
-        //                                 Interior design. In your pocket
-        //                             </p>
-        //                             <p className="max-w-xl mt-4 text-lg tracking-tight lg:text-xl text-slate-500">
-        //                                 Forget trying to imagine what a style
-        //                                 would look like in your home - see what
-        //                                 could be, instantly.
-        //                             </p>
-        //                         </div>
-        //                         <div className="flex items-center justify-center w-full pt-8 mx-auto lg:justify-start md:pt-6">
-        //                             <form>
-        //                                 <div className="w-full p-2 rounded-xl md:rounded-full bg-teal-500/10 sm:flex sm:items-center sm:relative">
-        //                                     <div className="min-w-0 shrink w-60">
-        //                                         <input
-        //                                             aria-label="Email address"
-        //                                             autoComplete="email"
-        //                                             className="block w-full p-3 text-black bg-transparent border border-transparent appearance-none rounded-xl focus:border-blue-500 focus:outline-none focus:ring-blue-500 placeholder:text-gray-400 sm:text-sm"
-        //                                             placeholder="Email address"
-        //                                             required=""
-        //                                             type="email"
-        //                                         />
-        //                                     </div>
-        //                                     <button
-        //                                         className="relative inline-flex justify-center flex-none w-full px-6 py-3 ml-1 overflow-hidden text-sm font-medium text-white transition-colors bg-teal-500 rounded-xl md:rounded-full active:before:bg-transparent active:bg-blue-600 active:text-white/80 before:absolute before:inset-0 before:transition-colors hover:before:bg-white/10 md:w-auto outline-2 outline-offset-2"
-        //                                         type="submit"
-        //                                     >
-        //                                         <span className="inline">
-        //                                             Join the waitlist
-        //                                         </span>
-        //                                     </button>
-        //                                 </div>
-        //                                 <p className="mt-3 text-slate-500">
-        //                                     Get notified when we launch!
-        //                                 </p>
-        //                             </form>
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //                 <div className="block w-full p-8 mt-12 bg-slate-200 lg:mt-0 rounded-3xl">
-        //                     <Image
-        //                         alt="hero"
-        //                         className="object-cover object-center w-full h-full mx-auto lg:ml-auto rounded-2xl"
-        //                         src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80"
-        //                         // fill
-        //                         width={48}
-        //                         height={48}
-        //                     />
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     </div>
-        // </section>
         <>
             <section>
-                <Nav />
                 <div className="h-full px-8 py-24 mx-auto lg:py-28 md:px-12 lg:px-28 max-w-7xl">
-                    <div className="text-center">
+                    <div className="text-center gap-2">
                         <p className="text-4xl font-semibold leading-relaxed tracking-tighter text-gray-800 lg:text-7xl">
                             Find Your Perfect Match with Paired, <br />
                             <span className="text-blue-500 lg:block">
@@ -101,7 +71,7 @@ const Waitlist = () => {
                             </a>
                             <a
                                 className="flex items-center justify-center w-full h-10 px-4 py-2 text-sm text-blue-500 transition-all bg-white border border-gray-300 rounded-lg md:w-auto md:font-semibold hover:text-blue-400"
-                                href="#_"
+                                href="#cta"
                             >
                                 Get Paired →
                             </a>
@@ -110,130 +80,43 @@ const Waitlist = () => {
                 </div>
             </section>
             <section className="scroll-mt-24" id="features">
-                <div className="h-full px-8 py-8 mx-auto md:px-12 lg:px-24 max-w-7xl">
+                <div className="h-full px-8 py-4 mx-auto md:px-12 lg:px-24 max-w-7xl">
                     <div className="text-center">
                         <h2 className="text-4xl font-semibold tracking-tighter text-gray-900">
                             Discover Paired.
                         </h2>
                     </div>
                     <div className="grid gap-4 mt-12 md:grid-cols-3">
-                        <div className="flex flex-col gap-4 p-8 rounded-xl bg-gray-50">
-                            <div className="flex items-center justify-center w-12 h-12 font-semibold text-white bg-blue-500 rounded-full">
-                                1
-                            </div>
-                            <div>
-                                <p className="font-medium text-gray-900">
-                                    Rule of Attribution
-                                </p>
-                                <p className="mt-2 text-sm text-gray-500">
-                                    You must give appropriate credit to the
-                                    original creator of the work. This typically
-                                    includes providing the name of the author or
-                                    licensor, a link to the original work, and
-                                    indicating if changes were made.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-4 p-8 rounded-xl bg-gray-50">
-                            <div className="flex items-center justify-center w-12 h-12 font-semibold text-white bg-blue-500 rounded-full">
-                                2
-                            </div>
-                            <div>
-                                <div className="font-medium text-gray-900">
-                                    No additional restrictions
+                        {feautures.map((feature, i) => (
+                            <div
+                                key={i}
+                                className="flex flex-col gap-4 p-8 rounded-xl bg-gray-50"
+                            >
+                                <div className="flex items-center justify-center w-12 h-12 font-semibold text-white bg-blue-500 rounded-full">
+                                    {i + 1}
                                 </div>
-                                <p className="mt-2 text-sm text-gray-500">
-                                    You may not impose any additional legal
-                                    terms or technological measures on the work
-                                    that restrict the freedoms granted by the CC
-                                    BY 3.0 License. This means you cant add
-                                    extra conditions or restrictions beyond what
-                                    the license allows.
-                                </p>
+                                <div>
+                                    <p className="font-medium text-gray-900">
+                                        {feature.title}
+                                    </p>
+                                    <p className="mt-2 text-sm text-gray-500">
+                                        {feature.description}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="flex flex-col gap-4 p-8 rounded-xl bg-gray-50">
-                            <div className="flex items-center justify-center w-12 h-12 font-semibold text-white bg-blue-500 rounded-full">
-                                3
-                            </div>
-                            <div>
-                                <p className="font-medium text-gray-900">
-                                    Share alike (SA) absence
-                                </p>
-                                <p className="mt-2 text-sm text-gray-500">
-                                    The CC BY 3.0 License does not include a
-                                    Share Alike (SA) provision. Unlike some
-                                    other Creative Commons licenses, it does not
-                                    require you to license any derivative works
-                                    under the same terms. You can create
-                                    adaptations or derivatives and license them
-                                    differently if you choose.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-4 p-8 rounded-xl bg-gray-50">
-                            <div className="flex items-center justify-center w-12 h-12 font-semibold text-white bg-blue-500 rounded-full">
-                                4
-                            </div>
-                            <div>
-                                <p className="font-medium text-gray-900">
-                                    Commercial use allowed
-                                </p>
-                                <p className="mt-2 text-sm text-gray-500">
-                                    You are allowed to use the licensed work for
-                                    both non-commercial and commercial purposes.
-                                    There are no restrictions on using CC BY 3.0
-                                    licensed content for commercial gain.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-4 p-8 rounded-xl bg-gray-50">
-                            <div className="flex items-center justify-center w-12 h-12 font-semibold text-white bg-blue-500 rounded-full">
-                                5
-                            </div>
-                            <div>
-                                <p className="font-medium text-gray-900">
-                                    Modification Freedom
-                                </p>
-                                <p className="mt-2 text-sm text-gray-500">
-                                    You can adapt, remix, transform, and build
-                                    upon the licensed work. However, you must
-                                    still give proper attribution to the
-                                    original creator and make it clear if you
-                                    have made any modifications.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-4 p-8 rounded-xl bg-gray-50">
-                            <div className="flex items-center justify-center w-12 h-12 font-semibold text-white bg-blue-500 rounded-full">
-                                6
-                            </div>
-                            <div>
-                                <p className="font-medium text-gray-900">
-                                    No warranty disclaimer
-                                </p>
-                                <p className="mt-2 text-sm text-gray-500">
-                                    The license comes with no warranties. The
-                                    licensor provides the work as is, and users
-                                    must use it at their own risk.
-                                </p>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </section>
             <section>
                 <div className="h-full px-8 py-24 mx-auto md:px-12 lg:px-32 max-w-7xl">
-                    {/* <div>
-                        <Image/>
-                    </div> */}
                     <div className="max-w-xl mx-auto">
                         <div>
                             <h2 className="text-4xl font-semibold tracking-tighter text-gray-900">
-                                A quicker way for awareness.
+                                A quicker way to connect to renters.
                             </h2>
                             <p className="mt-4 text-base text-gray-500">
-                                Reasons why Saasify exists.
+                                Reasons why we do what we do.
                             </p>
                         </div>
                         <div className="flex flex-col gap-8 mt-12">
@@ -277,9 +160,9 @@ const Waitlist = () => {
                     </div>
                 </div>
             </section>
-            <section>
-                <div className="h-full px-8 py-24 mx-auto md:px-12 lg:px-32 max-w-7xl">
-                    <div className="p-8 text-center border lg:p-20 bg-gray-50 rounded-xl">
+            <section id="cta">
+                <div className="h-full px-10 py-24 mx-auto  max-w-7xl">
+                    <div className="p-8 text-center border lg:p-20 bg-gray-50 rounded-xl w-full">
                         <p className="text-4xl font-semibold tracking-tighter text-gray-900 lg:text-7xl">
                             We are about{" "}
                             <span className="md:block">to launch soon</span>
@@ -324,7 +207,7 @@ const Waitlist = () => {
                         <div className="text-black">
                             <div className="inline-flex items-center gap-3">
                                 <p className="text-2xl font-bold uppercase">
-                                    Saasify
+                                    Paired
                                 </p>
                             </div>
                             <p className="mt-2 text-sm text-gray-500 lg:w-4/5">
