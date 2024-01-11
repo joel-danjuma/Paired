@@ -1,7 +1,9 @@
-// export const metadata = {
+// export const generateMetadata = {
 //     title: "Paired",
 //     description: "Find the perfect room and roommate for you. ",
 // }
+import cube from "@/public/images/cube.svg"
+import Image from "next/image"
 
 const feautures = [
     {
@@ -48,7 +50,14 @@ const Waitlist = () => {
         <>
             <section>
                 <div className="h-full px-8 py-24 mx-auto lg:py-28 md:px-12 lg:px-28 max-w-7xl">
-                    <div className="text-center gap-2">
+                    <div className="text-center gap-2 relative">
+                        {/* <Image
+                            src={cube}
+                            height={50}
+                            width={50}
+                            alt="img"
+                            className="absolute grid place-items-center"
+                        /> */}
                         <p className="text-4xl font-semibold leading-relaxed tracking-tighter text-gray-800 lg:text-7xl">
                             Find Your Perfect Match with Paired, <br />
                             <span className="text-blue-500 lg:block">
