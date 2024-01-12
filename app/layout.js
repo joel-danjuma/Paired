@@ -6,7 +6,7 @@ import { ClerkProvider } from "@clerk/nextjs"
 import { siteConfig } from "@/config/site"
 
 export const metadata = {
-    metadataBase: new URL("https://biild.vercel.app"),
+    metadataBase: new URL("http://localhost:3000/"),
     alternates: {
         canonical: "/",
         languages: {

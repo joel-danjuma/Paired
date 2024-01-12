@@ -1,9 +1,13 @@
-// export const generateMetadata = {
-//     title: "Paired",
-//     description: "Find the perfect room and roommate for you. ",
-// }
 import cube from "@/public/images/cube.svg"
 import Image from "next/image"
+import Navbar from "@/app/dashboard/ui/navbar"
+import Nav from "./nav"
+
+export const Metadata = {
+    title: "Paired: Find Compatible Roommates and Shared Flats - Roommate Search Service",
+    description:
+        "Discover ideal living spaces with Paired, the roommate and shared flats search service. Create profiles, explore roommate and room ads, and connect with compatible matches for a harmonious living experience.",
+}
 
 const feautures = [
     {
@@ -40,16 +44,30 @@ const feautures = [
 ]
 
 const benefits = [
-    { title: "", description: "" },
-    { title: "", description: "" },
-    { title: "", description: "" },
+    {
+        title: "Effortless Roommate Matching",
+        description:
+            "Paired simplifies the process of finding compatible roommates, ensuring a stress-free experience in your shared living space. Create a profile, and let our smart algorithms connect you with the perfect match.",
+    },
+    {
+        title: "Tailored Room and Flat Searches",
+        description:
+            "Enjoy personalized searches for your ideal living space. Paired allows you to filter through roommate and room ads based on your preferences, making it easy to discover shared flats that match your lifestyle and requirements.",
+    },
+    {
+        title: "Seamless Connection with Matches",
+        description:
+            "Connect with potential roommates effortlessly using Paired. Our platform facilitates smooth communication, making it convenient for users to establish connections with compatible matches and embark on a harmonious shared living journey.",
+    },
 ]
 
 const Waitlist = () => {
     return (
         <>
-            <section>
-                <div className="h-full px-8 py-24 mx-auto lg:py-28 md:px-12 lg:px-28 max-w-7xl">
+            {/* <Navbar /> */}
+            {/* <Nav /> */}
+            <section className="w-full h-full flex justify-center">
+                <div className="h-full lg:p-10 p-8 max-w-7xl ">
                     <div className="text-center gap-2 relative">
                         {/* <Image
                             src={cube}
@@ -58,13 +76,13 @@ const Waitlist = () => {
                             alt="img"
                             className="absolute grid place-items-center"
                         /> */}
-                        <p className="text-4xl font-semibold leading-relaxed tracking-tighter text-gray-800 lg:text-7xl">
+                        <p className="text-4xl font-semibold leading-10 tracking-tighter text-gray-800 lg:text-7xl">
                             Find Your Perfect Match with Paired, <br />
                             <span className="text-blue-500 lg:block">
                                 Your Ultimate Roommate and Room Search Companion
                             </span>
                         </p>
-                        <p className="mt-4 text-base text-gray-500">
+                        <p className="mt-4 text-base text-gray-500 ">
                             Discover Harmony in Shared Living Spaces <br />
                             <span className="lg:block">
                                 {" "}
@@ -118,7 +136,7 @@ const Waitlist = () => {
                 </div>
             </section>
             <section>
-                <div className="h-full px-8 py-24 mx-auto md:px-12 lg:px-32 max-w-7xl">
+                <div className="h-full px-8 py-24 mx-auto md:px-12 lg:px-24 max-w-7xl">
                     <div className="max-w-xl mx-auto">
                         <div>
                             <h2 className="text-4xl font-semibold tracking-tighter text-gray-900">
@@ -129,42 +147,16 @@ const Waitlist = () => {
                             </p>
                         </div>
                         <div className="flex flex-col gap-8 mt-12">
-                            <div>
-                                <p className="font-medium text-gray-900">
-                                    ⏤ Building exceptional products requires
-                                    collaboration
-                                </p>
-                                <p className="mt-2 text-sm text-gray-500">
-                                    Achieving excellence in software development
-                                    necessitates a collaborative effort, and
-                                    Sassify unites your team to refine the
-                                    actual product delivered to users.
-                                </p>
-                            </div>
-                            <div>
-                                <p className="font-medium text-gray-900">
-                                    ⏤ Streamline iteration, minimize meetings
-                                </p>
-                                <p className="mt-2 text-sm text-gray-500">
-                                    Sassify streamlines the iterative process
-                                    for SaaS creators and stakeholders, reducing
-                                    the dependency on prolonged meetings and
-                                    extensive review cycles.
-                                </p>
-                            </div>
-                            <div>
-                                <p className="font-medium text-gray-900">
-                                    ⏤ Seamlessly integrated with contemporary
-                                    development practices
-                                </p>
-                                <p className="mt-2 text-sm text-gray-500">
-                                    Sassify seamlessly integrates with the
-                                    contemporary development workflow
-                                    characterized by ephemeral environments and
-                                    rapid iteration cycles, enhancing your
-                                    development efficiency.
-                                </p>
-                            </div>
+                            {benefits.map((benefit, i) => (
+                                <div key={i}>
+                                    <p className="font-medium text-gray-900">
+                                        {benefit.title}
+                                    </p>
+                                    <p className="mt-2 text-sm text-gray-500">
+                                        {benefit.description}
+                                    </p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -182,7 +174,7 @@ const Waitlist = () => {
                             <span className="md:block">
                                 Join the waitlist and get notified once we
                                 launch! <br />
-                                Paired.
+                                Get Paired.
                             </span>
                         </p>
                         <form className="max-w-sm mx-auto mt-8" action="">
@@ -220,8 +212,9 @@ const Waitlist = () => {
                                 </p>
                             </div>
                             <p className="mt-2 text-sm text-gray-500 lg:w-4/5">
-                                Windstatic, basic and sturdy themes under the
-                                creative commons license.
+                                Discover Your Perfect Match and Ideal Living
+                                Space with Paired <br />
+                                Where Harmony Meets Home.
                             </p>
                         </div>
                         <div className="grid grid-cols-2 gap-8 mt-12 lg:grid-cols-3 lg:mt-0 xl:col-span-2">
@@ -250,7 +243,7 @@ const Waitlist = () => {
                                             href="https://twitter.com/lexingtonthemes"
                                             className="text-sm text-gray-500 hover:text-black"
                                         >
-                                            @lexingtonthemes
+                                            @getPaired
                                         </a>
                                     </li>
                                     <li>
@@ -258,7 +251,7 @@ const Waitlist = () => {
                                             href="https://twitter.com/Mike_Andreuzza"
                                             className="text-sm text-gray-500 hover:text-black"
                                         >
-                                            @Mike_Andreuzza
+                                            @Paired_Co
                                         </a>
                                     </li>
                                 </ul>
