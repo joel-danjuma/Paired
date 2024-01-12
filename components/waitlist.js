@@ -1,7 +1,7 @@
-import cube from "@/public/images/cube.svg"
-import Image from "next/image"
-import Navbar from "@/app/dashboard/ui/navbar"
-import Nav from "./nav"
+// import cube from "@/public/images/cube.svg"
+// import Image from "next/image"
+// import Navbar from "@/app/dashboard/ui/navbar"
+// import Nav from "./nav"
 
 export const Metadata = {
     title: "Paired: Find Compatible Roommates and Shared Flats - Roommate Search Service",
