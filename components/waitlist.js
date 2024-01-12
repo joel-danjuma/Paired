@@ -18,7 +18,7 @@ const feautures = [
     {
         title: "Customized Profiles",
         description:
-            "Description: Create detailed profiles to showcase your personality, lifestyle, and preferences. Find the perfect roommate or room that aligns with your specific needs and interests.",
+            "Description: Created detailed profiles to showcase your personality, lifestyle, and preferences. Find the perfect roommate or room that aligns with your specific needs and interests.",
     },
     {
         title: "Verified Listings",
