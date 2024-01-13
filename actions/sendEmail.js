@@ -1,20 +1,21 @@
 "use server"
 
 export const sendEmail = async (formData) => {
-    const name = formData.get("name")
-    const senderEmail = formData.get("email")
-    const message = formData.get("message")
+    const userEmail = formData.get("email")
 
-    const email = {
-        name,
-        email: senderEmail,
-        message,
-    }
+    const emails = [
+        {
+            userEmail,
+        },
+        {
+            pairedEmail: "Leojjad@gmail.com",
+        },
+    ]
 
     try {
         await fetch(`${process.env.URL}/api/send`, {
             method: "POST",
-            body: JSON.stringify(email),
+            body: JSON.stringify(emails),
             headers: {
                 "Content-Type": "application/json",
             },
