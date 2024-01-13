@@ -1,5 +1,4 @@
 "use client"
-import Nav from "@/components/nav"
 import Sidebar from "./ui/sidebar"
 import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/nextjs"
 
@@ -30,7 +29,6 @@ export default function DashboardLayout({ children }) {
         <section>
             <SignedIn>
                 <div className="w-full h-full fixed top-0">
-                    <Nav />
                     <div className="flex h-full bg-white ">
                         <Sidebar />
                         <div className="flex flex-col flex-1 w-0 h-full">

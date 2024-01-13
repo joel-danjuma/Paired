@@ -1,16 +1,16 @@
 import prisma from "@/lib/db"
 import { NextResponse } from "next/server"
-import { get_all_users } from "@/utils/crud"
+// import { get_all_users } from "@/utils/crud"
 
-export async function GET() {
-    try {
-        const response = await get_all_users()
-        return NextResponse.json(response, { status: 200 })
-    } catch (error) {
-        console.log(error)
-        return NextResponse({ message: error }, { status: 500 })
-    }
-}
+// export async function GET() {
+//     try {
+//         const response = await get_all_users()
+//         return NextResponse.json(response, { status: 200 })
+//     } catch (error) {
+//         console.log(error)
+//         return NextResponse({ message: error }, { status: 500 })
+//     }
+// }
 
 export async function DELETE(request) {
     try {
