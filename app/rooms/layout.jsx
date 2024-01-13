@@ -1,9 +1,9 @@
-import Nav from "@/components/nav"
+// import Nav from "@/components/nav"
 
 const layout = ({ children }) => {
     return (
         <>
-            <Nav />
+            {/* <Nav /> */}
             <main>{children}</main>
         </>
     )
