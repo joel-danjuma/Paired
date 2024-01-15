@@ -2,7 +2,7 @@
 import { NextRequest } from "next/server"
 import { Resend } from "resend"
 
-const resend = new Resend("re_f4APUMi9_69FbNnFCYhY3mZk4ebrB8PBV")
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(req: NextRequest) {
     const body = await req.json()
@@ -26,7 +26,6 @@ export async function POST(req: NextRequest) {
             //     react: EmailTemplate({ name, message }),
             // },
         )
-        console.log(data)
         return Response.json(data)
     } catch (error) {
         return Response.json({ error })

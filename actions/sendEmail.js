@@ -1,4 +1,5 @@
 "use server"
+
 export const sendEmail = async (formData) => {
     const userEmail = formData.get("email")
 
@@ -20,6 +21,6 @@ export const sendEmail = async (formData) => {
             },
         })
     } catch (error) {
-        return { error }
+        return JSON.stringify(error)
     }
 }
