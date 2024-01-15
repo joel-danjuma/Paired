@@ -3,11 +3,14 @@
 // import Navbar from "@/app/dashboard/ui/navbar"
 // import Nav from "./nav"
 
-export const Metadata = {
-    title: "Paired: Find Compatible Roommates and Shared Flats - Roommate Search Service",
-    description:
-        "Discover ideal living spaces with Paired, the roommate and shared flats search service. Create profiles, explore roommate and room ads, and connect with compatible matches for a harmonious living experience.",
-}
+import { sendEmail } from "../actions/sendEmail"
+import FormButton from "./waitlistFormButton"
+
+// export const Metadata = {
+//     title: "Paired: Find Compatible Roommates and Shared Flats - Roommate Search Service",
+//     description:
+//         "Discover ideal living spaces with Paired, the roommate and shared flats search service. Create profiles, explore roommate and room ads, and connect with compatible matches for a harmonious living experience.",
+// }
 
 const feautures = [
     {
@@ -67,8 +70,8 @@ const Waitlist = () => {
             {/* <Navbar /> */}
             {/* <Nav /> */}
             <section className="w-full h-full flex justify-center">
-                <div className="h-full lg:p-10 p-8 max-w-7xl ">
-                    <div className="text-center gap-2 relative">
+                <div className="h-full px-8 py-24 mx-auto md:px-12 lg:px-24 max-w-7xl ">
+                    <div className="text-center space-y-4">
                         {/* <Image
                             src={cube}
                             height={50}
@@ -82,7 +85,8 @@ const Waitlist = () => {
                                 Your Ultimate Roommate and Room Search Companion
                             </span>
                         </p>
-                        <p className="mt-4 text-base text-gray-500 ">
+
+                        <p className="mt-4 text-base leading-10 text-gray-500 ">
                             Discover Harmony in Shared Living Spaces <br />
                             <span className="lg:block">
                                 {" "}
@@ -177,7 +181,12 @@ const Waitlist = () => {
                                 Get Paired.
                             </span>
                         </p>
-                        <form className="max-w-sm mx-auto mt-8" action="">
+                        <form
+                            className="max-w-sm mx-auto mt-8"
+                            action={async (formData) => {
+                                await sendEmail(formData)
+                            }}
+                        >
                             <div className="flex flex-col gap-2 lg:flex-row">
                                 <label className="sr-only" for="email-address">
                                     Email address
@@ -191,12 +200,7 @@ const Waitlist = () => {
                                     required=""
                                     type="email"
                                 ></input>
-                                <button
-                                    className="flex items-center justify-center h-10 px-4 py-2 text-sm font-semibold text-white transition-all bg-blue-500 rounded-lg shrink-0 hover:bg-blue-600"
-                                    type="submit"
-                                >
-                                    Join the waitlist
-                                </button>
+                                <FormButton />
                             </div>
                         </form>
                     </div>

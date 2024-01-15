@@ -3,7 +3,7 @@ import "./globals.css"
 // import Nav from "@/components/nav"
 import { Providers } from "./providers"
 // import { ClerkProvider } from "@clerk/nextjs"
-import { siteConfig } from "@/config/site"
+import { siteConfig } from "../config/site"
 
 export const metadata = {
     metadataBase: new URL("http://localhost:3000/"),

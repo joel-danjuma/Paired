@@ -1,5 +1,4 @@
 "use server"
-
 export const sendEmail = async (formData) => {
     const userEmail = formData.get("email")
 

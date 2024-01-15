@@ -10,6 +10,7 @@ export default authMiddleware({
         "/api/rooms",
         "/api/users",
         "/api/roommates",
+        "/api/send",
         "/api/users/64e341303e339de8e24d1914",
         "/rooms",
         "/dashboard",

@@ -9,7 +9,7 @@
 // import Cta from "@/components/cta"
 // import Footer from "@/components/footer"
 // import RecentlyAdded from "@/components/recentlyAdded"
-import Waitlist from "@/components/waitlist"
+import Waitlist from "../components/waitlist"
 
 // import Nav from "@/components/Nav"
 
