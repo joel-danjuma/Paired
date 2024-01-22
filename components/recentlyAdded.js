@@ -1,5 +1,5 @@
 import { Button, Card, CardBody } from "@nextui-org/react"
-import img from "@/public/images/heroImg1.jpg"
+import img from "../public/images/heroImg1.jpg"
 import Image from "next/image"
 import PageTitle from "./pageTitle"
 

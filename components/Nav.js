@@ -11,17 +11,9 @@ import {
 import { Button } from "@nextui-org/button"
 import Link from "next/link"
 import { link as linkStyles } from "@nextui-org/theme"
-import { siteConfig } from "@/config/site"
+import { siteConfig } from "../config/site"
 import clsx from "clsx"
-import { ThemeSwitch } from "@/components/theme-switch"
-// import {
-//     TwitterIcon,
-//     GithubIcon,
-//     DiscordIcon,
-//     HeartFilledIcon,
-//     SearchIcon,
-// } from "@/components/icons"
-// import { Logo } from "@/components/icons"
+import { ThemeSwitch } from "./theme-switch"
 import {
     useSession,
     SignInButton,
@@ -29,6 +21,8 @@ import {
     UserButton,
     RedirectToUserProfile,
 } from "@clerk/clerk-react"
+import Image from "next/image"
+import logo from "../public/images/paired-4.png"
 
 const Nav = () => {
     const { session } = useSession()
@@ -43,6 +37,7 @@ const Nav = () => {
                         className="flex justify-start items-center gap-1"
                         href="/"
                     >
+                        <Image src={logo} alt="logo" width={40} height={40} />
                         {/* Paired */}
                         <p className="font-bold text-inherit">Paired</p>
                     </Link>

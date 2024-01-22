@@ -1,6 +1,6 @@
 "use client"
 import { Button, Spinner } from "@nextui-org/react"
-import { experimental_useFormStatus as useFormStatus } from "react-dom"
+import { useFormStatus } from "react-dom"
 
 const SearchButton = ({ classname }) => {
     const { pending } = useFormStatus()

@@ -1,9 +1,10 @@
 import Link from "next/link"
 import React from "react"
-import Container from "./container"
+
 import { GithubIcon } from "./icons"
 import { Divider } from "@nextui-org/react"
-// import Image from "next/image"
+import Image from "next/image"
+import logo from "../public/images/paired-3.png"
 
 export default function Footer() {
     const navigation = ["Product", "Features", "Pricing", "Company", "Blog"]
@@ -20,7 +21,7 @@ export default function Footer() {
                             href="/"
                             className="text-lg font-bold tracking-tighter transition duration-500 ease-in-out transform text-black tracking-relaxed lg:pr-8"
                         >
-                            <svg
+                            {/* <svg
                                 className="w-5 h-5"
                                 viewBox="0 0 232 232"
                                 fill="none"
@@ -30,7 +31,13 @@ export default function Footer() {
                                     d="M166.524 51.4683L116.367 101.625L65.5235 51.4683L116.367 0.62434L166.524 51.4683ZM231.11 116.054L180.953 166.898L130.796 116.054L180.953 65.8969L231.11 116.054ZM101.939 116.054L51.0948 166.898L0.250934 116.054L51.0948 65.8969L101.939 116.054ZM166.524 181.326L116.367 231.483L65.5235 181.326L116.367 130.482L166.524 181.326Z"
                                     fill="#0c0c0c"
                                 ></path>
-                            </svg>{" "}
+                            </svg>{" "} */}
+                            <Image
+                                src={logo}
+                                alt="logo"
+                                width={32}
+                                height={32}
+                            ></Image>
                         </a>
                         <p className="w-1/2 mt-2 text-sm text-gray-500">
                             Unwrapped your mind

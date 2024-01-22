@@ -55,7 +55,7 @@ export default function RootLayout({ children }) {
         //     }}
         // >
         <html lang="en">
-            <body className="cursor-circle">
+            <body>
                 <Providers>
                     {/* <div className="main">
                             <div className="gradient" />

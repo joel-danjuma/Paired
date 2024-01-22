@@ -16,9 +16,6 @@ const nextConfig = {
         ],
         domains: ["lh3.googleusercontent.com"],
     },
-    // images: {
-    //     domains: ["unsplash.com", "lh3.googleusercontent.com", "img.clerk.com"],
-    // },
 
     images: {
         remotePatterns: [
@@ -38,7 +35,6 @@ const nextConfig = {
                 port: "",
             },
         ],
-        domains: ["lh3.googleusercontent.com"],
     },
     webpack(config) {
         config.experiments = {

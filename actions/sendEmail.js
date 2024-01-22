@@ -1,5 +1,3 @@
-"use server"
-
 export const sendEmail = async (formData) => {
     const userEmail = formData.get("email")
 
@@ -13,7 +11,7 @@ export const sendEmail = async (formData) => {
     ]
 
     try {
-        await fetch(`${process.env.URL}/api/send`, {
+        await fetch(`${process.env.NEXTAUTH_URL}/api/send`, {
             method: "POST",
             body: JSON.stringify(emails),
             headers: {

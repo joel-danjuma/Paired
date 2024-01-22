@@ -7,12 +7,9 @@ import { useTheme } from "next-themes"
 import { useIsSSR } from "@react-aria/ssr"
 import clsx from "clsx"
 
-import { SunFilledIcon, MoonFilledIcon } from "@/components/icons"
+import { SunFilledIcon, MoonFilledIcon } from "../components/icons"
 
-export const ThemeSwitch = ({
-    className,
-    classNames,
-}) => {
+export const ThemeSwitch = ({ className, classNames }) => {
     const { theme, setTheme } = useTheme()
     const isSSR = useIsSSR()
 
