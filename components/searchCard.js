@@ -151,7 +151,7 @@ const SearchCard = ({ type }) => {
                         {siteConfig.budget.map((price, i) => {
                             return (
                                 <SelectItem key={i} value={price}>
-                                    {`₦${price.toString()}`}
+                                    {`₦${price.toLocaleString()}`}
                                 </SelectItem>
                             )
                         })}
@@ -166,7 +166,7 @@ const SearchCard = ({ type }) => {
                         {siteConfig.budget.map((price, i) => {
                             return (
                                 <SelectItem key={i} value={price}>
-                                    {`₦${price.toString()}`}
+                                    {`₦${price.toLocaleString()}`}
                                 </SelectItem>
                             )
                         })}
