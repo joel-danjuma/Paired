@@ -54,7 +54,7 @@ export default function RootLayout({ children }) {
         //         },
         //     }}
         // >
-        <html lang="en">
+        <html lang="en" className="light">
             <body>
                 <Providers>
                     {/* <div className="main">
