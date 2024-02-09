@@ -14,34 +14,50 @@ import { link as linkStyles } from "@nextui-org/theme"
 import { siteConfig } from "../config/site"
 import clsx from "clsx"
 import { ThemeSwitch } from "./theme-switch"
-import {
-    useSession,
-    SignInButton,
-    SignOutButton,
-    UserButton,
-    RedirectToUserProfile,
-} from "@clerk/clerk-react"
+// import {
+//     useSession,
+//     SignInButton,
+//     SignOutButton,
+//     UserButton,
+//     RedirectToUserProfile,
+// } from "@clerk/clerk-react"
 import Image from "next/image"
-import logo from "../public/images/pairedLogo2.png"
+import logo from "../public/images/pairedLogo.png"
+import logo2 from "../public/images/pairedLogo2.png"
 
 const Nav = () => {
-    const { session } = useSession()
+    // const { session } = useSession()
     return (
         <NextUINavbar maxWidth="full" position="sticky" isBordered>
             <NavbarContent
                 className="basis-1/5 sm:basis-full relative"
                 justify="start"
             >
-                <NavbarItem className="gap-3 max-w-fit">
+                {/* <NavbarItem className="gap-3 max-w-fit">
                     <Link
                         className="flex justify-start items-center gap-1"
                         href="/"
                     >
                         <Image src={logo} alt="logo" width={40} height={40} />
-                        {/* Paired */}
-                        <p className="font-bold text-inherit">Paired</p>
+              
                     </Link>
-                </NavbarItem>
+                </NavbarItem> */}
+                <NavbarBrand as="li">
+                    <Link className="flex justify-start items-center" href="/">
+                        <Image
+                            src={logo}
+                            alt="logo"
+                            width={40}
+                            className="lg:hidden flex"
+                        ></Image>
+                        <Image
+                            src={logo2}
+                            alt="logo"
+                            width={80}
+                            className="lg:flex hidden"
+                        ></Image>
+                    </Link>
+                </NavbarBrand>
             </NavbarContent>
             <NavbarContent
                 className="basis-1/5 sm:basis-full absolute top-0 right-0 left-0"
@@ -72,7 +88,7 @@ const Nav = () => {
                 <NavbarItem className="hidden sm:flex gap-2">
                     <ThemeSwitch />
                 </NavbarItem>
-
+                {/* 
                 <NavbarItem className="hidden md:flex lg:flex lg:flex-row">
                     {session?.user ? (
                         <div className="flex flex-row gap-4 items-center">
@@ -99,7 +115,7 @@ const Nav = () => {
                             </Button>
                         </SignInButton>
                     )}
-                </NavbarItem>
+                </NavbarItem> */}
             </NavbarContent>
 
             <NavbarContent
