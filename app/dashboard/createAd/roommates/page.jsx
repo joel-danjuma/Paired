@@ -1,11 +1,11 @@
 "use client"
-import RoomAdFormButton from "@/app/dashboard/ui/createAdFormButton"
+import RoomAdFormButton from "../../ui/createAdFormButton"
 
 const page = () => {
     return (
-        <div className="h-full overflow-scroll">
+        <section className="h-full pb-20">
             <form>
-                <div className="mt-4 space-y-6">
+                <div className="mt-4 space-y-4">
                     <div>
                         <label className="block mb-3 text-sm font-medium text-gray-600">
                             Ad Title
@@ -109,12 +109,12 @@ const page = () => {
                             ></textarea>
                         </div>
                     </div>
+                    <div className="col-span-full">
+                        <RoomAdFormButton />
+                    </div>
                 </div>
             </form>
-            <div className="col-span-full">
-                <RoomAdFormButton />
-            </div>
-        </div>
+        </section>
     )
 }
 

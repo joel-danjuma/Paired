@@ -4,7 +4,7 @@ import React from "react"
 import { GithubIcon } from "./icons"
 import { Divider } from "@nextui-org/react"
 import Image from "next/image"
-import logo from "../public/images/paired-3.png"
+import logo from "../public/images/pairedLogo.png"
 
 export default function Footer() {
     const navigation = ["Product", "Features", "Pricing", "Company", "Blog"]

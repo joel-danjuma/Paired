@@ -1,18 +1,15 @@
 "use client"
-import RoomAdFormButton from "@/app/dashboard/ui/createAdFormButton"
-import { createRoomAd } from "@/actions/actions"
+import RoomAdFormButton from "../../ui/createAdFormButton"
+import { createRoomAd } from "../../../../actions/actions"
 const page = () => {
     return (
-        <section className="h-full">
+        <section className="h-full pb-20">
             <form
                 action={async (formData) => {
                     const roomAd = await createRoomAd(formData)
                     console.log("Created Room ad")
                 }}
             >
-                {/* <input autoComplete="false" name="hidden" className="hidden" />
-                <input name="_redirect" type="hidden" value="#" /> */}
-
                 <div className="mt-4 space-y-4">
                     <div>
                         <label className="block mb-3 text-sm font-medium text-gray-600">

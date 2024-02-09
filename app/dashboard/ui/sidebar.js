@@ -28,7 +28,7 @@ const menuItems = [
 ]
 
 const Sidebar = () => {
-    const { user } = useUser()
+    // const { user } = useUser()
     return (
         <div className="md:flex lg:flex md:flex-shrink-0 h-[92vh] hidden ">
             <div className="flex flex-col w-64">
@@ -127,11 +127,11 @@ const Sidebar = () => {
                                             </div>
                                             {/* <UserButton /> */}
                                             <div className="ml-3 text-left">
-                                                <p className="text-sm font-medium text-gray-500 group-hover:text-blue-500">
+                                                {/* <p className="text-sm font-medium text-gray-500 group-hover:text-blue-500">
                                                     {user?.firstName.toUpperCase()}{" "}
                                                     {""}
                                                     {user?.lastName.toUpperCase()}
-                                                </p>
+                                                </p> */}
                                                 <p className="text-xs font-medium text-gray-500 group-hover:text-blue-500">
                                                     Pro user
                                                 </p>

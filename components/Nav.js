@@ -22,7 +22,7 @@ import {
     RedirectToUserProfile,
 } from "@clerk/clerk-react"
 import Image from "next/image"
-import logo from "../public/images/paired-4.png"
+import logo from "../public/images/pairedLogo2.png"
 
 const Nav = () => {
     const { session } = useSession()

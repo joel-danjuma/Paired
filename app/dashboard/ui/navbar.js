@@ -1,11 +1,11 @@
 "use client"
+import React from "react"
 import Link from "next/link"
 import Image from "next/image"
 import NextLink from "next/link"
-import { Kbd } from "@nextui-org/kbd"
-// import { FiMenu } from "react-icons/fi";
-import { Input } from "@nextui-org/input"
-import { siteConfig } from "@/config/site"
+import logo from "../../../public/images/pairedLogo.png"
+import logo2 from "../../../public/images/pairedLogo2.png"
+import { siteConfig } from "../../../config/site"
 
 // import { SignInButton, SignedIn, UserButton, useSession } from "@clerk/nextjs";
 import {
@@ -17,34 +17,41 @@ import {
     NavbarItem,
     NavbarMenuItem,
 } from "@nextui-org/navbar"
-import { SearchIcon } from "@/components/icons"
+import { Button } from "@nextui-org/react"
+
+const menuItems = [
+    // {
+    //     label: "Rooms",
+    //     href: "/ads/rooms",
+    // },
+    // {
+    //     label: "Roommates",
+    //     href: "/ads/roommates",
+    // },
+
+    {
+        label: "Create Room Ad",
+        href: "/createAd/rooms",
+    },
+    {
+        label: "Create Roommate Ad",
+        href: "/createAd/roommates",
+    },
+    {
+        label: "Messages",
+        href: "/messages",
+    },
+]
 
 function Navbar() {
     // const { session } = useSession();
     // const [toggleDropdown, setToggleDropdown] = useState(false);
-    const searchInput = (
-        <Input
-            aria-label="Search"
-            classNames={{
-                inputWrapper: "bg-[#FFFFFF]",
-                input: "text-sm",
-            }}
-            endContent={
-                <Kbd className="hidden lg:inline-block" keys={["command"]}>
-                    K
-                </Kbd>
-            }
-            labelPlacement="outside"
-            placeholder="Search Fresh Produce and Spices"
-            startContent={
-                <SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
-            }
-            type="search"
-        />
-    )
+    const [isMenuOpen, setIsMenuOpen] = React.useState(false)
 
     return (
         <NextUINavbar
+            isMenuOpen={isMenuOpen}
+            onMenuOpenChange={setIsMenuOpen}
             className="glassmorphism px-4  "
             maxWidth="full"
             position="sticky"
@@ -59,56 +66,58 @@ function Navbar() {
                         className="flex justify-start items-center"
                         href="/"
                     >
-                        {/* <Image
+                        <Image
                             src={logo}
                             alt="logo"
-                            width={12}
-                            height={12}
+                            width={40}
                             className="lg:hidden flex"
-                        ></Image> */}
-                        <p className="font-bold text-green-500 text-2xlflex ">
-                            Paired
-                        </p>
+                        ></Image>
+                        <Image
+                            src={logo2}
+                            alt="logo"
+                            width={80}
+                            className="lg:flex hidden"
+                        ></Image>
                     </NextLink>
                 </NavbarBrand>
             </NavbarContent>
-            <NavbarContent justify="center">
-                <NavbarItem className="hidden w-[620px] lg:flex">
-                    {searchInput}
-                </NavbarItem>
-            </NavbarContent>
 
-            {/* <NavbarContent className="lg:hidden flex basis-1 " justify="start">
-                <p className="font-bold text-green-500 text-xl">Paired</p>
-            </NavbarContent> */}
-
-            <NavbarContent className="basis-1 pl-4  flex" justify="end">
+            <NavbarContent
+                className="basis-1 pl-4  flex lg:hidden"
+                justify="end"
+            >
                 <NavbarMenuToggle />
+            </NavbarContent>
+            <NavbarContent
+                color="primary"
+                className="basis-1 pl-4  lg:flex hidden"
+                justify="end"
+            >
+                <Button>Logout</Button>
             </NavbarContent>
 
             <NavbarMenu className="lg:flex flex pt-12 ">
-                <NavbarMenuItem className="lg:hidden flex">
-                    {searchInput}
-                </NavbarMenuItem>
-
                 <div className="mx-4 mt-4 flex flex-col gap-4">
-                    {siteConfig.navMenuItems.map((item, index) => (
+                    {menuItems.map((item, index) => (
                         <NavbarMenuItem key={`${item}-${index}`}>
                             <Link
+                                onClick={() => {
+                                    setIsMenuOpen(!isMenuOpen)
+                                }}
                                 color={
                                     index === 2
                                         ? "primary"
-                                        : index ===
-                                          siteConfig.navMenuItems.length - 1
+                                        : index === menuItems.length - 1
                                         ? "danger"
                                         : "foreground"
                                 }
-                                href="#"
+                                href={`/dashboard/${item.href}`}
                             >
                                 {item.label}
                             </Link>
                         </NavbarMenuItem>
                     ))}
+                    <Button>Logout</Button>
                 </div>
             </NavbarMenu>
         </NextUINavbar>

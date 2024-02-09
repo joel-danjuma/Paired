@@ -14,6 +14,8 @@ export default authMiddleware({
         "/api/users/64e341303e339de8e24d1914",
         "/rooms",
         "/dashboard",
+        "/dashboard/createAd/rooms",
+        "/dashboard/createAd/roommates",
     ],
 })
 
