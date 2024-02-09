@@ -1,4 +1,4 @@
-import prisma from "@/lib/db"
+import prisma from "../../../lib/db"
 import { NextResponse } from "next/server"
 // import { get_all_users } from "@/utils/crud"
 
