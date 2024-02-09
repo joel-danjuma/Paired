@@ -1,7 +1,7 @@
 // import { connectDB } from "@/db/database"
 // import RoomAds from "@/models/roomAd"
 import { NextResponse } from "next/server"
-import prisma from "@/lib/db"
+import prisma from "../../../lib/db"
 
 export async function GET() {
     try {
