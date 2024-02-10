@@ -1,6 +1,6 @@
 import "./globals.css"
 // import Navbar from "@/components/Navbar"
-import Nav from "../components/nav"
+import { Nav } from "../components/nav"
 import { Providers } from "./providers"
 // import { ClerkProvider } from "@clerk/nextjs"
 import { siteConfig } from "../config/site"
