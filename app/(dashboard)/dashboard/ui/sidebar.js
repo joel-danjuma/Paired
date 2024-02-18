@@ -62,7 +62,7 @@ const Sidebar = () => {
                                 <li>
                                     <a
                                         className="inline-flex items-center w-full px-4 py-2 mt-1 text-sm text-gray-500 transition duration-200 ease-in-out transform border-l-4 border-transparent focus:shadow-outline hover:border-blue-500 hover:scale-95 hover:text-blue-500"
-                                        href={`/dashboard/createAd/rooms`}
+                                        href={`/dashboard/rooms`}
                                     >
                                         <span className="ml-4">Room Ad</span>
                                     </a>
@@ -70,7 +70,7 @@ const Sidebar = () => {
                                 <li>
                                     <a
                                         className="inline-flex items-center w-full px-4 py-2 mt-1 text-sm text-gray-500 transition duration-200 ease-in-out transform border-l-4 border-transparent focus:shadow-outline hover:border-blue-500 hover:scale-95 hover:text-blue-500"
-                                        href={`/dashboard/createAd/roommates`}
+                                        href={`/dashboard/roommates`}
                                     >
                                         <span className="ml-4">
                                             Roommate Ad

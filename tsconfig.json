@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "app/api/send/route.js"  ],
+, "app/api/send/route.js", "lib/db.ts"  ],
   "exclude": [
     "node_modules"
   ]

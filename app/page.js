@@ -5,7 +5,7 @@ import Hero from "../components/new-hero"
 // import Video from "@/components/video"
 // import SectionTitle from "@/components/section-title"
 // import Testimonials from "@/components/testimonials"
-// import Nav from "../components/nav"
+import Navbar from "../components/navbar"
 import Cta from "../components/cta"
 import Footer from "../components/footer"
 import RecentlyAdded from "../components/recentlyAdded"
@@ -16,12 +16,11 @@ import RecentlyAdded from "../components/recentlyAdded"
 export default function Home() {
     return (
         <section>
-            {/* <Nav /> */}
+            <Navbar />
             <Hero />
             <RecentlyAdded />
             <Cta />
             <Footer />
-
             {/* <Waitlist /> */}
         </section>
     )

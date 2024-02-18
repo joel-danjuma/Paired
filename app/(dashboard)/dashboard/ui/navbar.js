@@ -3,9 +3,9 @@ import React from "react"
 import Link from "next/link"
 import Image from "next/image"
 import NextLink from "next/link"
-import logo from "../../../public/images/pairedLogo.png"
-import logo2 from "../../../public/images/pairedLogo2.png"
-import { siteConfig } from "../../../config/site"
+import logo from "../../../../public/images/pairedLogo.png"
+import logo2 from "../../../../public/images/pairedLogo2.png"
+// import { siteConfig } from "../../../../config/site"
 
 // import { SignInButton, SignedIn, UserButton, useSession } from "@clerk/nextjs";
 import {
@@ -52,7 +52,7 @@ function Navbar() {
         <NextUINavbar
             isMenuOpen={isMenuOpen}
             onMenuOpenChange={setIsMenuOpen}
-            className="glassmorphism px-4  "
+            className="glassmorphism px-0"
             maxWidth="full"
             position="sticky"
             isBordered

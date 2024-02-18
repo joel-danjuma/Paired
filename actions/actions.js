@@ -16,11 +16,27 @@ export const createRoomAd = async (formData) => {
     const serviced = formData.get("serviced").toLowerCase() === "true"
     const serviceCharge = parseInt(formData.get("serviceCharge"))
 
-    const user = await prisma.user.findUnique({
-        where: {
-            email,
-        },
-    })
+    const roomAd = {
+        title,
+        description,
+        propertyType,
+        rent,
+        bedrooms,
+        bathrooms,
+        location,
+        pets,
+        smoking,
+        serviced,
+        serviceCharge,
+    }
+
+    return roomAd
+
+    // const user = await prisma.user.findUnique({
+    //     where: {
+    //         email,
+    //     },
+    // })
 
     //   This is an amazing 3 bed Shared flat available for immediate occupation. Located in a serene and secure part of GRA port harcourt
     //   Facilities include :
@@ -30,28 +46,26 @@ export const createRoomAd = async (formData) => {
     // - centrally located
     // - close proximity to churches and entertainment
 
-    const roomAd = await prisma.roomAd.create({
-        data: {
-            title,
-            description,
-            propertyType,
-            rent,
-            bedrooms,
-            bathrooms,
-            location,
-            pets,
-            smoking,
-            serviced,
-            serviceCharge,
-            created_by: {
-                connect: {
-                    id: user.id,
-                },
-            },
-        },
-    })
-
-    return roomAd
+    // const roomAd = await prisma.roomAd.create({
+    //     data: {
+    //         title,
+    //         description,
+    //         propertyType,
+    //         rent,
+    //         bedrooms,
+    //         bathrooms,
+    //         location,
+    //         pets,
+    //         smoking,
+    //         serviced,
+    //         serviceCharge,
+    //         created_by: {
+    //             connect: {
+    //                 id: user.id,
+    //             },
+    //         },
+    //     },
+    // })
 }
 
 export const createRoommateAd = async (formData) => {
@@ -66,30 +80,42 @@ export const createRoommateAd = async (formData) => {
     const email = formData.get("email")
     const smoking = formData.get("smoking").toLowerCase() === "true"
 
-    const user = await prisma.user.findUnique({
-        where: {
-            email,
-        },
-    })
+    const roommateAd = {
+        title,
+        description,
+        age,
+        gender,
+        budget,
+        occupation,
+        location,
+        pets,
+        smoking,
+    }
 
-    const roommateAd = await prisma.roommateAd.create({
-        data: {
-            title,
-            description,
-            age,
-            gender,
-            budget,
-            occupation,
-            location,
-            pets,
-            smoking,
-            created_by: {
-                connect: {
-                    id: user.id,
-                },
-            },
-        },
-    })
+    // const user = await prisma.user.findUnique({
+    //     where: {
+    //         email,
+    //     },
+    // })
+
+    // const roommateAd = await prisma.roommateAd.create({
+    //     data: {
+    //         title,
+    //         description,
+    //         age,
+    //         gender,
+    //         budget,
+    //         occupation,
+    //         location,
+    //         pets,
+    //         smoking,
+    //         created_by: {
+    //             connect: {
+    //                 id: user.id,
+    //             },
+    //         },
+    //     },
+    // })
     return roommateAd
 }
 

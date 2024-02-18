@@ -1,78 +1,63 @@
 "use client"
 import RoomAdFormButton from "../../ui/createAdFormButton"
-import { createRoomAd } from "../../../../actions/actions"
+
 const page = () => {
     return (
         <section className="h-full pb-20">
-            <form
-                action={async (formData) => {
-                    const roomAd = await createRoomAd(formData)
-                    console.log("Created Room ad")
-                }}
-            >
+            <form>
                 <div className="mt-4 space-y-4">
                     <div>
                         <label className="block mb-3 text-sm font-medium text-gray-600">
-                            Property title
+                            Ad Title
                         </label>
                         <input
                             name="title"
                             className="block w-full px-6 py-3 text-black bg-white border border-gray-200 appearance-none rounded-xl placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
-                            placeholder="No of Bedroom Apartment for rent in location"
+                            placeholder="Your name"
                         />
                     </div>
-                    <div className="col-span-full">
+                    <div className="col-span-1">
                         <label className="block mb-3 text-sm font-medium text-gray-600">
-                            Email
+                            Age
                         </label>
                         <input
-                            name="email"
-                            type="email"
+                            name="age"
                             className="block w-full px-6 py-3 text-black bg-white border border-gray-200 appearance-none rounded-xl placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
                             placeholder="email@example.com"
+                            autocomplete="off"
+                            type="email"
                         />
                     </div>
                     <div>
                         <label className="block mb-3 text-sm font-medium text-gray-600">
-                            Property Type
+                            Gender
                         </label>
                         <input
-                            name="propertyType"
+                            name="gender"
                             className="block w-full px-6 py-3 text-black bg-white border border-gray-200 appearance-none rounded-xl placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
-                            placeholder="Apartment/ House "
+                            placeholder="Your name"
                         />
                     </div>
                     <div className="col-span-full">
                         <label className="block mb-3 text-sm font-medium text-gray-600">
-                            Rent
+                            Budget
                         </label>
                         <input
-                            name="rent"
-                            type="number"
+                            name="budget"
                             className="block w-full px-6 py-3 text-black bg-white border border-gray-200 appearance-none rounded-xl placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
-                            placeholder="Annual Rent"
+                            placeholder="Company name"
                         />
                     </div>
                     <div className="col-span-full">
                         <label className="block mb-3 text-sm font-medium text-gray-600">
-                            Bedrooms
+                            Occupation
                         </label>
                         <input
-                            name="bedrooms"
-                            type="number"
+                            name="Occupation"
                             className="block w-full px-6 py-3 text-black bg-white border border-gray-200 appearance-none rounded-xl placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
-                            placeholder="Number of Bedrooms"
-                        />
-                    </div>
-                    <div className="col-span-full">
-                        <label className="block mb-3 text-sm font-medium text-gray-600">
-                            Bathrooms
-                        </label>
-                        <input
-                            name="bathrooms"
-                            type="number"
-                            className="block w-full px-6 py-3 text-black bg-white border border-gray-200 appearance-none rounded-xl placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
-                            placeholder="Number of Bathrooms"
+                            placeholder="email@example.com"
+                            autocomplete="off"
+                            type="email"
                         />
                     </div>
                     <div className="col-span-full">
@@ -80,9 +65,11 @@ const page = () => {
                             Location
                         </label>
                         <input
-                            name="location"
+                            name="email"
                             className="block w-full px-6 py-3 text-black bg-white border border-gray-200 appearance-none rounded-xl placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
-                            placeholder="Location"
+                            placeholder="email@example.com"
+                            autocomplete="off"
+                            type="email"
                         />
                     </div>
                     <div className="col-span-full">
@@ -92,7 +79,9 @@ const page = () => {
                         <input
                             name="pets"
                             className="block w-full px-6 py-3 text-black bg-white border border-gray-200 appearance-none rounded-xl placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
-                            placeholder="True / False"
+                            placeholder="email@example.com"
+                            autocomplete="off"
+                            type="email"
                         />
                     </div>
                     <div className="col-span-full">
@@ -102,28 +91,9 @@ const page = () => {
                         <input
                             name="smoking"
                             className="block w-full px-6 py-3 text-black bg-white border border-gray-200 appearance-none rounded-xl placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
-                            placeholder="True / False"
-                        />
-                    </div>
-                    <div className="col-span-full">
-                        <label className="block mb-3 text-sm font-medium text-gray-600">
-                            Serviced
-                        </label>
-                        <input
-                            name="serviced"
-                            className="block w-full px-6 py-3 text-black bg-white border border-gray-200 appearance-none rounded-xl placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
-                            placeholder="True / False"
-                        />
-                    </div>
-                    <div className="col-span-full">
-                        <label className="block mb-3 text-sm font-medium text-gray-600">
-                            Service Charge
-                        </label>
-                        <input
-                            name="serviceCharge"
-                            type="number"
-                            className="block w-full px-6 py-3 text-black bg-white border border-gray-200 appearance-none rounded-xl placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
-                            placeholder="Annual Service Charge"
+                            placeholder="email@example.com"
+                            autocomplete="off"
+                            type="email"
                         />
                     </div>
                     <div>
@@ -134,12 +104,11 @@ const page = () => {
                             <textarea
                                 name="description"
                                 className="block w-full px-6 py-3 text-black bg-white border border-gray-200 appearance-none rounded-xl placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
-                                placeholder="Property Description"
+                                placeholder="What are you working on?"
                                 rows="4"
                             ></textarea>
                         </div>
                     </div>
-                    {/* <RoomAdFormButton /> */}
                     <div className="col-span-full">
                         <RoomAdFormButton />
                     </div>

@@ -1,16 +1,19 @@
 "use client"
-import Sidebar from "./ui/sidebar"
-import Navbar from "./ui/navbar"
-import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/nextjs"
+import Sidebar from "./dashboard/ui/sidebar"
+import Navbar from "./dashboard/ui/navbar"
+// import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/nextjs"
 
 export default function DashboardLayout({ children }) {
     return (
         <section>
             {/* <SignedIn> */}
-            <div className="w-full h-full fixed top-0">
+            <div className="w-full h-full">
                 <Navbar />
-                <div className="flex w-full h-full bg-white ">
-                    <Sidebar />
+                <div className="flex w-full h-full bg-white fixed top-16">
+                    <aside>
+                        <Sidebar />
+                    </aside>
+
                     {/* <div className="flex w-full h-full">
                         <main>{children}</main>
                     </div> */}
