@@ -17,7 +17,8 @@ import {
     NavbarItem,
     NavbarMenuItem,
 } from "@nextui-org/navbar"
-import { Button } from "@nextui-org/react"
+import { Button, Input } from "@nextui-org/react"
+import { SearchIcon } from "../../../../components/icons"
 
 const menuItems = [
     // {
@@ -52,34 +53,25 @@ function Navbar() {
         <NextUINavbar
             isMenuOpen={isMenuOpen}
             onMenuOpenChange={setIsMenuOpen}
-            className="glassmorphism px-0"
+            className="glassmorphism px-0 h-[80px]"
             maxWidth="full"
             position="sticky"
             isBordered
         >
-            <NavbarContent
-                className="basis-1/5 sm:basis-full relative"
-                justify="start"
-            >
-                <NavbarBrand as="li">
-                    <NextLink
-                        className="flex justify-start items-center"
-                        href="/"
-                    >
-                        <Image
-                            src={logo}
-                            alt="logo"
-                            width={40}
-                            className="lg:hidden flex"
-                        ></Image>
-                        <Image
-                            src={logo2}
-                            alt="logo"
-                            width={80}
-                            className="lg:flex hidden"
-                        ></Image>
-                    </NextLink>
-                </NavbarBrand>
+            <NavbarContent className="max-w-2xl relative" justify="start">
+                <Input
+                    classNames={{
+                        base: "min-w-full h-10",
+                        mainWrapper: "h-full",
+                        input: "text-small",
+                        inputWrapper:
+                            "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
+                    }}
+                    placeholder="Search for room / roommate..."
+                    size="sm"
+                    startContent={<SearchIcon size={18} />}
+                    type="search"
+                />
             </NavbarContent>
 
             <NavbarContent
