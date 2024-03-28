@@ -16,6 +16,9 @@ import {
 } from "@nextui-org/react"
 import { MessageIcon } from "../../ui/icons/messages"
 import Link from "next/link"
+import { CalendarIcon } from "../../ui/icons/calendar"
+import { UserIcon } from "../../ui/icons/users"
+import { FilterIcon } from "../../ui/icons/filter"
 
 const array = [1, 2, 3, 4, 5, 6, 7]
 
@@ -24,7 +27,7 @@ const page = () => {
         <section className="h-full w-full">
             <div className="flex-col w-full justify-center items-center border-b space-y-8 py-14">
                 <div className="flex justify-between items-center  lg:px-8 px-4">
-                    <h1 className="lg:text-5xl text-xl font-bold text-start">
+                    <h1 className="lg:text-4xl text-xl font-bold text-start">
                         Room Listings
                     </h1>
                     <span className="flex items-center">
@@ -36,17 +39,19 @@ const page = () => {
                     </span>
                 </div>
                 <div className="flex justify-between items-center lg:px-8 px-4 w-full">
-                    <div className="max-w-[30%] flex lg:gap-2 justify-between items-center">
+                    <div className="max-w-[30%] flex  lg:gap-2 justify-between items-center">
                         <Button
-                            className="lg:min-w-[120px] min-w-[80px] rounded-md text-xl text-gray-500"
+                            className="lg:min-w-[120px] min-w-[80px] rounded-md text-xl border-1 border-black"
                             variant="ghost"
                         >
+                            <FilterIcon />
                             Filter
                         </Button>
                         <Button
-                            className="lg:min-w-[120px] min-w-[80px] rounded-md text-xl text-gray-500"
+                            className="lg:min-w-[120px] min-w-[80px] rounded-md text-xl border-1 border-black"
                             variant="ghost"
                         >
+                            <CalendarIcon />
                             Today
                         </Button>
                     </div>
@@ -59,9 +64,10 @@ const page = () => {
                             className="h-full  bg-black"
                         />
                         <Button
-                            className="lg:min-w-[120px] min-w-[80px] rounded-md text-xl text-gray-500"
+                            className="lg:min-w-[120px] min-w-[80px] rounded-md text-xl border-black border-1"
                             variant="ghost"
                         >
+                            <UserIcon />
                             Share
                         </Button>
                     </div>
@@ -71,7 +77,7 @@ const page = () => {
                         return (
                             <Card
                                 key={i}
-                                className="flex min-w-[320px] h-fit flex-col  lg:row-span-2 lg:col-span-1 p-2 row-span-1 col-span-full md:col-span-1 md:row-span-2"
+                                className="flex min-w-[320px] h-fit flex-col  lg:row-span-2 lg:col-span-1 p-4 row-span-1 col-span-full md:col-span-1 md:row-span-2"
                             >
                                 <CardHeader className="px-0 flex-col space-y-2">
                                     <div className="w-full flex justify-between items-end">
@@ -104,7 +110,6 @@ const page = () => {
                                     </AvatarGroup>
 
                                     <>
-                                        <MessageIcon />
                                         <p>9 Comments</p>
                                     </>
                                     <>
@@ -116,12 +121,9 @@ const page = () => {
                     })}
                 </div>
             </div>
-
             <div className="lg:px-8 px-4">
-                <h1
-                    id="create-listing"
-                    className="lg:text-5xl text-xl font-bold text-start py-16"
-                >
+                <a id="create-listing" href="#" className="hidden"></a>
+                <h1 className="lg:text-4xl text-xl font-bold text-start py-16">
                     Create Listing
                 </h1>
                 <RoomAdForm />

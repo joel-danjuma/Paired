@@ -1,6 +1,12 @@
 "use client"
 import { useUser, UserButton } from "@clerk/nextjs"
-import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/react"
+import {
+    Card,
+    CardBody,
+    CardFooter,
+    CardHeader,
+    Button,
+} from "@nextui-org/react"
 import { Divider } from "@nextui-org/react"
 import Image from "next/image"
 import Link from "next/link"
@@ -8,6 +14,7 @@ import clsx from "clsx"
 import { usePathname } from "next/navigation"
 import { DashboardIcon } from "../ui/icons/dashboard"
 import { MessageIcon } from "../ui/icons/messages"
+import { UserIcon } from "./icons/users"
 import { SettingsIcon } from "../ui/icons/settings"
 import logo from "../../../../public/images/pairedLogo2.png"
 
@@ -21,7 +28,7 @@ const menuItems = [
     },
     {
         title: "People",
-        icon: MessageIcon,
+        icon: UserIcon,
         href: "/dashboard/people",
         position: "top",
     },
@@ -31,10 +38,15 @@ const menuItems = [
         href: "/dashboard/settings",
         position: "top",
     },
-    { title: "Rooms", href: "/dashboard/rooms", position: "bottom" },
+    {
+        title: "Rooms",
+        icon: UserIcon,
+        href: "/dashboard/rooms",
+        position: "bottom",
+    },
     {
         title: "Roommates",
-
+        icon: UserIcon,
         href: "/dashboard/roommates",
         position: "bottom",
     },
@@ -97,11 +109,35 @@ const Sidebar = () => {
                                                 }
                                             )}
                                         >
-                                            {/* <link.icon /> */}
+                                            <link.icon />
                                             {link.title}
                                         </Link>
                                     ))}
                             </ul>
+                        </div>
+                        <div className="px-3  flex justify-center items-center">
+                            <Card className="w-full bg-gray-100">
+                                <CardHeader className="flex justify-center items-center">
+                                    <div className="-mt-20 rounded-full bg-gray-100 max-w-sm max-h-sm">
+                                        .
+                                    </div>
+                                    <p className="text-center font-semibold">
+                                        Welcome to Paired
+                                    </p>
+                                </CardHeader>
+                                <CardBody>
+                                    <p className="text-center text-gray-500">
+                                        Search for new rooms and roommates by
+                                        location. Connect and find a perfect
+                                        match with Paired
+                                    </p>
+                                </CardBody>
+                                <CardFooter className="w-full">
+                                    <Button className="text-center w-full rounded-md bg-white/50">
+                                        Get started
+                                    </Button>
+                                </CardFooter>
+                            </Card>
                         </div>
                     </div>
                 </div>

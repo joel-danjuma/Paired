@@ -17,30 +17,37 @@ import {
     NavbarItem,
     NavbarMenuItem,
 } from "@nextui-org/navbar"
-import { Button, Input } from "@nextui-org/react"
+import { Avatar, Button, Input } from "@nextui-org/react"
 import { SearchIcon } from "../../../../components/icons"
+import { MessageIcon } from "./icons/messages"
+import { NotificationIcon } from "./icons/notification"
+import { CalendarIcon } from "./icons/calendar"
 
 const menuItems = [
-    // {
-    //     label: "Rooms",
-    //     href: "/ads/rooms",
-    // },
-    // {
-    //     label: "Roommates",
-    //     href: "/ads/roommates",
-    // },
-
     {
-        label: "Create Room Ad",
-        href: "/createAd/rooms",
-    },
-    {
-        label: "Create Roommate Ad",
-        href: "/createAd/roommates",
+        label: "Home",
+        href: "",
     },
     {
         label: "Messages",
-        href: "/messages",
+        href: "messages",
+    },
+
+    {
+        label: "People",
+        href: "people",
+    },
+    {
+        label: "Settings",
+        href: "settings",
+    },
+    {
+        label: "Rooms",
+        href: "rooms",
+    },
+    {
+        label: "Roommates",
+        href: "roommmates",
     },
 ]
 
@@ -53,12 +60,15 @@ function Navbar() {
         <NextUINavbar
             isMenuOpen={isMenuOpen}
             onMenuOpenChange={setIsMenuOpen}
-            className="glassmorphism px-0 h-[80px]"
+            className="flex px-0 h-[80px]"
             maxWidth="full"
             position="sticky"
             isBordered
         >
-            <NavbarContent className="max-w-2xl relative" justify="start">
+            <NavbarContent
+                className="lg:max-w-2xl max-w-3xl relative"
+                justify="start"
+            >
                 <Input
                     classNames={{
                         base: "min-w-full h-10",
@@ -75,17 +85,23 @@ function Navbar() {
             </NavbarContent>
 
             <NavbarContent
-                className="basis-1 pl-4  flex lg:hidden"
+                color="primary"
+                className="lg:flex hidden"
+                justify="end"
+            >
+                <CalendarIcon />
+                <MessageIcon />
+                <NotificationIcon />
+                <Avatar
+                    size="sm"
+                    src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+                />
+            </NavbarContent>
+            <NavbarContent
+                className="basis-1 pl-0 flex lg:hidden"
                 justify="end"
             >
                 <NavbarMenuToggle />
-            </NavbarContent>
-            <NavbarContent
-                color="primary"
-                className="basis-1 pl-4  lg:flex hidden"
-                justify="end"
-            >
-                <Button>Logout</Button>
             </NavbarContent>
 
             <NavbarMenu className="lg:flex flex pt-12 ">
@@ -109,7 +125,11 @@ function Navbar() {
                             </Link>
                         </NavbarMenuItem>
                     ))}
-                    <Button>Logout</Button>
+                    {/* <Button>Logout</Button> */}
+                    <Avatar
+                        size="sm"
+                        src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+                    />
                 </div>
             </NavbarMenu>
         </NextUINavbar>
