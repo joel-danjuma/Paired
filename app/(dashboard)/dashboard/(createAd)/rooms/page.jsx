@@ -19,6 +19,7 @@ import Link from "next/link"
 import { CalendarIcon } from "../../ui/icons/calendar"
 import { UserIcon } from "../../ui/icons/users"
 import { FilterIcon } from "../../ui/icons/filter"
+import { SecondaryLogo } from "../../ui/icons/pairedLogo"
 
 const array = [1, 2, 3, 4, 5, 6, 7]
 
@@ -55,14 +56,12 @@ const page = () => {
                             Today
                         </Button>
                     </div>
-                    <div className="max-w-[30%] flex lg:gap-2 justify-between items-center">
+                    <div className="max-w-[30%] h-fit flex lg:gap-2 justify-between items-center">
                         <Button className="min-w-[120px] rounded-md text-xl text-white bg-purple-900">
+                            <SecondaryLogo />
                             <Link href={"#create-listing"}>Create Listing</Link>
                         </Button>
-                        <Divider
-                            orientation="vertical"
-                            className="h-full  bg-black"
-                        />
+                        <Divider orientation="vertical" />
                         <Button
                             className="lg:min-w-[120px] min-w-[80px] rounded-md text-xl border-black border-1"
                             variant="ghost"

@@ -16,7 +16,7 @@ import { DashboardIcon } from "../ui/icons/dashboard"
 import { MessageIcon } from "../ui/icons/messages"
 import { UserIcon } from "./icons/users"
 import { SettingsIcon } from "../ui/icons/settings"
-import logo from "../../../../public/images/pairedLogo2.png"
+import { PrimaryLogo } from "../ui/icons/pairedLogo"
 
 const menuItems = [
     { title: "Home", icon: DashboardIcon, href: "/dashboard", position: "top" },
@@ -61,12 +61,13 @@ const Sidebar = () => {
                 <div className="flex flex-col flex-grow overflow-y-auto bg-white border-r">
                     <div className="flex flex-col px-8 border-b h-[80px] justify-center items-center ">
                         <Link className="" href="/">
-                            <Image
+                            {/* <Image
                                 src={logo}
                                 alt="logo"
                                 width={140}
-                                // className="absolute grid place-content-center"
-                            ></Image>
+                               
+                            ></Image> */}
+                            <PrimaryLogo />
                         </Link>
                     </div>
                     <div className="w-full flex flex-col gap-8 px-2">
