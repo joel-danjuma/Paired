@@ -6,6 +6,7 @@ export default authMiddleware({
         "/",
         "/about",
         "/rooms",
+        "/test",
         "/roommates",
         "/api/rooms",
         "/api/users",

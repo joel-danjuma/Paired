@@ -99,11 +99,11 @@ const page = () => {
                                 <CardFooter className="flex justify-between items-end text-xs text-gray-500">
                                     <AvatarGroup isBordered>
                                         <Avatar
-                                            size="sm"
+                                            className="max-w-4 max-h-4"
                                             src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
                                         />
                                         <Avatar
-                                            size="sm"
+                                            className="max-w-4 max-h-4"
                                             src="https://i.pravatar.cc/150?u=a04258a2462d826712d"
                                         />
                                     </AvatarGroup>
