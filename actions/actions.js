@@ -1,6 +1,11 @@
 "use server"
-
-import prisma from "../lib/db"
+import * as z from "zod"
+import bcrypt from "bcryptjs"
+import { db } from "@/lib/db"
+import { signIn } from "@/auth"
+import AuthError from "next-auth"
+import { LoginSchema } from "@/schemas"
+import { RegisterSchema } from "@/schemas"
 
 export const createRoomAd = async (formData) => {
     const title = formData.get("title")
@@ -119,27 +124,123 @@ export const createRoommateAd = async (formData) => {
     return roommateAd
 }
 
-export const createUser = async (formData) => {
-    const name = formData.get("name")
-    const email = formData.get("email")
-    const password = formData.get("password")
-    const image = formData.get("image")
+// export const createUser = async (formData) => {
+//     const name = formData.get("name")
+//     const email = formData.get("email")
+//     const password = formData.get("password")
+//     const image = formData.get("image")
 
-    const user = await prisma.user.create({
-        data: {
-            name,
+//     const user = await prisma.user.create({
+//         data: {
+//             name,
+//             email,
+//             password,
+//             image,
+//         },
+//     })
+// }
+
+// export const getRoomAds = async () => {
+//     try {
+//         const ads = await prisma.roomAd.findMany()
+//         return ads
+//     } catch (error) {
+//         console.log(`Error : ${error}`)
+//     }
+// }
+
+export async function login(values) {
+    const validatedFields = LoginSchema.safeParse(values)
+    if (!validatedFields.success) {
+        let errorMessage = ""
+        validatedFields.error.issues.forEach((issue) => {
+            errorMessage =
+                errorMessage + issue.path[0] + ": " + issue.message + ". "
+        })
+        return {
+            error: errorMessage,
+        }
+    }
+    const { email, password } = validatedFields.data
+    const existingUser = await db.user.findUnique({
+        where: {
             email,
-            password,
-            image,
         },
     })
+    try {
+        if (existingUser) {
+            await signIn("credentials", {
+                email,
+                password,
+                redirect: true,
+                // redirectTo: DEFAULT_LOGIN_REDIRECT,
+            })
+
+            return {
+                success: "Log In Successful",
+            }
+        } else {
+            return {
+                error: "Sign Up Required",
+            }
+        }
+    } catch (error) {
+        if (error instanceof AuthError) {
+            switch (error.type) {
+                case "CredentialsSignin":
+                    return { error: "Invalid Credentials!" }
+                default:
+                    return { error: "Something went wrong!" }
+            }
+        }
+        throw error
+    }
 }
 
-export const getRoomAds = async () => {
+export const signup = async (values) => {
+    const validatedFields = RegisterSchema.safeParse(values)
+    if (!validatedFields.success) {
+        let errorMessage = ""
+        validatedFields.error.issues.forEach((issue) => {
+            errorMessage =
+                errorMessage + issue.path[0] + ": " + issue.message + ". "
+        })
+        return {
+            error: errorMessage,
+        }
+    }
+    const { name, email, password } = validatedFields.data
+    const hashedPassword = await bcrypt.hash(password, 10)
     try {
-        const ads = await prisma.roomAd.findMany()
-        return ads
+        const existingUser = await db.user.findUnique({
+            where: {
+                email,
+            },
+        })
+        if (!existingUser) {
+            await signIn("credentials", {
+                name: name,
+                email: email,
+                password: hashedPassword,
+                // redirectTo: DEFAULT_LOGIN_REDIRECT,
+            })
+            return {
+                success: "User Created",
+            }
+        } else {
+            return {
+                error: "User already exists",
+            }
+        }
     } catch (error) {
-        console.log(`Error : ${error}`)
+        if (error instanceof AuthError) {
+            switch (error.type) {
+                case "CredentialsSignin":
+                    return { error: "Credentials Error" }
+                default:
+                    return { error: "Something went wrong!" }
+            }
+        }
+        throw error
     }
 }

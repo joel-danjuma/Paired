@@ -1,11 +1,17 @@
-/** @type {import('tailwindcss').Config} */
-import { nextui } from "@nextui-org/theme"
-module.exports = {
+import type { Config } from "tailwindcss"
+import { nextui } from "@nextui-org/react"
+
+const {
+    default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette")
+
+const config = {
     darkMode: ["class"],
     content: [
-        "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-        "./components/**/*.{js,ts,jsx,tsx,mdx}",
-        "./app/**/*.{js,ts,jsx,tsx,mdx}",
+        "./pages/**/*.{ts,tsx}",
+        "./components/**/*.{ts,tsx}",
+        "./app/**/*.{ts,tsx}",
+        "./src/**/*.{ts,tsx}",
         "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
     ],
     prefix: "",
@@ -18,6 +24,9 @@ module.exports = {
             },
         },
         extend: {
+            boxShadow: {
+                input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
+            },
             colors: {
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
@@ -74,5 +83,17 @@ module.exports = {
             },
         },
     },
-    plugins: [require("tailwindcss-animate"), nextui()],
+    plugins: [nextui(), require("tailwindcss-animate"), addVariablesForColors],
+} satisfies Config
+
+function addVariablesForColors({ addBase, theme }: any) {
+    let allColors = flattenColorPalette(theme("colors"))
+    let newVars = Object.fromEntries(
+        Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+    )
+
+    addBase({
+        ":root": newVars,
+    })
 }
+export default config

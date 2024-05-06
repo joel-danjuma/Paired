@@ -1,8 +1,5 @@
 import "./globals.css"
-// import Navbar from "../components/Navbar"
-// import Nav from "../components/nav"
 import { Providers } from "./providers"
-// import { ClerkProvider } from "@clerk/nextjs"
 import { siteConfig } from "../config/site"
 
 export const metadata = {
@@ -46,14 +43,6 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        // <ClerkProvider
-        //     appearance={{
-        //         layout: {
-        //             logoPlacement: "inside",
-        //             socialButtonsVariant: "auto",
-        //         },
-        //     }}
-        // >
         <html lang="en" className="light">
             <body>
                 <Providers>
@@ -66,7 +55,6 @@ export default function RootLayout({ children }) {
                 </Providers>
             </body>
         </html>
-        // </ClerkProvider>
     )
 }
 

@@ -2,9 +2,10 @@ import prisma from "../../../lib/db"
 import { notFound } from "next/navigation"
 
 const RoomAd = async (id) => {
+    const idString = typeof id === "object" && id.params ? id.params.id : id
     const roomAd = await prisma.roomAd.findUnique({
         where: {
-            id,
+            id: idString,
         },
     })
     if (!roomAd) notFound()

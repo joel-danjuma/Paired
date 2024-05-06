@@ -1,5 +1,4 @@
 "use client"
-import { useUser, UserButton } from "@clerk/nextjs"
 import {
     Card,
     CardBody,
