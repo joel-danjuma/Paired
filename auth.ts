@@ -1,14 +1,15 @@
 import bcrypt from "bcryptjs"
 import { db } from "@/lib/db"
 import NextAuth from "next-auth"
-import UserRole from "@prisma/client"
+import { UserRole } from "@prisma/client"
 import { PrismaClient } from "@prisma/client"
 import Google from "next-auth/providers/google"
-import type NextAuthConfig from "next-auth"
+import type { NextAuthConfig } from "next-auth"
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import { LoginSchema, RegisterSchema } from "./schemas"
 import CredentialsProvider from "next-auth/providers/credentials"
+import { ExtendedUser } from "./next-auth"
 
 const prisma = new PrismaClient()
 
@@ -73,10 +74,6 @@ const config = {
         async session({ token, session }) {
             if (token.sub && session.user) {
                 session.user.id = token.sub
-            }
-            if (token && session.user) {
-                session.user.nativeLanguage = token.userLanguage as string
-                session.user.targetLanguage = token.targetLanguage as string
             }
             if (token.role && session.user) {
                 session.user.role = token.role as UserRole

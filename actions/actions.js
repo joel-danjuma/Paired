@@ -1,11 +1,14 @@
 "use server"
 import * as z from "zod"
+import { auth } from "@/auth"
 import bcrypt from "bcryptjs"
 import { db } from "@/lib/db"
 import { signIn } from "@/auth"
 import AuthError from "next-auth"
 import { LoginSchema } from "@/schemas"
 import { RegisterSchema } from "@/schemas"
+
+const session = await auth()
 
 export const createRoomAd = async (formData) => {
     const title = formData.get("title")
@@ -16,12 +19,13 @@ export const createRoomAd = async (formData) => {
     const bathrooms = parseInt(formData.get("bathrooms"))
     const location = formData.get("location")
     const pets = formData.get("pets").toLowerCase() === "true"
-    const email = formData.get("email")
+    // const email = formData.get("email")
+    const email = session.user.email
     const smoking = formData.get("smoking").toLowerCase() === "true"
     const serviced = formData.get("serviced").toLowerCase() === "true"
     const serviceCharge = parseInt(formData.get("serviceCharge"))
 
-    const roomAd = {
+    const data = {
         title,
         description,
         propertyType,
@@ -35,13 +39,19 @@ export const createRoomAd = async (formData) => {
         serviceCharge,
     }
 
-    return roomAd
+    // return roomAd
 
-    // const user = await prisma.user.findUnique({
-    //     where: {
-    //         email,
-    //     },
-    // })
+    const user = await prisma.user.findUnique({
+        where: {
+            email,
+        },
+    })
+
+    const roomAd = await db.roomAd.create({
+        data,
+    })
+
+    return roomAd
 
     //   This is an amazing 3 bed Shared flat available for immediate occupation. Located in a serene and secure part of GRA port harcourt
     //   Facilities include :

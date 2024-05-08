@@ -1,5 +1,5 @@
-import type { Config } from "tailwindcss"
-import { nextui } from "@nextui-org/react"
+// import type { Config } from "tailwindcss"
+const { nextui } = require("@nextui-org/react")
 
 const {
     default: flattenColorPalette,
@@ -84,9 +84,9 @@ const config = {
         },
     },
     plugins: [nextui(), require("tailwindcss-animate"), addVariablesForColors],
-} satisfies Config
+}
 
-function addVariablesForColors({ addBase, theme }: any) {
+function addVariablesForColors({ addBase, theme }) {
     let allColors = flattenColorPalette(theme("colors"))
     let newVars = Object.fromEntries(
         Object.entries(allColors).map(([key, val]) => [`--${key}`, val])

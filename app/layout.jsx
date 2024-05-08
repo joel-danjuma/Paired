@@ -1,6 +1,7 @@
 import "./globals.css"
 import { Providers } from "./providers"
 import { siteConfig } from "../config/site"
+import { NextUIProvider } from "@nextui-org/system"
 
 export const metadata = {
     metadataBase: new URL("http://localhost:3000/"),
@@ -45,14 +46,17 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en" className="light">
             <body>
-                <Providers>
+                <NextUIProvider>
                     <div className="main">
                         <div className="gradient" />
                     </div>
                     {/* <Nav /> */}
                     {/* <Navbar /> */}
                     <main>{children}</main>
-                </Providers>
+                </NextUIProvider>
+                {/* <Providers> */}
+
+                {/* </Providers> */}
             </body>
         </html>
     )

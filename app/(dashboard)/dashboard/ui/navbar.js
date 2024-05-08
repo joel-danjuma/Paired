@@ -22,6 +22,7 @@ import { SearchIcon } from "../../../../components/icons"
 import { MessageIcon } from "./icons/messages"
 import { NotificationIcon } from "./icons/notification"
 import { CalendarIcon } from "./icons/calendar"
+import { SignOutButton } from "./signout-button"
 
 const menuItems = [
     {
@@ -98,9 +99,10 @@ function Navbar() {
                 />
             </NavbarContent>
             <NavbarContent
-                className="basis-1 pl-0 flex lg:hidden"
+                className="basis-1 pl-0 flex w-[100px] gap-4 lg:hidden"
                 justify="end"
             >
+                <SignOutButton />
                 <NavbarMenuToggle />
             </NavbarContent>
 
