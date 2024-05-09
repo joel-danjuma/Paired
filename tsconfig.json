@@ -1,22 +1,57 @@
+// {
+//   "compilerOptions": {
+//     "lib": [
+//       "dom",
+//       "dom.iterable",
+//       "esnext"
+//     ],
+//     "allowJs": true,
+//     "skipLibCheck": true,
+//     "strict": false,
+//     "forceConsistentCasingInFileNames": true,
+//     "noEmit": true,
+//     "incremental": true,
+//     "esModuleInterop": true,
+//     "target": "es2017",
+//     "module": "esnext",
+//     "moduleResolution": "node",
+//     "resolveJsonModule": true,
+//     "isolatedModules": true,
+//     "jsx": "preserve",
+//     "plugins": [
+//       {
+//         "name": "next"
+//       }
+//     ],
+//     "paths": {
+//       "@/*": ["./*"]
+//     }
+//   },
+//   "include": [
+//     "next-env.d.ts",
+//     ".next/types/**/*.ts",
+//     "**/*.ts",
+//     "**/*.tsx"
+// , "app/api/send/route.js", "lib/db.ts", "app/(auth)/layout.jsx", "app/(auth)/ui/form-success.jsx", "app/(auth)/ui/form-error.jsx", "app/(auth)/ui/social.jsx", "app/(auth)/login/ui/loginForm.tsx", "app/(auth)/login/page.jsx", "app/(auth)/signup/page.jsx", "app/(auth)/signup/ui/signUpForm.jsx", "app/actions/action.js", "components/ui/form.jsx", "tailwind.config.js"  ],
+//   "exclude": [
+//     "node_modules"
+//   ]
+// }
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
-    "forceConsistentCasingInFileNames": true,
+    "strict": true,
     "noEmit": true,
-    "incremental": true,
     "esModuleInterop": true,
+    "target": "es2017",
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "incremental": true,
     "plugins": [
       {
         "name": "next"
@@ -26,13 +61,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    ".next/types/**/*.ts",
-    "**/*.ts",
-    "**/*.tsx"
-, "app/api/send/route.js", "lib/db.ts", "app/(auth)/layout.jsx", "app/(auth)/ui/form-success.jsx", "app/(auth)/ui/form-error.jsx", "app/(auth)/ui/social.jsx", "app/(auth)/login/ui/loginForm.tsx", "app/(auth)/login/page.jsx", "app/(auth)/signup/page.jsx", "app/(auth)/signup/ui/signUpForm.jsx", "app/actions/action.js", "components/ui/form.jsx", "tailwind.config.js"  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

@@ -5,6 +5,7 @@ import heroImg1 from "../public/images/heroImg1.jpg"
 import heroImg2 from "../public/images/heroImg2.jpg"
 import heroImg3 from "../public/images/heroImg3.jpg"
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react"
+// import { Card } from "./ui/card"
 import SearchTab from "./searchTab"
 import PageTitle from "./pageTitle"
 
@@ -29,8 +30,8 @@ const features = [
 const Hero = () => {
     return (
         <section>
-            <div className="flex-col h-fit max-w-[1440px] justify-between p-4 pb-0 z-0">
-                <div className={`w-full h-[60dvh] rounded-xl`}>
+            <div className="flex-col h-dvh max-w-[1440px] justify-between p-4 pb-0 z-0">
+                <div className={`w-full h-screen rounded-xl`}>
                     <Card className="w-full h-full relative">
                         <div className="px-4 w-full z-10">
                             <PageTitle>
@@ -50,7 +51,7 @@ const Hero = () => {
                     </Card>
                 </div>
                 <PageTitle>Featured Properties</PageTitle>
-                <div className="w-full h-[25%] lg:gap-[32px] gap-[16px] grid grid-cols-6 grid-rows-6 grid-flow-row ">
+                <div className="w-full h-[25dvh] lg:gap-[32px] gap-[16px] grid grid-cols-6 grid-rows-6 grid-flow-row ">
                     {features.map((feature, i) => {
                         return (
                             <Card

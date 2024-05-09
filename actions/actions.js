@@ -8,7 +8,7 @@ import AuthError from "next-auth"
 import { LoginSchema } from "@/schemas"
 import { RegisterSchema } from "@/schemas"
 
-const session = await auth()
+const session = auth()
 
 export const createRoomAd = async (formData) => {
     const title = formData.get("title")

@@ -46,17 +46,20 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en" className="light">
             <body>
-                <NextUIProvider>
+                {/* <NextUIProvider>
                     <div className="main">
                         <div className="gradient" />
                     </div>
-                    {/* <Nav /> */}
-                    {/* <Navbar /> */}
+                    
                     <main>{children}</main>
-                </NextUIProvider>
-                {/* <Providers> */}
+                </NextUIProvider> */}
+                <Providers>
+                    <div className="main">
+                        <div className="gradient" />
+                    </div>
 
-                {/* </Providers> */}
+                    <main>{children}</main>
+                </Providers>
             </body>
         </html>
     )
